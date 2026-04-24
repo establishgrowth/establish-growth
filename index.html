@@ -87,8 +87,9 @@ section { position: relative; }
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 55% at 30% 50%, rgba(160,98,46,0.09) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 70% 20%, rgba(160,98,46,0.05) 0%, transparent 65%);
+    radial-gradient(ellipse 80% 60% at 15% 60%, rgba(160,98,46,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 50% at 75% 25%, rgba(200,133,74,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 90%, rgba(160,98,46,0.1) 0%, transparent 60%);
 }
 .glow-pricing {
   position: absolute;
@@ -1163,9 +1164,12 @@ nav {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2px;
   margin-top: 56px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
   align-items: start;
 }
 
@@ -1490,6 +1494,99 @@ footer {
 }
 
 /* ============================================================
+   STAT HIGHLIGHT (78% DID YOU KNOW)
+   ============================================================ */
+#stat-highlight {
+  padding: 120px 0;
+  background: var(--bg-mid);
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-highlight-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%, rgba(160,98,46,0.1) 0%, transparent 65%);
+}
+
+.stat-highlight-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.stat-highlight-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--copper);
+  border: 1px solid rgba(160,98,46,0.3);
+  padding: 7px 20px;
+  margin-bottom: 52px;
+  background: rgba(160,98,46,0.05);
+}
+.stat-highlight-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--copper);
+  animation: blink 2.5s ease-in-out infinite;
+}
+
+.stat-highlight-number {
+  font-size: clamp(100px, 18vw, 200px);
+  font-weight: 300;
+  color: var(--copper);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  display: block;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, var(--copper-light), var(--copper), var(--copper-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-highlight-context {
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+.stat-highlight-context strong {
+  color: var(--copper-light);
+  font-weight: 400;
+}
+
+.stat-highlight-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 52px;
+}
+
+.stat-highlight-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--copper), transparent);
+  margin: 0 auto;
+  opacity: 0.6;
+}
+
+/* ============================================================
    SOLUTIONS / THREE PROBLEMS
    ============================================================ */
 #solutions {
@@ -1515,9 +1612,7 @@ footer {
   background: linear-gradient(145deg, var(--surface-2), var(--surface));
   border: 1px solid var(--card-border);
   border-radius: 16px;
-  padding: 48px 36px;
-  display: flex;
-  flex-direction: column;
+  padding: 36px 32px;
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 .solution-card:hover {
@@ -1526,12 +1621,12 @@ footer {
   transform: translateY(-5px);
 }
 .solution-stat {
-  font-size: clamp(44px, 4.5vw, 64px);
+  font-size: clamp(64px, 6vw, 88px);
   font-weight: 300;
   color: var(--copper);
   letter-spacing: -0.02em;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   display: block;
 }
 .solution-stat-lbl {
@@ -1546,21 +1641,22 @@ footer {
   border-bottom: 1px solid var(--divider);
 }
 .solution-card-title {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--copper);
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
+.solution-stat-desc { font-size: 11px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--divider); }
+
 .solution-card-body {
   font-size: 14px;
   font-weight: 300;
   color: var(--text-muted);
   line-height: 1.8;
   letter-spacing: 0.02em;
-  flex: 1;
-  margin-bottom: 36px;
+  margin-bottom: 0;
 }
 .solution-learn-btn {
   width: 100%;
@@ -1670,6 +1766,8 @@ footer {
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
 
+  #solutions .container > div { grid-template-columns: 1fr; }
+
   .nav-links { display: none; }
   .nav-links.open {
     display: flex;
@@ -1709,7 +1807,7 @@ footer {
   .footer-right { align-items: flex-start; }
 
   #hero { padding: 100px 0 64px; }
-  #credibility, #solutions, #technology, #results,
+  #stat-highlight, #credibility, #solutions, #technology, #results,
   #demo, #how-it-works, #social-proof,
   #faq, #pricing, #final-cta { padding: 80px 0; }
   .solutions-grid,
@@ -1750,19 +1848,11 @@ footer {
 
       <div class="hero-left">
         <span class="hero-eyebrow fade-up">Now Accepting Founding Clients</span>
-        <h1 class="hero-h1 fade-up">Most Businesses Lose the Sale Before They <em>Even Know</em> It Happened.</h1>
-        <p class="hero-subhead fade-up">Speed is the sales advantage nobody talks about. We built the system that uses it.</p>
+        <h1 class="hero-h1 fade-up">Growth, <em>Automated.</em></h1>
+        <p class="hero-subhead fade-up">Capture every lead. Follow up instantly. Close more — while you focus on what matters.</p>
         <div class="hero-ctas fade-up">
           <a href="#final-cta" class="btn btn-primary">Book a Demo</a>
           <a href="#demo" class="btn btn-ghost">See It Work</a>
-        </div>
-        <div class="hero-stat fade-up">
-          <span class="stat-pulse"></span>
-          <div class="stat-meta">
-            <span class="stat-meta-label">Our response time</span>
-            <span class="stat-meta-value" id="counter-display">60</span>
-            <span class="stat-meta-unit">seconds — automatically</span>
-          </div>
         </div>
       </div>
 
@@ -1815,39 +1905,111 @@ footer {
   </div>
 </section>
 
-<!-- SOLUTIONS / THREE PROBLEMS -->
-<section id="solutions">
+<!-- 78% STAT HIGHLIGHT -->
+<section id="stat-highlight">
+  <div class="stat-highlight-glow"></div>
   <div class="container">
-    <div class="solutions-header fade-up">
-      <span class="label">What We Solve</span>
-      <h2>Three Problems Costing You Jobs Every Day</h2>
+    <div class="stat-highlight-inner">
+      <span class="stat-highlight-eyebrow fade-up">Did You Know?</span>
+      <span class="stat-highlight-number fade-up" id="stat-78">45%</span>
+      <p class="stat-highlight-context fade-up">78% of customers choose the first to respond.</p>
+      <p class="stat-highlight-sub fade-up">Be first in 60 seconds. Every time.</p>
+      <div class="stat-highlight-divider fade-up"></div>
     </div>
-    <div class="solutions-grid">
+  </div>
+</section>
 
-      <div class="solution-card fade-up">
-        <span class="solution-stat" id="sol-counter-1">50%</span>
-        <span class="solution-stat-lbl">Average Conversion Lift</span>
-        <div class="solution-card-title">Faster Lead Conversion</div>
-        <p class="solution-card-body">Most businesses lose a lead in the first 5 minutes. Our system contacts every new lead automatically — in under 60 seconds — turning cold inquiries into booked appointments before your competition even sees the notification.</p>
-        <a href="#final-cta" class="btn btn-ghost solution-learn-btn">Learn More →</a>
+<!-- PROVEN RESULTS -->
+<section id="solutions" style="padding:120px 0;background:var(--bg);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:52px;align-items:center;">
+
+      <!-- LEFT PANEL -->
+      <div style="background:linear-gradient(160deg,#C8854A 0%,#A0622E 50%,#7A4A22 100%);padding:56px 48px;border-radius:24px;display:flex;flex-direction:column;justify-content:center;">
+        <span style="font-size:10px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:20px;display:block;">Proven Results</span>
+        <h2 style="font-family:'Chivo',sans-serif;font-weight:300;font-size:clamp(22px,2.6vw,36px);color:#fff;line-height:1.25;letter-spacing:0.02em;margin-bottom:36px;">No more manual tasks.<br>Just automated<br>business growth.</h2>
+        <p style="font-family:'Chivo',sans-serif;font-weight:300;font-size:13px;color:rgba(255,255,255,0.6);letter-spacing:0.04em;margin-bottom:28px;">Automation that helps you:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;">
+
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.85);">Reduce repetitive manual tasks</span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.85);">Follow up automatically</span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.85);">Close more deals</span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.85);">Save hours every week</span>
+          </div>
+
+        </div>
       </div>
 
-      <div class="solution-card fade-up">
-        <span class="solution-stat">54%</span>
-        <span class="solution-stat-lbl">Average Close Rate on Dead Leads</span>
-        <div class="solution-card-title">Estimate Rehash</div>
-        <p class="solution-card-body">Not every "no" means no forever. We automatically re-engage cold estimates with perfectly timed follow-up sequences — rekindling interest and winning back jobs your competitors forgot about.</p>
-        <a href="#final-cta" class="btn btn-ghost solution-learn-btn">Learn More →</a>
-      </div>
+      <!-- RIGHT PANEL -->
+      <div style="display:flex;flex-direction:column;gap:0;">
 
-      <div class="solution-card fade-up">
-        <span class="solution-stat">3x</span>
-        <span class="solution-stat-lbl">More Reviews &amp; Referrals</span>
-        <div class="solution-card-title">Customer Loyalty</div>
-        <p class="solution-card-body">The job isn't done when the work is finished. Our system sends a personal owner video on scheduling, requests reviews after completion, and triggers referral sequences — turning one job into a full calendar.</p>
-        <a href="#final-cta" class="btn btn-ghost solution-learn-btn">Learn More →</a>
-      </div>
+        <p style="font-family:'Chivo',sans-serif;font-weight:300;font-size:20px;color:var(--text);letter-spacing:0.02em;margin-bottom:28px;">On average, Establish Growth<br>clients report:</p>
 
+        <!-- Stat 1 -->
+        <div style="border:1px solid rgba(160,98,46,0.18);border-radius:14px;padding:20px 28px;display:flex;align-items:center;gap:20px;margin-bottom:12px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(160,98,46,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A0622E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;">
+            <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:52px;color:var(--copper);letter-spacing:-0.02em;line-height:1;">39%</span>
+            <div>
+              <span style="font-family:'Chivo',sans-serif;font-weight:400;font-size:13px;color:var(--text);">increase in revenue,</span>
+              <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:13px;color:var(--text-muted);"> creating faster business growth and putting more money in your pocket</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div style="border:1px solid rgba(160,98,46,0.18);border-radius:14px;padding:20px 28px;display:flex;align-items:center;gap:20px;margin-bottom:12px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(160,98,46,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A0622E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;">
+            <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:52px;color:var(--copper);letter-spacing:-0.02em;line-height:1;">10–15x</span>
+            <div>
+              <span style="font-family:'Chivo',sans-serif;font-weight:400;font-size:13px;color:var(--text);">more likely to close,</span>
+              <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:13px;color:var(--text-muted);"> when responding within the first 5 minutes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div style="border:1px solid rgba(160,98,46,0.18);border-radius:14px;padding:20px 28px;display:flex;align-items:center;gap:20px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(160,98,46,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A0622E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;">
+            <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:52px;color:var(--copper);letter-spacing:-0.02em;line-height:1;">10hrs+</span>
+            <div>
+              <span style="font-family:'Chivo',sans-serif;font-weight:400;font-size:13px;color:var(--text);">saved per week,</span>
+              <span style="font-family:'Chivo',sans-serif;font-weight:300;font-size:13px;color:var(--text-muted);"> through automation so you can get more done without adding headcount</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
@@ -2067,20 +2229,6 @@ footer {
     </div>
     <div class="pricing-grid">
 
-      <div class="price-card fade-up">
-        <div class="price-tier">Starter</div>
-        <div class="price-amount">$200</div>
-        <span class="price-period">/month</span>
-        <div class="price-tagline">For businesses ready to stop missing leads</div>
-        <ul class="price-features">
-          <li>Sign-up funnel</li>
-          <li>Instant text + email confirmation</li>
-          <li>Basic contact list + pipeline</li>
-          <li>Basic support</li>
-        </ul>
-        <a href="#final-cta" class="btn btn-ghost price-cta">Book a Demo</a>
-      </div>
-
       <div class="price-card featured fade-up">
         <div class="pop-badge">Most Popular</div>
         <div class="price-tier">Standard</div>
@@ -2088,7 +2236,8 @@ footer {
         <span class="price-period">/month</span>
         <div class="price-tagline">Full CRM, automation, and done-for-you setup</div>
         <ul class="price-features">
-          <li>Everything in Starter</li>
+          <li>Sign-up funnel</li>
+          <li>Instant text + email confirmation</li>
           <li>Full CRM + custom pipeline stages</li>
           <li>Multi-step email automation</li>
           <li>Advanced workflow automations</li>
@@ -2298,23 +2447,6 @@ const navLinks = document.getElementById('nav-links');
 toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-/* ---- HERO COUNTER ---- */
-let counterFired = false;
-const counterEl = document.getElementById('counter-display');
-function runCounter() {
-  if (counterFired) return;
-  counterFired = true;
-  const target = 60, duration = 1800, start = performance.now();
-  (function tick(now) {
-    const p = Math.min((now - start) / duration, 1);
-    const e = 1 - Math.pow(1 - p, 3);
-    counterEl.textContent = Math.round(e * target);
-    if (p < 1) requestAnimationFrame(tick);
-  })(start);
-}
-new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting) { setTimeout(runCounter, 500); }
-}, { threshold: 0.3 }).observe(document.getElementById('hero'));
 
 /* ---- DEMO SIMULATION ---- */
 const demoForm    = document.getElementById('demo-form');
@@ -2393,15 +2525,15 @@ demoForm.addEventListener('submit', function(e) {
   }, { threshold: 0.4 }).observe(el);
 })();
 
-/* ---- SOLUTIONS COUNTER (50% → 78%) ---- */
+/* ---- 78% STAT HIGHLIGHT COUNTER (45% → 78%) ---- */
 (function() {
-  const el = document.getElementById('sol-counter-1');
+  const el = document.getElementById('stat-78');
   if (!el) return;
   let fired = false;
   new IntersectionObserver(entries => {
     if (entries[0].isIntersecting && !fired) {
       fired = true;
-      const from = 50, to = 78, duration = 1500, start = performance.now();
+      const from = 45, to = 78, duration = 1800, start = performance.now();
       (function tick(now) {
         const p = Math.min((now - start) / duration, 1);
         const e = 1 - Math.pow(1 - p, 3);
@@ -2409,7 +2541,7 @@ demoForm.addEventListener('submit', function(e) {
         if (p < 1) requestAnimationFrame(tick);
       })(start);
     }
-  }, { threshold: 0.4 }).observe(el);
+  }, { threshold: 0.35 }).observe(el);
 })();
 
 /* ---- FAQ ACCORDION ---- */
