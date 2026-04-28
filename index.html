@@ -271,89 +271,6 @@
       justify-content: center;
     }
 
-    /* ── SNAPSHOT ─────────────────────────────────────────── */
-    #snapshot {
-      padding: 80px 52px;
-      background: var(--bg);
-    }
-
-    .snapshot-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .snapshot-headline {
-      font-size: clamp(22px, 3vw, 40px);
-      font-weight: 300;
-      color: var(--text);
-      text-align: center;
-      line-height: 1.25;
-      margin-bottom: 56px;
-      letter-spacing: -0.01em;
-    }
-
-    .snapshot-headline .accent {
-      color: var(--copper);
-    }
-
-    .snapshot-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .snapshot-card {
-      background: var(--surface);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 36px 32px;
-      transition: border-color 0.25s ease, transform 0.25s ease;
-    }
-
-    .snapshot-card:hover {
-      border-color: var(--card-border-hover);
-      transform: translateY(-4px);
-    }
-
-    .snapshot-icon {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 20px;
-      color: var(--copper);
-    }
-
-    .snapshot-icon svg {
-      width: 100%;
-      height: 100%;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.25;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .snapshot-card-title {
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--copper);
-      margin-bottom: 12px;
-    }
-
-    .snapshot-card-body {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 900px) {
-      #snapshot { padding: 60px 24px; }
-      .snapshot-cards { grid-template-columns: 1fr; gap: 14px; }
-      .snapshot-card { padding: 28px 24px; }
-    }
-
     /* ── POSITIONING ───────────────────────────────────────── */
     #hook {
       padding: 100px 52px;
@@ -418,6 +335,23 @@
     }
 
     /* ── CONTENT SYSTEM ─────────────────────────────────────── */
+    .sys-col-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 22px;
+      color: var(--copper);
+      opacity: 0.85;
+    }
+    .sys-col-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.25;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
     #system {
       padding: 100px 52px;
       background: var(--bg-mid);
@@ -654,22 +588,31 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 40px 0;
+      padding: 40px 20px;
     }
 
     .phone-frame {
-      width: 220px;
+      width: 280px;
       background: #0f0e0d;
-      border-radius: 36px;
+      border-radius: 42px;
       border: 1.5px solid rgba(160,98,46,0.35);
       box-shadow:
-        0 0 0 6px #1a1917,
-        0 0 0 7px rgba(160,98,46,0.15),
-        0 40px 80px rgba(0,0,0,0.6);
+        0 0 0 7px #1a1917,
+        0 0 0 8px rgba(160,98,46,0.15),
+        0 50px 100px rgba(0,0,0,0.65);
       position: relative;
       z-index: 2;
       overflow: hidden;
-      padding: 14px 10px;
+      padding: 10px 8px;
+      transition: box-shadow 0.8s ease;
+    }
+
+    .phone-frame.glow-finish {
+      box-shadow:
+        0 0 0 7px #1a1917,
+        0 0 0 8px rgba(160,98,46,0.3),
+        0 0 60px rgba(160,98,46,0.18),
+        0 50px 100px rgba(0,0,0,0.65);
     }
 
     .phone-notch {
@@ -677,14 +620,14 @@
       height: 6px;
       background: #1a1917;
       border-radius: 10px;
-      margin: 0 auto 12px;
+      margin: 0 auto 10px;
     }
 
     .phone-video-area {
       width: 100%;
       aspect-ratio: 9/16;
       background: var(--surface-2);
-      border-radius: 16px;
+      border-radius: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -698,37 +641,8 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(10,9,8,0.7) 0%, transparent 50%);
-      border-radius: 16px;
-    }
-
-    .phone-play-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(160,98,46,0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 2;
-      background: rgba(160,98,46,0.1);
-    }
-
-    .phone-play-icon svg {
-      width: 13px;
-      height: 13px;
-      fill: var(--copper);
-      margin-left: 2px;
-    }
-
-    .phone-video-label {
-      font-size: 8px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      position: relative;
-      z-index: 2;
+      background: linear-gradient(to top, rgba(10,9,8,0.5) 0%, transparent 40%);
+      border-radius: 20px;
     }
 
     /* Bottom bar mock */
@@ -736,7 +650,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      padding: 10px 4px 4px;
+      padding: 8px 4px 4px;
     }
     .phone-bar-dot {
       width: 18px; height: 3px;
@@ -757,108 +671,96 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 12px;
+      padding: 8px 14px;
       font-size: 11px;
       font-weight: 300;
       color: var(--text-muted);
       white-space: nowrap;
       z-index: 3;
       box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
+    .bubble.bubble-visible { opacity: 1; }
 
     .bubble-icon { font-size: 13px; line-height: 1; }
     .bubble-copper { color: var(--copper); font-weight: 400; }
 
     .bubble-views {
-      top: 18%;
-      right: -30px;
+      top: 14%;
+      right: -20px;
       animation: bubbleFloat 4s ease-in-out infinite;
     }
     .bubble-likes {
       top: 44%;
-      left: -36px;
+      left: -20px;
       animation: bubbleFloat 4s ease-in-out infinite 1.3s;
     }
     .bubble-comments {
-      bottom: 20%;
-      right: -24px;
+      bottom: 18%;
+      right: -16px;
       animation: bubbleFloat 4s ease-in-out infinite 2.1s;
     }
 
     @keyframes bubbleFloat {
       0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-6px); }
+      50%       { transform: translateY(-7px); }
     }
 
-    /* ── Steps side ── */
+    /* ── Outcome side ── */
     .process-right { display: flex; flex-direction: column; gap: 0; }
 
-    .process-header { margin-bottom: 40px; }
+    .process-header { margin-bottom: 44px; }
     .process-header .eyebrow { margin-bottom: 16px; }
 
     .process-heading {
-      font-size: clamp(24px, 2.8vw, 40px);
+      font-size: clamp(24px, 2.8vw, 38px);
       font-weight: 300;
       color: var(--text);
-      line-height: 1.15;
-      margin-bottom: 12px;
+      line-height: 1.18;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
     }
 
     .process-sub {
       font-size: 14px;
-      color: var(--text-dim);
-      line-height: 1.7;
-      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.75;
     }
 
-    .p-step {
+    .outcome-point {
       display: flex;
-      gap: 20px;
-      padding: 28px 0;
+      gap: 18px;
+      padding: 24px 0;
       border-bottom: 1px solid var(--divider);
       align-items: flex-start;
     }
-    .p-step:first-of-type { border-top: 1px solid var(--divider); }
+    .outcome-point:first-of-type { border-top: 1px solid var(--divider); }
 
-    .p-step-num {
-      width: 32px;
-      height: 32px;
+    .outcome-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      border: 1px solid var(--card-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 400;
-      color: var(--copper);
-      letter-spacing: 0.05em;
+      background: var(--copper);
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 7px;
+      opacity: 0.8;
     }
 
-    .p-step-content {}
+    .outcome-content {}
 
-    .p-step-title {
+    .outcome-title {
       font-size: 15px;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--text);
-      letter-spacing: 0.02em;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+      letter-spacing: 0.01em;
     }
 
-    .p-step-desc {
+    .outcome-desc {
       font-size: 13px;
       color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* connector line between steps */
-    .p-step-connector {
-      width: 1px;
-      height: 20px;
-      background: linear-gradient(to bottom, var(--copper), transparent);
-      margin-left: 15px;
-      opacity: 0.4;
+      line-height: 1.75;
     }
 
     @media (max-width: 900px) {
@@ -867,9 +769,10 @@
         grid-template-columns: 1fr;
         gap: 52px;
       }
-      .bubble-views  { right: -16px; }
-      .bubble-likes  { left: -16px; }
-      .bubble-comments { right: -12px; }
+      .phone-frame { width: 240px; }
+      .bubble-views  { right: -10px; }
+      .bubble-likes  { left: -10px; }
+      .bubble-comments { right: -8px; }
     }
 
     /* ── GALLERY ───────────────────────────────────────────── */
@@ -1353,57 +1256,6 @@
 
 </section>
 
-<!-- ── SNAPSHOT ─────────────────────────────────────────────── -->
-<section id="snapshot">
-  <div class="snapshot-inner">
-
-    <h2 class="snapshot-headline fade-up">
-      We don't just create content —<br>
-      we build content that <span class="accent">actually works.</span>
-    </h2>
-
-    <div class="snapshot-cards">
-
-      <div class="snapshot-card fade-up">
-        <div class="snapshot-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 11l3 3L22 4"/>
-            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-          </svg>
-        </div>
-        <p class="snapshot-card-title">Strategy</p>
-        <p class="snapshot-card-body">What to create, who it's for, and why it works.</p>
-      </div>
-
-      <div class="snapshot-card fade-up">
-        <div class="snapshot-icon">
-          <svg viewBox="0 0 24 24">
-            <rect x="2" y="3" width="20" height="14" rx="2"/>
-            <path d="M8 21h8M12 17v4"/>
-            <path d="M10 9l5 3-5 3V9z"/>
-          </svg>
-        </div>
-        <p class="snapshot-card-title">Content</p>
-        <p class="snapshot-card-body">High-quality video and visuals built to represent your business properly.</p>
-      </div>
-
-      <div class="snapshot-card fade-up">
-        <div class="snapshot-icon">
-          <svg viewBox="0 0 24 24">
-            <circle cx="18" cy="5" r="3"/>
-            <circle cx="6" cy="12" r="3"/>
-            <circle cx="18" cy="19" r="3"/>
-            <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/>
-          </svg>
-        </div>
-        <p class="snapshot-card-title">Distribution</p>
-        <p class="snapshot-card-body">Making sure your content actually gets seen by the right people.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ── CONTENT SYSTEM ────────────────────────────────────────── -->
 <section id="system">
   <div class="system-inner">
@@ -1415,11 +1267,24 @@
 
     <div class="system-cols">
       <div class="sys-col fade-up">
+        <div class="sys-col-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+        </div>
         <span class="sys-col-num">01 — Strategy</span>
         <h3 class="sys-col-title">Plan</h3>
         <p class="sys-col-body">We plan everything around your brand — what to create, what will perform, and how it fits your business.</p>
       </div>
       <div class="sys-col fade-up">
+        <div class="sys-col-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+            <path d="M10 9l5 3-5 3V9z"/>
+          </svg>
+        </div>
         <span class="sys-col-num">02 — Content</span>
         <h3 class="sys-col-title">Create</h3>
         <p class="sys-col-body">One shoot becomes a complete content package:</p>
@@ -1431,6 +1296,14 @@
         <p class="sys-col-body" style="margin-top:14px;">Built to give you months of content.</p>
       </div>
       <div class="sys-col fade-up">
+        <div class="sys-col-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/>
+          </svg>
+        </div>
         <span class="sys-col-num">03 — Distribution</span>
         <h3 class="sys-col-title">Distribute</h3>
         <p class="sys-col-body">Your content is structured to be used consistently — keeping your brand visible and active over time.</p>
@@ -1449,23 +1322,23 @@
   <div class="process-inner">
 
     <!-- Phone mockup -->
-    <div class="process-phone-wrap fade-up">
+    <div class="process-phone-wrap fade-up" id="process-phone-wrap">
 
       <!-- Floating bubbles -->
       <div class="bubble bubble-views">
         <span class="bubble-icon">👁</span>
-        <span><span class="bubble-copper">12.4k</span> views</span>
+        <span><span class="bubble-copper" id="count-views">0</span> views</span>
       </div>
       <div class="bubble bubble-likes">
         <span class="bubble-icon">♥</span>
-        <span><span class="bubble-copper">847</span> likes</span>
+        <span><span class="bubble-copper" id="count-likes">0</span> likes</span>
       </div>
       <div class="bubble bubble-comments">
         <span class="bubble-icon">💬</span>
-        <span><span class="bubble-copper">93</span> comments</span>
+        <span><span class="bubble-copper" id="count-comments">0</span> comments</span>
       </div>
 
-      <div class="phone-frame">
+      <div class="phone-frame" id="phone-frame">
         <div class="phone-notch"></div>
         <div class="phone-video-area">
           <iframe
@@ -1485,39 +1358,35 @@
       </div>
     </div>
 
-    <!-- Steps -->
+    <!-- Outcome content -->
     <div class="process-right">
       <div class="process-header">
-        <p class="eyebrow fade-up">How It Works</p>
-        <h2 class="process-heading fade-up">How we turn content<br>into growth.</h2>
-        <p class="process-sub fade-up">Most agencies stop at content. We build what happens after.</p>
+        <p class="eyebrow fade-up">The Result</p>
+        <h2 class="process-heading fade-up">Content that makes your brand something people notice.</h2>
+        <p class="process-sub fade-up">We don't just create content — we build brands people recognize, trust, and actually pay attention to.</p>
       </div>
 
-      <div class="p-step fade-up">
-        <div class="p-step-num">01</div>
-        <div class="p-step-content">
-          <p class="p-step-title">Strategy</p>
-          <p class="p-step-desc">We define what to create, who it's for, and how it drives growth.</p>
+      <div class="outcome-point fade-up">
+        <div class="outcome-dot"></div>
+        <div class="outcome-content">
+          <p class="outcome-title">Be proud of your brand</p>
+          <p class="outcome-desc">Content that actually reflects your business — something you're confident sharing with the world.</p>
         </div>
       </div>
 
-      <div class="p-step-connector fade-up"></div>
-
-      <div class="p-step fade-up">
-        <div class="p-step-num">02</div>
-        <div class="p-step-content">
-          <p class="p-step-title">Content</p>
-          <p class="p-step-desc">We produce high-quality video and visuals built for your brand.</p>
+      <div class="outcome-point fade-up">
+        <div class="outcome-dot"></div>
+        <div class="outcome-content">
+          <p class="outcome-title">Stand out and get seen</p>
+          <p class="outcome-desc">Tailored social and ad content designed to reach the right audience and grow your presence.</p>
         </div>
       </div>
 
-      <div class="p-step-connector fade-up"></div>
-
-      <div class="p-step fade-up">
-        <div class="p-step-num">03</div>
-        <div class="p-step-content">
-          <p class="p-step-title">Distribution</p>
-          <p class="p-step-desc">We make sure your content actually gets seen — consistently.</p>
+      <div class="outcome-point fade-up">
+        <div class="outcome-dot"></div>
+        <div class="outcome-content">
+          <p class="outcome-title">Build real credibility</p>
+          <p class="outcome-desc">High-quality, professional video that makes your brand look right — so people trust you and take you seriously.</p>
         </div>
       </div>
     </div>
@@ -1820,6 +1689,54 @@
   document.querySelectorAll('#hero .fade-up').forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 250 + i * 100);
   });
+
+  /* ── BUBBLE COUNT-UP ANIMATION ─────────────────────────── */
+  (function() {
+    let animated = false;
+
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function formatNum(val, target) {
+      if (target === 55000) {
+        return Math.round(val / 1000) + 'K';
+      }
+      return Math.round(val).toLocaleString();
+    }
+
+    function countUp(el, target, duration) {
+      const start = performance.now();
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        el.textContent = formatNum(target * easeOut(progress), target);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function runAnimation() {
+      if (animated) return;
+      animated = true;
+      const bubbles = document.querySelectorAll('.bubble');
+      bubbles.forEach((b, i) => {
+        setTimeout(() => b.classList.add('bubble-visible'), i * 200);
+      });
+      setTimeout(() => countUp(document.getElementById('count-views'),    55000, 2000), 200);
+      setTimeout(() => countUp(document.getElementById('count-likes'),     6433, 2200), 400);
+      setTimeout(() => countUp(document.getElementById('count-comments'),   182, 1800), 600);
+      setTimeout(() => {
+        const frame = document.getElementById('phone-frame');
+        if (frame) {
+          frame.classList.add('glow-finish');
+          setTimeout(() => frame.classList.remove('glow-finish'), 1800);
+        }
+      }, 2400);
+    }
+
+    new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) runAnimation(); });
+    }, { threshold: 0.4 }).observe(document.getElementById('process'));
+  })();
 
   /* ── FORM ───────────────────────────────────────────────── */
   const form = document.getElementById('contactForm');
