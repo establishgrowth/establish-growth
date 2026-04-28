@@ -896,6 +896,17 @@
       color: var(--copper);
     }
 
+    .carousel-credit {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: 16px;
+      min-height: 16px;
+      transition: opacity 0.3s ease;
+    }
+
     .carousel-controls {
       display: flex;
       align-items: center;
@@ -1417,6 +1428,7 @@
         <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
+    <p class="carousel-credit" id="carouselCredit"></p>
   </div>
 </section>
 
@@ -1550,12 +1562,12 @@
 <script>
   /* ── VIDEO DATA ─────────────────────────────────────────── */
   const videos = [
-    { title: "Rimfire Whiskey", category: "Brand Film",    vimeoId: "1187183003",   thumb: "https://raw.githubusercontent.com/establishgrowth/establish-growth/main/whiskey-thumbnail.jpg" },
-    { title: "2005 40 Cabo Express", category: "Real Estate",           vimeoId: "1187212174", thumb: "" },
-    { title: "Harvest", category: "Fitness & Wellness",    vimeoId: "1187212969", thumb: "" },
-    { title: "VIDEO 4", category: "Local Business",        vimeoId: "PLACEHOLDER", thumb: "" },
-    { title: "VIDEO 5", category: "Professional Services", vimeoId: "PLACEHOLDER", thumb: "" },
-    { title: "VIDEO 6", category: "Brand Story",           vimeoId: "PLACEHOLDER", thumb: "" },
+    { title: "Rimfire Whiskey", category: "Brand Film",    vimeoId: "1187183003",   thumb: "https://raw.githubusercontent.com/establishgrowth/establish-growth/main/whiskey-thumbnail.jpg", credit: "Shot by Andrew Hanson" },
+    { title: "2005 40 Cabo Express", category: "Real Estate", vimeoId: "1187212174", thumb: "https://raw.githubusercontent.com/establishgrowth/establish-growth/main/Cabo.png", credit: "Shot by Andrew Hanson" },
+    { title: "Harvest", category: "Fitness & Wellness",    vimeoId: "1187212969", thumb: "https://raw.githubusercontent.com/establishgrowth/establish-growth/main/Harvest.png", credit: "Shot by Justin Coleman" },
+    { title: "VIDEO 4", category: "Local Business",        vimeoId: "PLACEHOLDER", thumb: "", credit: "" },
+    { title: "VIDEO 5", category: "Professional Services", vimeoId: "PLACEHOLDER", thumb: "", credit: "" },
+    { title: "VIDEO 6", category: "Brand Story",           vimeoId: "PLACEHOLDER", thumb: "", credit: "" },
   ];
 
   /* ── BUILD CARDS ────────────────────────────────────────── */
@@ -1600,11 +1612,16 @@
     return c ? c.offsetWidth + 20 : 420;
   }
 
+  const creditEl = document.getElementById('carouselCredit');
+
   function goTo(idx) {
     current = Math.max(0, Math.min(idx, videos.length - 1));
     track.style.transform = `translateX(-${current * cardW()}px)`;
     document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    creditEl.textContent = videos[current].credit || '';
   }
+
+  creditEl.textContent = videos[0].credit || '';
 
   document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
   document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
