@@ -1479,47 +1479,124 @@
         font-size: 10px;
       }
 
-      /* ── B: GALLERY — portrait cards, screen-filling ─ */
-      /* Each card takes almost the full viewport width  */
+      /* ── WORK HEADER — compact, readable ───────────── */
+      #work {
+        padding: 56px 0 32px;
+      }
+
+      .work-header {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        margin-bottom: 22px;
+        gap: 8px;
+      }
+
+      .work-header .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.4em;
+        margin-bottom: 12px;
+      }
+
+      /* Smaller headline — fits on screen with cards   */
+      .work-heading {
+        font-size: clamp(28px, 7.5vw, 36px);
+        line-height: 1.08;
+      }
+
+      .work-sub {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* ── GALLERY — 78vw cards, peek adjacent sides ── */
+      .carousel-wrapper {
+        position: static;
+      }
+
       .carousel-outer {
-        padding: 12px 20px;
+        position: static;
+        padding: 8px 12px;
+        overflow: hidden;
       }
 
       .carousel-track {
-        gap: 14px;
+        gap: 12px;
       }
 
-      /* Override all previous card-width breakpoints   */
+      /* 78vw = card fills most of screen, ~11vw peek
+         each side signals swipeability clearly        */
       .video-card {
-        flex: 0 0 calc(100vw - 52px) !important;
-        border-radius: 14px;
+        flex: 0 0 78vw !important;
+        border-radius: 12px;
       }
 
-      /* Flip thumb to portrait (4:5) — object-fit:cover
-         crops the landscape video into a tall frame,
-         which feels native and immersive on phones    */
+      /* Square thumbnail — not too tall, fits with
+         header + controls all on one screen          */
       .card-thumb {
-        aspect-ratio: 4 / 5;
-      }
-
-      /* Slightly larger text at portrait card scale   */
-      .card-title {
-        font-size: 16px;
-        margin-bottom: 5px;
+        aspect-ratio: 1 / 1;
       }
 
       .card-info {
-        padding: 18px 20px 22px;
+        padding: 12px 16px 14px;
       }
 
-      /* Controls padding matches new carousel padding */
+      .card-title {
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .card-cat {
+        font-size: 8px;
+        letter-spacing: 0.2em;
+      }
+
+      /* ── CONTROLS — below cards, no overlap ─────────
+         Static positioning eliminates the title/cat
+         overlap that happened with absolute overlay  */
       .carousel-controls {
-        padding: 0 20px;
-        margin-top: 20px;
+        position: static;
+        background: transparent;
+        padding: 14px 20px 8px;
+        margin-top: 0;
+        gap: 18px;
+      }
+
+      /* Larger arrows, clearly tappable              */
+      .c-arrow {
+        width: 50px;
+        height: 50px;
+        border-color: rgba(160,98,46,0.35);
+        background: var(--surface);
+        color: var(--text-muted);
+      }
+
+      .c-arrow svg {
+        width: 18px;
+        height: 18px;
+        stroke-width: 2;
+      }
+
+      /* Bigger dots — active = copper pill           */
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--divider);
+        border-radius: 50%;
+        transition: background 0.25s, width 0.25s, border-radius 0.25s;
+      }
+
+      .dot.active {
+        background: var(--copper);
+        width: 24px;
+        border-radius: 4px;
+        transform: none;
       }
 
       .carousel-credit {
-        margin-top: 14px;
+        margin-top: 6px;
+        padding: 0 20px;
+        font-size: 10px;
+        letter-spacing: 0.15em;
       }
     }
   </style>
