@@ -1434,6 +1434,94 @@
       .hero-ctas { flex-direction: column; align-items: center; }
       .video-card { flex: 0 0 270px; }
     }
+
+    /* ══════════════════════════════════════════════════
+       MOBILE-ONLY OPTIMIZATIONS  (≤ 768px)
+       These rules do NOT affect desktop / laptop.
+       They load after all other breakpoints so they
+       take full precedence on phone-sized screens.
+    ══════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* ── A: NAV — bigger logo on phone ─────────────── */
+      .nav-logo img {
+        height: 44px;
+      }
+
+      /* ── A: HERO — reduce dead space ───────────────── */
+      /* Shrink total hero height so the video doesn't
+         dwarf the content block below it            */
+      #hero {
+        height: 82vh;
+        min-height: 560px;
+      }
+
+      /* Move text block up from the very bottom edge  */
+      .hero-content {
+        padding: 0 22px 80px;
+        max-width: 100%;
+      }
+
+      /* Stack CTAs full-width, left-aligned for easy
+         thumb reach — override the centered desktop  */
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        justify-content: flex-start;
+      }
+
+      .hero-ctas .btn-copper,
+      .hero-ctas .btn-ghost {
+        width: 100%;
+        text-align: center;
+        padding: 16px 24px;
+        font-size: 10px;
+      }
+
+      /* ── B: GALLERY — portrait cards, screen-filling ─ */
+      /* Each card takes almost the full viewport width  */
+      .carousel-outer {
+        padding: 12px 20px;
+      }
+
+      .carousel-track {
+        gap: 14px;
+      }
+
+      /* Override all previous card-width breakpoints   */
+      .video-card {
+        flex: 0 0 calc(100vw - 52px) !important;
+        border-radius: 14px;
+      }
+
+      /* Flip thumb to portrait (4:5) — object-fit:cover
+         crops the landscape video into a tall frame,
+         which feels native and immersive on phones    */
+      .card-thumb {
+        aspect-ratio: 4 / 5;
+      }
+
+      /* Slightly larger text at portrait card scale   */
+      .card-title {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .card-info {
+        padding: 18px 20px 22px;
+      }
+
+      /* Controls padding matches new carousel padding */
+      .carousel-controls {
+        padding: 0 20px;
+        margin-top: 20px;
+      }
+
+      .carousel-credit {
+        margin-top: 14px;
+      }
+    }
   </style>
 </head>
 <body>
