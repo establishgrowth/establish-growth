@@ -1312,6 +1312,8 @@
     }
 
     .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .ghl-form-wrap { width: 100%; min-height: 480px; }
+    .ghl-form-wrap iframe { width: 100%; min-height: 480px; border: none; border-radius: 8px; display: block; }
     .form-group { display: flex; flex-direction: column; gap: 7px; }
     .form-label {
       font-size: 10px;
@@ -1925,47 +1927,24 @@
     </div>
 
     <div class="contact-right">
-      <form class="contact-form fade-up" id="contactForm" novalidate>
-        <div class="form-group">
-          <label class="form-label" for="name">Full Name *</label>
-          <input class="form-input" type="text" id="name" placeholder="Your full name" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="business">Business Name *</label>
-          <input class="form-input" type="text" id="business" placeholder="Your business name" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="email">Email Address *</label>
-          <input class="form-input" type="email" id="email" placeholder="you@yourbusiness.com" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="bizType">Type of Business</label>
-          <div class="select-wrap">
-            <select class="form-select" id="bizType">
-              <option value="" disabled selected>Select your industry</option>
-              <option value="restaurant">Restaurant / Hospitality</option>
-              <option value="realestate">Real Estate</option>
-              <option value="fitness">Fitness / Wellness / Med Spa</option>
-              <option value="professional">Professional Services (Law, Finance, etc.)</option>
-              <option value="trades">Trades / Contracting</option>
-              <option value="retail">Retail / Ecommerce</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="challenge">What's your biggest content challenge?</label>
-          <textarea class="form-textarea" id="challenge" placeholder="Tell us what's not working, or what you're trying to achieve..."></textarea>
-        </div>
-        <button type="submit" class="btn-submit">Book Your Discovery Session &nbsp;→</button>
-      </form>
-
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h3 class="success-heading">We'll be in touch within 24 hours.</h3>
-        <p class="success-sub">Elliot will reach out personally to schedule your Discovery Session.</p>
+      <div class="ghl-form-wrap fade-up">
+        <iframe
+          src="https://api.establishgrowth.com/widget/form/MBU1eNMONYW5sXYWiFRG"
+          style="width:100%;border:none;border-radius:8px;display:block;"
+          id="inline-MBU1eNMONYW5sXYWiFRG"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Form 2"
+          data-height="undefined"
+          data-layout-iframe-id="inline-MBU1eNMONYW5sXYWiFRG"
+          data-form-id="MBU1eNMONYW5sXYWiFRG"
+          title="Form 2">
+        </iframe>
       </div>
     </div>
 
@@ -2185,24 +2164,7 @@
     }, { threshold: 0.4 }).observe(document.getElementById('process'));
   })();
 
-  /* ── FORM ───────────────────────────────────────────────── */
-  const form = document.getElementById('contactForm');
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    let valid = true;
-    ['name', 'business', 'email'].forEach(id => {
-      const f = document.getElementById(id);
-      if (!f.value.trim()) { f.style.borderColor = 'rgba(200,70,50,0.6)'; valid = false; }
-    });
-    if (!valid) return;
-    form.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
-  });
-
-  form.querySelectorAll('.form-input').forEach(f => {
-    f.addEventListener('input', () => { f.style.borderColor = ''; });
-  });
+  /* ── FORM — handled by GHL embed ───────────────────────── */
 
   /* ── SMOOTH ANCHORS ─────────────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -2213,5 +2175,6 @@
   });
 </script>
 <script src="https://player.vimeo.com/api/player.js"></script>
+<script src="https://api.establishgrowth.com/js/form_embed.js"></script>
 </body>
 </html>
