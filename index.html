@@ -1312,8 +1312,11 @@
     }
 
     .contact-form { display: flex; flex-direction: column; gap: 18px; }
-    .ghl-form-wrap { width: 100%; min-height: 480px; }
-    .ghl-form-wrap iframe { width: 100%; min-height: 480px; border: none; border-radius: 8px; display: block; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-error { display: none; font-size: 13px; color: var(--copper-light); line-height: 1.5; }
+    .form-error.show { display: block; }
+    .btn-submit:disabled { opacity: 0.6; cursor: wait; }
+    @media (max-width: 600px) { .form-row-2 { grid-template-columns: 1fr; } }
     .form-group { display: flex; flex-direction: column; gap: 7px; }
     .form-label {
       font-size: 10px;
@@ -1898,24 +1901,76 @@
     </div>
 
     <div class="contact-right">
-      <div class="ghl-form-wrap fade-up">
-        <iframe
-          src="https://api.establishgrowth.com/widget/form/MBU1eNMONYW5sXYWiFRG"
-          style="width:100%;border:none;border-radius:8px;display:block;"
-          id="inline-MBU1eNMONYW5sXYWiFRG"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="Form 2"
-          data-height="undefined"
-          data-layout-iframe-id="inline-MBU1eNMONYW5sXYWiFRG"
-          data-form-id="MBU1eNMONYW5sXYWiFRG"
-          title="Form 2">
-        </iframe>
+      <form class="contact-form fade-up" id="eg-contact-form" novalidate>
+        <!-- Zoho CRM Web-to-Lead connection (do not remove) -->
+        <input type="hidden" name="xnQsjsdp" value="4f2122c4542c78e142542e9381ff4b811a25b1f64ac5e914d737b8083a486748">
+        <input type="hidden" name="zc_gad" value="">
+        <input type="hidden" name="xmIwtLD" value="c75fc93345369d4b88e3e7915a795b4efbbefc6141293ae75ec839032a441937f7400ed5f0d81f40378daf6f4fa44b9f">
+        <input type="hidden" name="actionType" value="TGVhZHM=">
+        <input type="hidden" name="returnURL" value="null">
+        <input type="text" name="aG9uZXlwb3Q" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label" for="eg-first">First Name</label>
+            <input class="form-input" id="eg-first" name="First Name" type="text" maxlength="40" autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="eg-last">Last Name *</label>
+            <input class="form-input" id="eg-last" name="Last Name" type="text" maxlength="80" autocomplete="family-name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="eg-company">Business / Organization *</label>
+          <input class="form-input" id="eg-company" name="Company" type="text" maxlength="200" autocomplete="organization" placeholder="If it's just you, put your name" required>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label" for="eg-email">Email *</label>
+            <input class="form-input" id="eg-email" name="Email" type="email" maxlength="100" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="eg-phone">Phone</label>
+            <input class="form-input" id="eg-phone" name="Phone" type="tel" maxlength="30" autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label" for="eg-interest">Interested In</label>
+            <div class="select-wrap">
+              <select class="form-select" id="eg-interest" name="Rating">
+                <option value="-None-">Select one</option>
+                <option value="Brand Story Content">Brand Story Content</option>
+                <option value="Marketing Content">Marketing Content</option>
+                <option value="Event Content">Event Content</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="eg-budget">Budget Range</label>
+            <div class="select-wrap">
+              <select class="form-select" id="eg-budget" name="Industry">
+                <option value="-None-">Select one</option>
+                <option value="Under $1,500">Under $1,500</option>
+                <option value="$1,500 - $3,000">$1,500 - $3,000</option>
+                <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                <option value="$5,000+">$5,000+</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="eg-desc">Tell us about your project</label>
+          <textarea class="form-textarea" id="eg-desc" name="Description" placeholder="What are you looking to create? Include any dates if it's an event."></textarea>
+        </div>
+        <p class="form-error" id="eg-form-error" role="alert"></p>
+        <button class="btn-submit" type="submit" id="eg-submit">Book a Discovery Call</button>
+      </form>
+      <div class="form-success" id="eg-form-success" role="status">
+        <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p class="success-heading">Thanks, we got it.</p>
+        <p class="success-sub">I'll get back to you within 24 hours.<br>— Elliot</p>
       </div>
     </div>
 
@@ -2127,7 +2182,49 @@
     }, { threshold: 0.4 }).observe(document.getElementById('process'));
   })();
 
-  /* ── FORM — handled by GHL embed ───────────────────────── */
+  /* ── CONTACT FORM → Zoho CRM ──────────────────────────── */
+  (function () {
+    const form = document.getElementById('eg-contact-form');
+    if (!form) return;
+    const errBox = document.getElementById('eg-form-error');
+    const btn = document.getElementById('eg-submit');
+    const success = document.getElementById('eg-form-success');
+    function showError(msg, field) {
+      errBox.textContent = msg;
+      errBox.classList.add('show');
+      if (field) field.focus();
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errBox.classList.remove('show');
+      const last = form.elements['Last Name'], company = form.elements['Company'], email = form.elements['Email'];
+      if (!last.value.trim()) return showError('Please add your last name.', last);
+      if (!company.value.trim()) return showError('Please add your business name (or your own name).', company);
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) return showError('Please enter a valid email address.', email);
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch('https://crm.zoho.com/crm/WebToLeadForm', { method: 'POST', body: new FormData(form), cache: 'no-cache' })
+        .then(function (r) {
+          const ct = r.headers.get('Content-Type') || '';
+          return ct.includes('application/json') ? r.json() : r.text();
+        })
+        .then(function (data) {
+          if (data && typeof data === 'object' && (data.actionsubmit === 'error_msg' || data.actionsubmit === 'captcha_error')) {
+            throw new Error(data.message || 'error');
+          }
+          form.reset();
+          form.style.display = 'none';
+          success.classList.add('show');
+        })
+        .catch(function () {
+          showError('Something went wrong sending your message. Please try again in a moment.');
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Book a Discovery Call';
+        });
+    });
+  })();
 
   /* ── SMOOTH ANCHORS ─────────────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -2138,6 +2235,5 @@
   });
 </script>
 <script src="https://player.vimeo.com/api/player.js"></script>
-<script src="https://api.establishgrowth.com/js/form_embed.js"></script>
 </body>
 </html>
