@@ -8,6 +8,8 @@
 {
   // Optional: a free Google API key (restricted to establishgrowth.com) raises the daily scan limit.
   const PSI_KEY = '';
+  // Google Sheet web app link (from Apps Script > Deploy > Web app). Every request adds a row.
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzhNikPHOeL7-mk-nDxJ7QevjweguK-8_s1MasUoYRR4nROcAqrqpvU8YTJ8i5CD1cR/exec';
   // Booking link for the Brand Strategy Session (e.g. Calendly). Empty = contact form.
   const BOOKING_LINK = '';
   const PSI_URL = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
@@ -78,9 +80,7 @@
   let idx = 0;
 
   function buildScreens() {
-    screens = ['channels', 'links'];
-    QUESTIONS.forEach(q => { if (q.when()) screens.push(q); });
-    screens.push('you');
+    screens = ['channels', 'links', 'business', 'you'];
   }
   function err(msg, f) { errBox.textContent = msg; errBox.hidden = false; if (f) f.focus(); }
   function clearErr() { errBox.hidden = true; }
@@ -131,21 +131,45 @@
         show(2);
       });
       $$('input', stage).forEach(inp => inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); $('#wz-next').click(); } }));
+    } else if (s === 'business') {
+      const goals = ['More leads and inquiries', 'Looking more professional', 'A consistent brand everywhere', 'Better content and social media', 'Launching something new'];
+      stage.innerHTML = `
+        <h2 class="wz-q">About your business</h2>
+        <p class="wz-hint">So we can compare you with the right market.</p>
+        <div class="fg"><label for="s-company">Business name *</label><input id="s-company" type="text" autocomplete="organization" value="${esc(st.company)}"></div>
+        <div class="frow">
+          <div class="fg"><label for="s-industry">Industry *</label><input id="s-industry" type="text" placeholder="e.g. landscaping, golf, dental" value="${esc(st.industry || '')}"></div>
+          <div class="fg"><label for="s-location">Where you're based</label><input id="s-location" type="text" placeholder="City, state" value="${esc(st.location || '')}"></div>
+        </div>
+        <p class="optional" style="margin-top:4px">What matters most right now? (optional)</p>
+        <div class="chips goal-chips" style="margin-bottom:18px">${goals.map(g => `<button type="button" data-v="${esc(g)}" aria-pressed="${st.goal === g}">${esc(g)}</button>`).join('')}</div>
+        <button type="button" class="btn btn-copper wz-go" id="wz-next">Continue</button>`;
+      $$('.goal-chips button', stage).forEach(b => b.addEventListener('click', () => {
+        const on = b.getAttribute('aria-pressed') !== 'true';
+        $$('.goal-chips button', stage).forEach(x => x.setAttribute('aria-pressed', 'false'));
+        b.setAttribute('aria-pressed', on); st.goal = on ? b.dataset.v : '';
+      }));
+      $('#wz-next').addEventListener('click', () => {
+        const c = $('#s-company'), ind = $('#s-industry');
+        st.company = c.value.trim(); st.industry = ind.value.trim(); st.location = $('#s-location').value.trim();
+        if (!st.company) return err('Please add your business name.', c);
+        if (!st.industry) return err('Please add your industry.', ind);
+        show(idx + 1);
+      });
     } else if (s === 'you') {
       stage.innerHTML = `
-        <h2 class="wz-q">Last step: who's it for?</h2>
-        <p class="wz-hint">Your Brand Health Check appears right here, and you can download it as a PDF.</p>
-        <div class="fg"><label for="s-company">Business name *</label><input id="s-company" type="text" autocomplete="organization" value="${esc(st.company)}"></div>
+        <h2 class="wz-q">Where should we send it?</h2>
+        <p class="wz-hint">Your Brand Health Check arrives in your inbox as a PDF.</p>
         <div class="frow">
           <div class="fg"><label for="s-name">Your name *</label><input id="s-name" type="text" autocomplete="name" value="${esc(st.name)}"></div>
           <div class="fg"><label for="s-email">Email *</label><input id="s-email" type="email" autocomplete="email" value="${esc(st.email)}"></div>
         </div>
-        <button type="button" class="btn btn-copper wz-go" id="wz-run">Run my Brand Health Check</button>
-        <p class="form-fine">Free. We'll only use your email to follow up about your results.</p>`;
+        <input type="text" id="s-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px" placeholder="Leave empty">
+        <button type="button" class="btn btn-copper wz-go" id="wz-run">Request my Brand Health Check</button>
+        <p class="form-fine">Free. We'll only use your email to send your results and follow up.</p>`;
       $('#wz-run').addEventListener('click', () => {
-        const c = $('#s-company'), n = $('#s-name'), e = $('#s-email');
-        st.company = c.value.trim(); st.name = n.value.trim(); st.email = e.value.trim();
-        if (!st.company) return err('Please add your business name.', c);
+        const n = $('#s-name'), e = $('#s-email');
+        st.name = n.value.trim(); st.email = e.value.trim(); st.hp = $('#s-hp').value;
         if (!st.name) return err('Please add your name.', n);
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(st.email)) return err('Please enter a valid email address.', e);
         run();
@@ -496,7 +520,41 @@
     return setInterval(() => { if (i < lis.length - 1) { lis[i].className = 'done'; i++; lis[i].className = 'on'; } }, has('website') ? 3600 : 700);
   }
 
+  // ---------- Request → Google Sheet + Zoho ----------
+  function submitRequest() {
+    const picked = CHANNELS.filter(c => has(c.k));
+    const data = {
+      business: st.company, name: st.name, email: st.email,
+      industry: st.industry || '', location: st.location || '', goal: st.goal || '',
+      channels: picked.map(c => c.label).join(', '),
+      page: location.href.split('#')[0],
+      company_site: st.hp || ''
+    };
+    picked.forEach(c => { data[c.k] = st.links[c.k] || 'yes'; });
+    const btn = $('#wz-run'); btn.disabled = true; btn.textContent = 'Sending…';
+    const jobs = [];
+    if (SHEET_URL && !DEMO) jobs.push(fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) }));
+    if (!DEMO && !st.hp) {
+      const lf = $('#lead-form');
+      const parts = st.name.split(/\s+/);
+      lf.elements['Last Name'].value = parts.length > 1 ? parts.pop() : parts[0];
+      lf.elements['First Name'].value = parts.join(' ');
+      lf.elements['Company'].value = st.company;
+      lf.elements['Email'].value = st.email;
+      lf.elements['Description'].value = ['[Brand Health Check request]', 'Industry: ' + data.industry, 'Location: ' + data.location,
+        'Channels: ' + data.channels, ...picked.map(c => `${c.label}: ${st.links[c.k] || ''}`), data.goal ? 'Goal: ' + data.goal : ''].filter(Boolean).join('\n');
+      jobs.push(fetch('https://crm.zoho.com/crm/WebToLeadForm', { method: 'POST', body: new FormData(lf), cache: 'no-cache' }));
+    }
+    Promise.allSettled(jobs).then(() => {
+      card.hidden = true;
+      $('#request-done').hidden = false;
+      $('#request-email').textContent = st.email;
+      $('#request-done').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
   function run() {
+    if (!DEMO) return submitRequest();
     const input = {
       url: has('website') ? normUrl(st.links.website) : '',
       company: st.company, name: st.name, email: st.email, goal: st.goal,
@@ -517,7 +575,7 @@
   }
 
   $('#scan-again').addEventListener('click', () => {
-    $('#scan-done').hidden = true; card.hidden = false;
+    $('#scan-done').hidden = true; $('#request-done').hidden = true; card.hidden = false;
     reportSec.hidden = true; document.body.classList.remove('has-report');
     show(0, -1);
     window.scrollTo({ top: 0, behavior: 'smooth' });

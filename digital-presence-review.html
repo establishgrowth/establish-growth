@@ -42,6 +42,12 @@
     #scan-loading li.done { color: var(--text-muted); }
     #scan-loading li.done::before { background: var(--copper); border-color: var(--copper); }
     @keyframes spin { to { transform: rotate(360deg); } }
+    #request-done { text-align: center; padding: 20px 0 6px; }
+    #request-done h3 { font-size: 24px; font-weight: 300; margin: 14px 0 8px; }
+    #request-done p { color: var(--text-muted); font-size: 14px; }
+    #request-done b { color: var(--text); font-weight: 400; }
+    #request-done .next-steps { display: inline-flex; flex-direction: column; gap: 8px; text-align: left; margin-top: 18px; font-size: 13px; color: var(--text-muted); }
+    #request-done .next-steps span::before { content: '→ '; color: var(--copper-light); }
     #scan-done { text-align: center; padding: 20px 0 6px; }
     #scan-done h3 { font-size: 22px; font-weight: 300; margin: 14px 0 8px; }
     #scan-done p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
@@ -262,10 +268,10 @@
 <header class="o-hero" id="scan">
   <div class="wrap o-hero-grid">
     <div>
-      <span class="pill">Free brand audit · About a minute · PDF</span>
+      <span class="pill">Free brand audit · In your inbox · PDF</span>
       <h1>How healthy is your brand <em>online?</em></h1>
-      <p class="lead">Pick what you want checked, tap through a few quick questions, and get your Website, Branding and Marketing scores and your biggest opportunities.</p>
-      <div class="o-hero-note"><span>Website, socials or both</span><span>Scored out of 10</span><span>Simple next steps</span></div>
+      <p class="lead">Pick what you want checked and add your links. We scan your website, read your brand and send your scores and biggest opportunities to your inbox.</p>
+      <div class="o-hero-note"><span>Takes 2 minutes</span><span>No questionnaire</span><span>Results within 1 business day</span></div>
       <p style="margin-top:22px"><a href="#demo" id="see-sample" style="font-size:13px;color:var(--copper-light);text-decoration:none;border-bottom:1px solid rgba(200,133,74,.4)">See a sample report first →</a></p>
     </div>
 
@@ -279,6 +285,18 @@
         <div class="wz-bar" id="wiz-bar" aria-hidden="true"><i></i></div>
         <div class="wz-stage" id="wiz-stage" aria-live="polite"></div>
         <p class="scan-error" id="scan-error" role="alert" hidden></p>
+      </div>
+
+      <div id="request-done" hidden>
+        <div class="tick">✓</div>
+        <h3>You're on the list.</h3>
+        <p>We're preparing your Brand Health Check now. It'll arrive at <b id="request-email"></b> as a PDF within 1 business day.</p>
+        <div class="next-steps">
+          <span>We scan your website on a phone and a desktop</span>
+          <span>We read your brand story, content and channels</span>
+          <span>You get your scores, your biggest opportunities and what to do next</span>
+        </div>
+        <p style="margin-top:18px"><a href="#what-you-get" class="btn btn-ghost">See a sample report</a></p>
       </div>
 
       <div id="scan-loading" hidden aria-live="polite">
@@ -403,7 +421,7 @@
 <!-- STATS -->
 <div class="wrap" style="padding-top:70px">
   <div class="stats rv">
-    <div class="stat"><b>~1 minute</b><p>From picking your channels to seeing your results, with a PDF you can keep and share.</p></div>
+    <div class="stat"><b>2 minutes</b><p>To request it. Your results arrive by email as a PDF you can keep and share.</p></div>
     <div class="stat"><b>You choose</b><p>Scan your website, your socials and Google profile, or all of them.</p></div>
     <div class="stat"><b>Free</b><p>A clear outside view of your brand: what's working, and what would make it great.</p></div>
   </div>
@@ -445,7 +463,7 @@
     <h2 class="h2">Good to know</h2>
     <div class="faq">
       <details><summary>Is it really free?</summary><p>Yes. No card, no catch. You'll get real, useful next steps whether or not you ever work with us.</p></details>
-      <details><summary>How does it work?</summary><p>You pick what to check. We load your website on a phone and a desktop the way Google and your visitors do, using Google's own testing tools. Your quick answers cover the parts a scan can't see, like your story and reviews.</p></details>
+      <details><summary>How does it work?</summary><p>You pick what to check and add your links. We load your website on a phone and a desktop the way Google and your visitors do, read your brand story, content and channels, and send your Brand Health Check to your inbox as a PDF within 1 business day.</p></details>
       <details><summary>Why is my phone score lower than I expected?</summary><p>Phones are tested on a typical mobile connection, which is slower than your office Wi-Fi. That's what most of your visitors experience. Scores can vary a little between runs.</p></details>
       <details><summary>The check couldn't read my website. Why?</summary><p>Some websites block automated tools. You'll still get your branding and marketing results, and Elliot will review your website by hand.</p></details>
       <details><summary>What's the difference from the Full Strategy Report?</summary><p>The Brand Health Check shows where your brand stands today. The <a href="brand-strategy-report.html" style="color:var(--copper-light)">Full Strategy Report</a> looks deeper into your brand, your competition and your systems, with a real-customer test of how you reply and sell.</p></details>
