@@ -1258,6 +1258,13 @@
       line-height: 1.8;
       margin-bottom: 28px;
     }
+    .about-left .eyebrow { margin-bottom: 22px; }
+    .about-role { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--copper); margin: 0 0 28px; }
+    #about .about-cred { display: block; background: linear-gradient(160deg, var(--surface-2) 0%, #1c1a18 100%); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 28px 30px; position: relative; overflow: hidden; }
+    #about .about-cred ul { margin: 14px 0 0; gap: 8px; }
+    #about .about-cred li { font-size: clamp(17px, 1.6vw, 21px); }
+    .about-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    #about .about-inner { align-items: start; }
     .about-coming {
       font-size: 12px;
       color: var(--text-dim);
@@ -1719,9 +1726,9 @@
   </a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#strategy">Brand Strategy</a></li>
       <li><a href="services.html">Creative Content</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#strategy">Brand Strategy</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1733,9 +1740,9 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#strategy" class="mob-link">Brand Strategy</a>
   <a href="services.html" class="mob-link">Creative Content</a>
   <a href="#work" class="mob-link">Work</a>
+  <a href="#strategy" class="mob-link">Brand Strategy</a>
   <a href="#about" class="mob-link">About</a>
   <a href="#contact" class="mob-link">Contact</a>
   <a href="digital-presence-review.html" class="btn-copper mob-link">Free Brand Check</a>
@@ -1778,106 +1785,6 @@
 
 </section>
 
-<!-- ── FOUNDATION ───────────────────────────────────────────── -->
-<section id="foundation">
-  <div class="fd-inner">
-    <p class="eyebrow fade-up">Why Establish Growth</p>
-    <h2 class="fd-headline fade-up">Your brand is the foundation.<br><span>Everything else is built on it.</span></h2>
-    <p class="fd-body fade-up">Most businesses try to fix slow growth with more ads and more posts. But people decide whether to trust you in seconds, from your website, your Google profile and your socials. If those don't match the business you've built, every dollar works harder for less. So we start with the brand: find what's holding it back, then build it right.</p>
-  </div>
-</section>
-
-<!-- ── BRAND STRATEGY ───────────────────────────────────────── -->
-<section id="strategy">
-  <div class="bs-inner">
-
-    <div class="scan-hero">
-      <div class="scan-copy">
-        <p class="eyebrow fade-up">Brand Strategy · Free Brand Health Check</p>
-        <h2 class="bs-headline fade-up">How healthy is your<br><span>brand online?</span></h2>
-        <p class="bs-sub fade-up">Get your free Brand Health Check. Your scores and biggest opportunities in about a minute.</p>
-        <div class="scan-checks fade-up">
-          <div><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><b>Visits your site</b><span>like a customer on a phone</span></div>
-          <div><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><b>Checks your SEO</b><span>what Google sees</span></div>
-          <div><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 11l7.6-3.8M8.2 13l7.6 3.8"/></svg><b>Scores your brand</b><span>story, socials and reviews</span></div>
-        </div>
-        <div class="scan-ctas fade-up">
-          <a href="digital-presence-review.html" class="btn-copper">Check my brand free</a>
-          <a href="brand-strategy-report.html" class="btn-ghost">Full Strategy Report · $89.99</a>
-        </div>
-      </div>
-
-      <div class="home-score fade-up" id="home-score" aria-label="Sample score">
-        <span class="hs-stamp">Sample</span>
-        <div class="hs-top"><span>Brand Health Check</span><span>Sample</span></div>
-        <p class="hs-name">Northline Outdoor Co.<span>Your brand online</span></p>
-        <div class="hs-row">
-          <div class="hs-dial">
-            <svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="54" fill="none" stroke="#E2DACE" stroke-width="10"/><circle class="hs-arc" stroke-dasharray="339.29" stroke-dashoffset="339.29" cx="65" cy="65" r="54" fill="none" stroke="#A0622E" stroke-width="10" stroke-linecap="round" transform="rotate(-90 65 65)"/></svg>
-            <div><b>0.0</b><small>OUT OF 10</small></div>
-          </div>
-          <div class="hs-bars">
-            <div><label><span>Website</span><span>7.4</span></label><i><em data-w="74"></em></i></div>
-            <div><label><span>Branding</span><span>4.3</span></label><i><em class="low" data-w="43"></em></i></div>
-            <div><label><span>Marketing</span><span>4.0</span></label><i><em class="low" data-w="40"></em></i></div>
-            <div class="lockrow"><label><span>Systems</span><span>In the Full Report</span></label><i></i></div>
-          </div>
-        </div>
-        <div class="hs-fix"><b>Biggest opportunity:</b> tell your story. You tell 1 of 5 chapters.</div>
-      </div>
-    </div>
-
-    <div class="bs-journey">
-      <a class="bs-step fade-up" href="digital-presence-review.html"><span>01 · Free</span><h3>Brand Health Check</h3><p>See what's there today</p></a>
-      <a class="bs-step fade-up" href="brand-strategy-report.html"><span>02 · $89.99</span><h3>Full Strategy Report</h3><p>Look into your brand and competition</p></a>
-      <a class="bs-step fade-up" href="brand-strategy-report.html#session"><span>03 · $799</span><h3>Brand Strategy Session</h3><p>Build your Game Plan</p></a>
-      <a class="bs-step fade-up" href="services.html"><span>04</span><h3>Bring it to life</h3><p>Video and content</p></a>
-    </div>
-
-    <div class="bs-venn-row">
-      <div class="bs-venn fade-up">
-<svg class="venn" viewBox="0 0 520 470" role="img" aria-label="Branding, Marketing and Systems overlap. Branding and Marketing make Content. Branding and Systems make User experience. Marketing and Systems make the Funnel. All three together make Sales.">
-  <defs>
-    <radialGradient id="vg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C8854A" stop-opacity="0.30"/><stop offset="100%" stop-color="#A0622E" stop-opacity="0.10"/></radialGradient>
-  </defs>
-  <g fill="url(#vg)" stroke="#C8854A" stroke-width="1.2" stroke-opacity="0.75">
-    <circle cx="260" cy="170" r="150"/>
-    <circle cx="180" cy="310" r="150"/>
-    <circle cx="340" cy="310" r="150"/>
-  </g>
-  <g font-family="Chivo, sans-serif" text-anchor="middle">
-    <text x="260" y="78" fill="#E8E0D5" font-size="21" font-weight="400">Branding</text>
-    <text x="260" y="98" fill="#9A9390" font-size="12">Instant trust</text>
-    <text x="118" y="372" fill="#E8E0D5" font-size="21" font-weight="400">Marketing</text>
-    <text x="118" y="392" fill="#9A9390" font-size="12">A reason to buy</text>
-    <text x="402" y="372" fill="#E8E0D5" font-size="21" font-weight="400">Systems</text>
-    <text x="402" y="392" fill="#9A9390" font-size="12">Easy to say yes</text>
-    <text x="192" y="222" fill="#C8854A" font-size="13">Content</text>
-    <text x="328" y="216" fill="#C8854A" font-size="13">User</text>
-    <text x="328" y="232" fill="#C8854A" font-size="13">experience</text>
-    <text x="260" y="352" fill="#C8854A" font-size="13">The funnel</text>
-    <circle cx="260" cy="266" r="34" fill="#A0622E" stroke="none"/>
-    <text x="260" y="271" fill="#F0EBE3" font-size="14" font-weight="400">Sales</text>
-  </g>
-</svg>
-
-      </div>
-      <div class="bs-venn-copy">
-        <h3 class="bs-venn-title fade-up">More ads won't fix<br>a leaky foundation.</h3>
-        <p class="bs-venn-body fade-up">Sales come from branding, marketing and systems working together. We start with the brand.</p>
-        <div class="bs-leak-tags fade-up">
-          <span>Look smaller than you are <b>credibility</b></span>
-          <span>Story not told <b>price</b></span>
-          <span>No clear next step <b>leads</b></span>
-          <span>Ads on a weak brand <b>money</b></span>
-        </div>
-        <a href="brand-strategy-report.html" class="bs-link fade-up">See the Full Strategy Report →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ── CONTENT SYSTEM ────────────────────────────────────────── -->
 <section id="system">
   <div class="system-corner-glow"></div>
@@ -1885,7 +1792,7 @@
   <div class="system-inner">
 
     <div class="system-header">
-      <p class="eyebrow fade-up">Then we bring it to life · Creative Content</p>
+      <p class="eyebrow fade-up">Creative Content</p>
       <h2 class="system-headline fade-up">One shoot. Months of content.<br>Built to perform<span class="hl-dot">.</span></h2>
       <p class="system-subhead fade-up">We turn one day on set into a full content engine<br>that builds your brand and keeps it visible.</p>
     </div>
@@ -2090,26 +1997,132 @@
   </div>
 </section>
 
+<!-- ── FOUNDATION ───────────────────────────────────────────── -->
+<section id="foundation">
+  <div class="fd-inner">
+    <p class="eyebrow fade-up">Great content starts with a great brand</p>
+    <h2 class="fd-headline fade-up">Your brand is the foundation.<br><span>Everything else is built on it.</span></h2>
+    <p class="fd-body fade-up">Most businesses try to fix slow growth with more ads and more posts. But people decide whether to trust you in seconds, from your website, your Google profile and your socials. If those don't match the business you've built, every dollar works harder for less. So we start with the brand: find what's holding it back, then build it right.</p>
+  </div>
+</section>
+
+<!-- ── BRAND STRATEGY ───────────────────────────────────────── -->
+<section id="strategy">
+  <div class="bs-inner">
+
+    <div class="scan-hero">
+      <div class="scan-copy">
+        <p class="eyebrow fade-up">Brand Strategy · Free Brand Health Check</p>
+        <h2 class="bs-headline fade-up">How healthy is your<br><span>brand online?</span></h2>
+        <p class="bs-sub fade-up">Get your free Brand Health Check. Your scores and biggest opportunities in about a minute.</p>
+        <div class="scan-checks fade-up">
+          <div><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><b>Visits your site</b><span>like a customer on a phone</span></div>
+          <div><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><b>Checks your SEO</b><span>what Google sees</span></div>
+          <div><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 11l7.6-3.8M8.2 13l7.6 3.8"/></svg><b>Scores your brand</b><span>story, socials and reviews</span></div>
+        </div>
+        <div class="scan-ctas fade-up">
+          <a href="digital-presence-review.html" class="btn-copper">Check my brand free</a>
+          <a href="brand-strategy-report.html" class="btn-ghost">Full Strategy Report · $89.99</a>
+        </div>
+      </div>
+
+      <div class="home-score fade-up" id="home-score" aria-label="Sample score">
+        <span class="hs-stamp">Sample</span>
+        <div class="hs-top"><span>Brand Health Check</span><span>Sample</span></div>
+        <p class="hs-name">Northline Outdoor Co.<span>Your brand online</span></p>
+        <div class="hs-row">
+          <div class="hs-dial">
+            <svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="54" fill="none" stroke="#E2DACE" stroke-width="10"/><circle class="hs-arc" stroke-dasharray="339.29" stroke-dashoffset="339.29" cx="65" cy="65" r="54" fill="none" stroke="#A0622E" stroke-width="10" stroke-linecap="round" transform="rotate(-90 65 65)"/></svg>
+            <div><b>0.0</b><small>OUT OF 10</small></div>
+          </div>
+          <div class="hs-bars">
+            <div><label><span>Website</span><span>7.4</span></label><i><em data-w="74"></em></i></div>
+            <div><label><span>Branding</span><span>4.3</span></label><i><em class="low" data-w="43"></em></i></div>
+            <div><label><span>Marketing</span><span>4.0</span></label><i><em class="low" data-w="40"></em></i></div>
+            <div class="lockrow"><label><span>Systems</span><span>In the Full Report</span></label><i></i></div>
+          </div>
+        </div>
+        <div class="hs-fix"><b>Biggest opportunity:</b> tell your story. You tell 1 of 5 chapters.</div>
+      </div>
+    </div>
+
+    <div class="bs-journey">
+      <a class="bs-step fade-up" href="digital-presence-review.html"><span>01 · Free</span><h3>Brand Health Check</h3><p>See what's there today</p></a>
+      <a class="bs-step fade-up" href="brand-strategy-report.html"><span>02 · $89.99</span><h3>Full Strategy Report</h3><p>Look into your brand and competition</p></a>
+      <a class="bs-step fade-up" href="brand-strategy-report.html#session"><span>03 · $799</span><h3>Brand Strategy Session</h3><p>Build your Game Plan</p></a>
+      <a class="bs-step fade-up" href="services.html"><span>04</span><h3>Bring it to life</h3><p>Video and content</p></a>
+    </div>
+
+    <div class="bs-venn-row">
+      <div class="bs-venn fade-up">
+<svg class="venn" viewBox="0 0 520 470" role="img" aria-label="Branding, Marketing and Systems overlap. Branding and Marketing make Content. Branding and Systems make User experience. Marketing and Systems make the Funnel. All three together make Sales.">
+  <defs>
+    <radialGradient id="vg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C8854A" stop-opacity="0.30"/><stop offset="100%" stop-color="#A0622E" stop-opacity="0.10"/></radialGradient>
+  </defs>
+  <g fill="url(#vg)" stroke="#C8854A" stroke-width="1.2" stroke-opacity="0.75">
+    <circle cx="260" cy="170" r="150"/>
+    <circle cx="180" cy="310" r="150"/>
+    <circle cx="340" cy="310" r="150"/>
+  </g>
+  <g font-family="Chivo, sans-serif" text-anchor="middle">
+    <text x="260" y="78" fill="#E8E0D5" font-size="21" font-weight="400">Branding</text>
+    <text x="260" y="98" fill="#9A9390" font-size="12">Instant trust</text>
+    <text x="118" y="372" fill="#E8E0D5" font-size="21" font-weight="400">Marketing</text>
+    <text x="118" y="392" fill="#9A9390" font-size="12">A reason to buy</text>
+    <text x="402" y="372" fill="#E8E0D5" font-size="21" font-weight="400">Systems</text>
+    <text x="402" y="392" fill="#9A9390" font-size="12">Easy to say yes</text>
+    <text x="192" y="222" fill="#C8854A" font-size="13">Content</text>
+    <text x="328" y="216" fill="#C8854A" font-size="13">User</text>
+    <text x="328" y="232" fill="#C8854A" font-size="13">experience</text>
+    <text x="260" y="352" fill="#C8854A" font-size="13">The funnel</text>
+    <circle cx="260" cy="266" r="34" fill="#A0622E" stroke="none"/>
+    <text x="260" y="271" fill="#F0EBE3" font-size="14" font-weight="400">Sales</text>
+  </g>
+</svg>
+
+      </div>
+      <div class="bs-venn-copy">
+        <h3 class="bs-venn-title fade-up">More ads won't fix<br>a leaky foundation.</h3>
+        <p class="bs-venn-body fade-up">Sales come from branding, marketing and systems working together. We start with the brand.</p>
+        <div class="bs-leak-tags fade-up">
+          <span>Look smaller than you are <b>credibility</b></span>
+          <span>Story not told <b>price</b></span>
+          <span>No clear next step <b>leads</b></span>
+          <span>Ads on a weak brand <b>money</b></span>
+        </div>
+        <a href="brand-strategy-report.html" class="bs-link fade-up">See the Full Strategy Report →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- ── ABOUT ─────────────────────────────────────────────────── -->
 <section id="about">
   <div class="about-inner">
-    <div class="about-photo-block about-cred fade-up">
-      <p class="eyebrow">Behind the camera</p>
-      <ul>
-        <li>Minnesota Twins</li>
-        <li>PGA Tour</li>
-        <li>Premium lifestyle brands</li>
-        <li>Local businesses across the Twin Cities</li>
-      </ul>
-      <p class="about-cred-note">Creative Director &amp; Brand Strategist</p>
+    <div class="about-left">
+      <p class="eyebrow fade-up">About</p>
+      <h2 class="about-heading fade-up">I'm Elliot Ussery.<br>I started behind the camera.</h2>
+      <p class="about-role fade-up">Videographer · Broadcast camera operator · Brand strategist</p>
+      <div class="about-cred fade-up">
+        <p class="about-cred-note">Behind the camera for</p>
+        <ul>
+          <li>Minnesota Twins</li>
+          <li>PGA Tour</li>
+          <li>Premium lifestyle brands</li>
+          <li>Local businesses across the Twin Cities</li>
+        </ul>
+      </div>
     </div>
     <div class="about-right">
-      <p class="eyebrow fade-up">About</p>
-      <h2 class="about-heading fade-up">I'm Elliot. I help businesses look as good online as they are in real life.</h2>
-      <p class="about-body fade-up">I've shot for the Minnesota Twins, the PGA Tour and premium lifestyle brands. Over and over, I saw great businesses lose trust online because their brand didn't match the work they actually do. Beautiful video can't fix that on its own.</p>
-      <p class="about-body fade-up">So Establish Growth does both under one roof. First we get clear on your brand: who you are, who you're for and why you win. Then we create the content that shows it. Strategy and creative from the same person means nothing gets lost in between.</p>
-      <a href="digital-presence-review.html" class="btn-copper fade-up">Start With a Free Brand Health Check</a>
+      <p class="about-body fade-up">I've spent my career filming for broadcast. I started Establish Growth with a few friends to bring that same high-end video to businesses: to tell their story and level up their brand.</p>
+      <p class="about-body fade-up">Along the way, I fell in love with the strategy behind it. Great video only works when it's the right video. So now we start with your brand: who you are, who you're for and what's holding you back. Then we create the content you actually need, and content that works.</p>
+      <p class="about-body fade-up">Strategy and production from the same team means nothing gets lost in between.</p>
+      <div class="about-ctas fade-up">
+        <a href="#work" class="btn-copper">See Our Work</a>
+        <a href="digital-presence-review.html" class="btn-ghost">Free Brand Health Check</a>
+      </div>
     </div>
   </div>
 </section>
