@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Brand Audit — Brand Health Check | Establish Growth</title>
+  <meta name="description" content="Free brand audit in about a minute. The Brand Health Check scores your website on phone and desktop, your branding and your marketing, and shows your biggest opportunities. Download it as a PDF.">
+  <meta property="og:title" content="Brand Health Check — free brand audit by Establish Growth">
+  <meta property="og:description" content="How healthy is your brand online? Get your Website, Branding and Marketing scores and your biggest opportunities in about a minute. Free.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="eg-offer.css">
+  <style>
+    /* scanner card */
+    .scan-card { background: var(--surface); border: 1px solid var(--copper); border-radius: 3px; padding: 34px 32px 30px; box-shadow: 0 40px 80px rgba(0,0,0,0.45); position: relative; }
+    .scan-card h2 { font-size: 22px; font-weight: 400; margin-bottom: 4px; }
+    .scan-card .sub { font-size: 13px; color: var(--text-dim); margin-bottom: 22px; }
+    .scan-dots { display: flex; gap: 6px; margin-bottom: 18px; }
+    .scan-dots i { height: 3px; flex: 1; background: var(--divider); border-radius: 2px; transition: background .3s; }
+    .scan-dots i.on { background: var(--copper); }
+    .q { margin-bottom: 16px; }
+    .q p { font-size: 13.5px; color: var(--text); margin-bottom: 8px; line-height: 1.45; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chips button { font-family: 'Chivo', sans-serif; font-weight: 300; font-size: 13px; color: var(--text-muted); background: var(--bg); border: 1px solid var(--divider); border-radius: 30px; padding: 9px 14px; min-height: 40px; cursor: pointer; transition: all .15s; }
+    .chips button:hover { border-color: var(--copper-dark); color: var(--text); }
+    .chips button[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: var(--cream); }
+    .scan-row-btns { display: flex; gap: 10px; margin-top: 8px; }
+    .scan-row-btns .btn { flex: 1; text-align: center; padding: 17px 14px; }
+    .scan-row-btns .btn-ghost { flex: 0 0 auto; }
+    .scan-error { font-size: 13px; color: var(--copper-light); margin-top: 10px; }
+    .optional { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); margin: 6px 0 12px; }
+    .demo-flag { position: absolute; top: -12px; right: 20px; background: var(--cream); color: var(--ink); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 10px; border-radius: 2px; }
+    #scan-loading { text-align: left; padding: 8px 0; }
+    #scan-loading h3 { font-size: 20px; font-weight: 300; margin-bottom: 6px; }
+    #scan-loading .sub { margin-bottom: 20px; }
+    #scan-loading ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    #scan-loading li { font-size: 14px; color: var(--text-dim); display: flex; align-items: center; gap: 12px; }
+    #scan-loading li::before { content: ''; width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--divider); flex: none; }
+    #scan-loading li.on { color: var(--text); }
+    #scan-loading li.on::before { border-color: var(--copper-light); border-top-color: transparent; animation: spin .8s linear infinite; }
+    #scan-loading li.done { color: var(--text-muted); }
+    #scan-loading li.done::before { background: var(--copper); border-color: var(--copper); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #scan-done { text-align: center; padding: 20px 0 6px; }
+    #scan-done h3 { font-size: 22px; font-weight: 300; margin: 14px 0 8px; }
+    #scan-done p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+    .tick { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--copper); display: flex; align-items: center; justify-content: center; margin: 0 auto; color: var(--copper-light); font-size: 20px; }
+
+    .expect { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .expect-list { list-style: none; margin: 26px 0 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+    .expect-list li { border-top: 1px solid var(--copper-dark); padding-top: 12px; }
+    .expect-list b { display: block; font-weight: 400; font-size: 16px; color: var(--text); margin-bottom: 3px; }
+    .expect-list span { font-size: 13px; color: var(--text-muted); }
+    @media (max-width: 900px) { .expect { grid-template-columns: 1fr; gap: 44px; } }
+    @media (max-width: 480px) { .expect-list { grid-template-columns: 1fr; } }
+    /* step-by-step scan */
+    .wz-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; min-height: 32px; }
+    .wz-back { background: none; border: none; color: var(--text-muted); font-family: 'Chivo', sans-serif; font-size: 13px; cursor: pointer; padding: 6px 0; min-height: 32px; }
+    .wz-back:hover { color: var(--text); }
+    .wz-count { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
+    .wz-bar { height: 3px; background: var(--divider); border-radius: 2px; overflow: hidden; margin-bottom: 28px; }
+    .wz-bar i { display: block; height: 100%; width: 12%; background: var(--copper); transition: width .4s cubic-bezier(.2,.7,.2,1); }
+    .wz-stage { min-height: 330px; }
+    .wz-stage.in-r { animation: wzR .38s cubic-bezier(.2,.7,.2,1); }
+    .wz-stage.in-l { animation: wzL .38s cubic-bezier(.2,.7,.2,1); }
+    @keyframes wzR { from { opacity: 0; transform: translateX(26px); } to { opacity: 1; transform: none; } }
+    @keyframes wzL { from { opacity: 0; transform: translateX(-26px); } to { opacity: 1; transform: none; } }
+    .wz-q { font-size: clamp(21px, 2.2vw, 26px); font-weight: 300; line-height: 1.25; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .wz-hint { font-size: 13px; color: var(--text-dim); margin-bottom: 22px; }
+    .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; margin-bottom: 22px; }
+    .tile { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 10px 16px; background: var(--bg); border: 1px solid var(--divider); border-radius: 3px; color: var(--text-muted); font-family: 'Chivo', sans-serif; font-weight: 300; font-size: 13.5px; cursor: pointer; transition: border-color .15s, background .15s, color .15s, transform .15s; min-height: 96px; }
+    .tile svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .tile:hover { border-color: var(--copper-dark); color: var(--text); transform: translateY(-2px); }
+    .tile[aria-pressed="true"] { border-color: var(--copper); background: rgba(160,98,46,0.14); color: var(--text); }
+    .tile[aria-pressed="true"] svg { stroke: var(--copper-light); }
+    .tile .tick { position: absolute; top: 7px; right: 8px; width: 18px; height: 18px; border-radius: 50%; background: var(--copper); color: var(--cream); font-size: 10px; font-style: normal; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(.5); transition: all .18s; }
+    .tile[aria-pressed="true"] .tick { opacity: 1; transform: none; }
+    .wz-go { width: 100%; padding: 17px; font-size: 12px; text-align: center; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer { display: flex; justify-content: space-between; align-items: center; text-align: left; padding: 17px 20px; background: var(--bg); border: 1px solid var(--divider); border-radius: 3px; color: var(--text); font-family: 'Chivo', sans-serif; font-weight: 300; font-size: 15px; cursor: pointer; transition: all .15s; min-height: 56px; }
+    .answer span { color: var(--text-dim); transition: transform .15s, color .15s; }
+    .answer:hover { border-color: var(--copper-dark); }
+    .answer:hover span { color: var(--copper-light); transform: translateX(3px); }
+    .answer[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: var(--cream); }
+    .answer[aria-pressed="true"] span { color: var(--cream); }
+    .wz-skip { margin-top: 14px; background: none; border: none; color: var(--text-dim); font-family: 'Chivo', sans-serif; font-size: 13px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 6px 0; }
+    .wz-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+    .wz-link { display: grid; grid-template-columns: 22px 112px minmax(0,1fr); gap: 12px; align-items: center; background: var(--bg); border: 1px solid var(--divider); border-radius: 3px; padding: 4px 6px 4px 14px; transition: border-color .15s; }
+    .wz-link:focus-within { border-color: var(--copper); }
+    .wz-link svg { width: 20px; height: 20px; stroke: var(--copper-light); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .wz-link-l { font-size: 13px; color: var(--text-muted); }
+    .wz-link input { background: transparent; border: none; outline: none; color: var(--text); font-family: 'Chivo', sans-serif; font-weight: 300; font-size: 16px; padding: 12px 6px; width: 100%; }
+    .wz-link input::placeholder { color: var(--text-dim); }
+    @media (max-width: 520px) {
+      .wz-link { grid-template-columns: 20px minmax(0,1fr); padding: 8px 10px 4px 12px; }
+      .wz-link-l { grid-column: 2; }
+      .wz-link input { grid-column: 1 / -1; padding: 6px 2px 10px; }
+      .tiles { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* report */
+    #report { padding: 40px 0 100px; background: var(--bg-deep); scroll-margin-top: 70px; }
+    #report .wrap { max-width: 980px; }
+    .rp-intro { text-align: center; margin-bottom: 30px; }
+    .rp-page { background: var(--cream); color: var(--ink); border-radius: 3px; padding: 44px 46px 30px; margin-bottom: 26px; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+    .rp-top { display: flex; justify-content: space-between; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); margin-bottom: 26px; gap: 12px; }
+    .rp-head { display: grid; grid-template-columns: 1fr 170px; gap: 30px; align-items: center; padding-bottom: 28px; border-bottom: 1px solid #E2DACE; }
+    .rp-for { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 10px; }
+    .rp-h { font-size: clamp(26px, 3.4vw, 40px); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .rp-h span { display: block; color: var(--copper); overflow-wrap: anywhere; }
+    .rp-verdict { font-size: 15px; color: #3d3935; line-height: 1.7; max-width: 560px; }
+    .rp-dial { position: relative; width: 170px; height: 170px; }
+    .rp-dial svg { width: 170px; height: 170px; }
+    .rp-dial > div { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .rp-dial b { font-size: 48px; font-weight: 400; line-height: 1; }
+    .rp-dial small { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.1em; margin-top: 4px; }
+    .rp-grid { display: grid; grid-template-columns: 1fr 240px; gap: 40px; margin-top: 28px; align-items: start; }
+    .rp-grid:has(> :only-child) { grid-template-columns: 1fr; }
+    .rp-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--copper); margin-bottom: 14px; }
+    .rb-row { display: grid; grid-template-columns: 170px 1fr 34px; gap: 14px; align-items: center; margin-bottom: 11px; font-size: 13.5px; color: #3d3935; }
+    .rb-row b { font-weight: 400; text-align: right; color: var(--ink); }
+    .rb-track { height: 7px; background: #E2DACE; border-radius: 4px; overflow: hidden; }
+    .rb-fill { height: 100%; background: var(--copper); border-radius: 4px; }
+    .rb-fill.low { background: #B4532A; }
+    .rp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 24px; }
+    .rp-stats div { background: #fff; border: 1px solid #E2DACE; padding: 14px; border-radius: 2px; }
+    .rp-stats b { display: block; font-size: 24px; font-weight: 400; color: var(--ink); }
+    .rp-stats span { font-size: 11.5px; color: var(--ink-muted); }
+    .rp-note { margin-top: 20px; font-size: 13px; color: #6B4A2C; background: #F3DDC6; padding: 12px 14px; border-radius: 2px; }
+    .rp-phone-frame { border: 8px solid #1E1C1A; border-radius: 26px; overflow: hidden; background: #1E1C1A; aspect-ratio: 9/18; }
+    .rp-phone-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 16px; }
+    .rp-fixes { display: flex; flex-direction: column; gap: 12px; margin: 10px 0 30px; }
+    .rp-fix { display: grid; grid-template-columns: 50px 1fr; gap: 16px; background: #fff; border: 1px solid #E2DACE; border-left: 3px solid var(--copper); padding: 20px 22px; border-radius: 2px; }
+    .rp-n { font-size: 22px; color: var(--copper); font-weight: 300; }
+    .rp-fix h3 { font-size: 17px; font-weight: 400; margin-bottom: 6px; }
+    .cost { font-style: normal; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; background: #F2D3C6; color: #9A3E1C; padding: 3px 7px; border-radius: 2px; margin-left: 6px; vertical-align: 3px; white-space: nowrap; }
+    .rp-fix p { font-size: 14px; color: #3d3935; line-height: 1.65; }
+    .rp-how { margin-top: 8px; }
+    .rp-how b { color: var(--copper); font-weight: 400; }
+    .rp-two { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .rp-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .rp-list li { font-size: 13.5px; color: #3d3935; line-height: 1.6; padding-left: 20px; position: relative; }
+    .rp-list li::before { content: '●'; position: absolute; left: 0; top: 0; font-size: 9px; }
+    .rp-list.ok li::before { color: #4E7A4A; }
+    .rp-list.gap li::before { color: #B4532A; }
+    .rp-list b { font-weight: 400; color: var(--ink); }
+    .rp-channels { margin-top: 28px; }
+    .rp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rp-chips span { font-size: 12px; padding: 6px 12px; border-radius: 30px; }
+    .rp-chips .has { background: #DDE8D8; color: #3F6A3B; }
+    .rp-chips .miss { background: #E9E3DA; color: #6B6560; }
+    .rp-foot { margin-top: 34px; padding-top: 12px; border-top: 1px solid #E2DACE; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 10px; color: #8d857c; }
+    .rp-cta { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 34px; align-items: center; background: var(--surface); border: 1px solid var(--copper); padding: 36px 38px; border-radius: 3px; }
+    .rp-cta h3 { font-size: 26px; font-weight: 300; margin: 10px 0 10px; }
+    .rp-cta p:not(.eyebrow) { color: var(--text-muted); font-size: 14.5px; max-width: 520px; }
+    .rp-cta-btns { display: flex; flex-direction: column; gap: 10px; }
+    .rp-cta-btns .btn { text-align: center; white-space: normal; line-height: 1.5; }
+    body.has-report .sticky-cta { display: none !important; }
+
+    @media (max-width: 760px) {
+      .scan-card { padding: 28px 20px 24px; }
+      .rp-page { padding: 30px 22px 22px; }
+      .rp-head, .rp-grid, .rp-two, .rp-cta { grid-template-columns: 1fr; }
+      .rp-head { justify-items: start; }
+      .rp-dial, .rp-dial svg { width: 140px; height: 140px; }
+      .rp-dial b { font-size: 40px; }
+      .rb-row { grid-template-columns: 1fr 30px; gap: 4px 10px; }
+      .rb-row span { grid-column: 1 / -1; }
+      .rp-phone { max-width: 220px; }
+      .rp-fix { grid-template-columns: 1fr; gap: 4px; }
+      .rp-stats { grid-template-columns: 1fr 1fr 1fr; }
+      .rp-stats b { font-size: 19px; }
+    }
+
+    /* multi-select answers */
+    .answer.multi .box { width: 20px; height: 20px; border: 1px solid var(--divider); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 11px; color: transparent; flex: none; transition: all .15s; }
+    .answer.multi[aria-pressed="true"] { background: rgba(160,98,46,0.16); border-color: var(--copper); color: var(--text); }
+    .answer.multi[aria-pressed="true"] .box { background: var(--copper); border-color: var(--copper); color: var(--cream); }
+
+    /* report additions */
+    .rp-tiles { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-top: 26px; }
+    .rp-tile { background: #fff; border: 1px solid #E2DACE; border-radius: 3px; padding: 14px 14px 16px; position: relative; overflow: hidden; }
+    .rp-tile span { display: block; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); margin-bottom: 6px; }
+    .rp-tile b { display: block; font-size: 30px; font-weight: 400; line-height: 1; color: var(--ink); }
+    .rp-tile small { font-size: 11px; color: var(--ink-muted); }
+    .rp-tile i { position: absolute; left: 0; bottom: 0; height: 4px; background: var(--copper); }
+    .rp-tile.locked { background: #EAE3D8; border-style: dashed; }
+    .rp-tile.locked svg { width: 26px; height: 26px; stroke: #8d857c; fill: none; stroke-width: 1.5; display: block; margin: 2px 0 6px; }
+    .rp-site { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .rp-site div { background: #fff; border: 1px solid #E2DACE; padding: 14px; border-radius: 2px; }
+    .rp-site div.all { background: #1E1C1A; border-color: #1E1C1A; }
+    .rp-site b { display: block; font-size: 26px; font-weight: 400; color: var(--ink); }
+    .rp-site .all b { color: var(--copper-light); }
+    .rp-site span { font-size: 11.5px; color: var(--ink-muted); }
+    .rp-site .all span { color: #c9c1b6; }
+    .rp-small { font-size: 12.5px; color: var(--ink-muted); margin-top: 8px; }
+    .rp-three { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 26px; }
+    .rp-box { background: #fff; border: 1px solid #E2DACE; border-radius: 3px; padding: 18px; }
+    .rp-big { font-size: 30px; line-height: 1; color: var(--ink); margin-bottom: 8px; }
+    .rp-check { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 6px; }
+    .rp-check li { font-size: 12.5px; line-height: 1.45; padding-left: 20px; position: relative; color: #3d3935; }
+    .rp-check li::before { position: absolute; left: 0; top: 0; font-size: 11px; }
+    .rp-check li.y::before { content: '✓'; color: #4E7A4A; }
+    .rp-check li.n { color: #8d857c; }
+    .rp-check li.n::before { content: '○'; color: #B4532A; }
+    .opp { font-style: normal; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; background: #DDE8D8; color: #3F6A3B; padding: 3px 7px; border-radius: 2px; margin-left: 6px; vertical-align: 3px; white-space: nowrap; }
+    .rp-rebuild { background: #1E1C1A; color: #E8E0D5; border-radius: 3px; padding: 22px 24px; margin-top: 6px; }
+    .rp-rebuild h3 { font-size: 19px; font-weight: 400; margin-bottom: 6px; }
+    .rp-rebuild p:not(.rp-label) { font-size: 14px; color: #c9c1b6; line-height: 1.65; }
+    .rp-ideas { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 8px; }
+    .rp-idea { background: #fff; border: 1px solid #E2DACE; border-top: 3px solid var(--copper); border-radius: 2px; padding: 18px; display: flex; flex-direction: column; }
+    .rp-idea h3 { font-size: 16px; font-weight: 400; margin-bottom: 8px; }
+    .rp-imagine { font-size: 13.5px; color: var(--ink); font-style: italic; line-height: 1.55; margin-bottom: 10px; }
+    .rp-idea .rp-how { font-size: 12.5px; color: #3d3935; line-height: 1.55; }
+    .rp-quiet { margin-top: auto; padding-top: 12px; font-size: 11.5px; color: var(--copper); }
+    .rp-locked { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin-top: 22px; background: #EAE3D8; border: 1px dashed #c9bfb1; border-radius: 3px; padding: 18px 20px; }
+    .rp-locked svg { width: 28px; height: 28px; stroke: #6B6560; fill: none; stroke-width: 1.5; }
+    .rp-locked p:not(.rp-label) { font-size: 13.5px; color: #3d3935; line-height: 1.6; }
+    .rp-locked .rp-label { margin-bottom: 6px; }
+    .rp-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 18px; }
+    .rp-steps div { border: 1px solid #E2DACE; border-radius: 2px; padding: 12px 14px; }
+    .rp-steps div.on { border-color: var(--copper); background: #F3DDC6; }
+    .rp-steps b { font-size: 11px; color: var(--copper); font-weight: 400; margin-right: 6px; }
+    .rp-steps span { font-size: 13.5px; color: var(--ink); }
+    .rp-steps small { display: block; font-size: 11px; color: var(--ink-muted); margin-top: 3px; }
+    @media (max-width: 760px) {
+      .rp-tiles { grid-template-columns: 1fr 1fr; }
+      .rp-three, .rp-ideas, .rp-steps { grid-template-columns: 1fr; }
+      .rp-site b { font-size: 21px; }
+    }
+
+    /* PDF / print: just the report pages, one per sheet */
+    @media print {
+      @page { size: letter; margin: 0.45in; }
+      html, body { background: #F3EEE6 !important; }
+      body > *:not(#report) { display: none !important; }
+      #report { padding: 0; background: #F3EEE6; }
+      #report .wrap { max-width: none; padding: 0; }
+      .rp-intro, .no-print { display: none !important; }
+      .rp-page { box-shadow: none; margin: 0; border-radius: 0; padding: 0.1in 0.05in; page-break-after: always; break-after: page; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .rp-page:last-of-type { page-break-after: auto; break-after: auto; }
+      .rp-h { font-size: 30px; }
+      .rp-fix, .rp-idea, .rp-box, .rp-tile, .rp-locked, .rp-rebuild { break-inside: avoid; }
+      .rp-fix p, .rp-list li { font-size: 12px; line-height: 1.5; }
+      .rv { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="o-nav">
+  <a href="index.html"><img src="logo.webp" alt="Establish Growth"></a>
+  <div class="o-nav-links">
+    <a href="index.html#strategy">Brand Strategy</a>
+    <a href="brand-strategy-report.html">Full Strategy Report</a>
+    <a href="#scan" class="btn btn-copper">Start my free check</a>
+  </div>
+</nav>
+
+<!-- HERO + SCANNER -->
+<header class="o-hero" id="scan">
+  <div class="wrap o-hero-grid">
+    <div>
+      <span class="pill">Free brand audit · About a minute · PDF</span>
+      <h1>How healthy is your brand <em>online?</em></h1>
+      <p class="lead">Pick what you want checked, tap through a few quick questions, and get your Website, Branding and Marketing scores and your biggest opportunities.</p>
+      <div class="o-hero-note"><span>Website, socials or both</span><span>Scored out of 10</span><span>Simple next steps</span></div>
+      <p style="margin-top:22px"><a href="#demo" id="see-sample" style="font-size:13px;color:var(--copper-light);text-decoration:none;border-bottom:1px solid rgba(200,133,74,.4)">See a sample report first →</a></p>
+    </div>
+
+    <div class="scan-card">
+      <span class="demo-flag" hidden>Sample mode</span>
+      <div id="wiz">
+        <div class="wz-head">
+          <button type="button" class="wz-back" id="wiz-back" aria-label="Back">← Back</button>
+          <span class="wz-count" id="wiz-count">1 of 8</span>
+        </div>
+        <div class="wz-bar" id="wiz-bar" aria-hidden="true"><i></i></div>
+        <div class="wz-stage" id="wiz-stage" aria-live="polite"></div>
+        <p class="scan-error" id="scan-error" role="alert" hidden></p>
+      </div>
+
+      <div id="scan-loading" hidden aria-live="polite">
+        <h3>Building your report…</h3>
+        <p class="sub">This usually takes 20–60 seconds. Keep this page open.</p>
+        <ul></ul>
+      </div>
+
+      <div id="scan-done" hidden>
+        <div class="tick">✓</div>
+        <h3>Your report is ready</h3>
+        <p>Scroll down to see it, or download it as a PDF.</p>
+        <a href="#report" class="btn btn-copper">View my report</a>
+        <p style="margin-top:16px;margin-bottom:0"><button type="button" id="scan-again" class="btn btn-ghost">Run another report</button></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- REPORT (filled in by eg-scan.js) -->
+<section id="report" hidden>
+  <div class="wrap">
+    <div class="rp-intro"><span class="eyebrow">Your report</span></div>
+    <div id="report-body"></div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET (sample) -->
+<section class="section deep" id="what-you-get">
+  <div class="wrap">
+    <div class="expect">
+      <div class="rv">
+        <div class="score-card" data-score="5.2" aria-label="Sample Brand Health Check">
+          <span class="sc-stamp">Sample</span>
+          <div class="sc-top"><span>Brand Health Check</span><span>Sample</span></div>
+          <h3>Northline Outdoor Co.<span>Your brand online</span></h3>
+          <div class="sc-row">
+            <div class="dial">
+              <svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="54" fill="none" stroke="#E2DACE" stroke-width="10"/><circle class="dial-arc" cx="65" cy="65" r="54" fill="none" stroke="#A0622E" stroke-width="10" stroke-linecap="round"/></svg>
+              <div class="dial-num"><b>0.0</b><small>OUT OF 10</small></div>
+            </div>
+            <div class="bars">
+              <div class="bar"><label><span>Website</span><span>7.4</span></label><div class="track"><div class="fill" data-w="74"></div></div></div>
+              <div class="bar"><label><span>Branding</span><span>4.3</span></label><div class="track"><div class="fill low" data-w="43"></div></div></div>
+              <div class="bar"><label><span>Marketing</span><span>4.0</span></label><div class="track"><div class="fill low" data-w="40"></div></div></div>
+              <div class="bar"><label><span>Systems</span><span>🔒</span></label><div class="track"><div class="fill" data-w="0"></div></div></div>
+            </div>
+          </div>
+          <div class="sc-flags">
+            <div class="ok">Secure website</div>
+            <div>Story: 1 of 5 told</div>
+            <div class="ok">10–49 Google reviews</div>
+            <div>Reviews not on website</div>
+            <div class="ok">Free quote offered</div>
+            <div>No prices shown</div>
+          </div>
+        </div>
+      </div>
+      <div class="rv">
+        <span class="eyebrow">What you'll get</span>
+        <h2 class="h2">Your scores, your story,<br><em>and where to go next.</em></h2>
+        <ul class="expect-list">
+          <li><b>Website, Branding, Marketing</b><span>Each scored out of 10</span></li>
+          <li><b>Phone and desktop</b><span>Your website scored on both</span></li>
+          <li><b>Your story and reviews</b><span>What you're telling people today</span></li>
+          <li><b>Your biggest opportunities</b><span>With simple steps to do them</span></li>
+        </ul>
+        <a href="#scan" class="btn btn-copper">Start my free check</a>
+      </div>
+    </div>
+
+    <div class="pages">
+      <div class="page">
+        <div class="pg-top"><span>Brand Health Check</span><span>01</span></div>
+        <div class="pg-h">Your brand online</div>
+        <div class="pg-sub">northlineoutdoor.com</div>
+        <div class="pg-score"><b>5.2</b><span>out of 10</span></div>
+        <div class="pg-grid">
+          <div class="pg-mini"><b>Website</b>7.4 · phone 7.1 · desktop 7.9</div>
+          <div class="pg-mini"><b>Branding</b>4.3 / 10</div>
+          <div class="pg-mini"><b>Marketing</b>4.0 / 10</div>
+          <div class="pg-mini" style="background:#EAE3D8;border-style:dashed"><b>Systems</b>In your Full Strategy Report</div>
+        </div>
+        <div class="pg-box" style="margin-top:8px"><b>Connected:</b> Website · Instagram · Google. Some channels link to each other.</div>
+        <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+      </div>
+      <div class="page">
+        <div class="pg-top"><span>Your brand today</span><span>02</span></div>
+        <div class="pg-h">Your brand today</div>
+        <div class="pg-sub">What you're telling people</div>
+        <div class="pg-grid">
+          <div class="pg-mini"><b>Your story · 1 of 5</b>✓ When it started<br>○ Who started it<br>○ Why it started<br>○ Big moments<br>○ What makes you different</div>
+          <div class="pg-mini"><b>Reviews</b>10–49 on Google<br>○ Not shown on your website</div>
+        </div>
+        <div class="pg-mini" style="margin-top:6px"><b>Your product or service</b>Some photos · no prices shown · free quote offered</div>
+        <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+      </div>
+      <div class="page">
+        <div class="pg-top"><span>Opportunities</span><span>03</span></div>
+        <div class="pg-h">Your biggest</div>
+        <div class="pg-sub">opportunities</div>
+        <div class="pg-mini" style="margin-top:6px"><b>01 · Faster on phones · more leads</b>5.8 seconds to load. Compress homepage images.</div>
+        <div class="pg-mini" style="margin-top:6px"><b>02 · Tell your story · better prices</b>You tell 1 of 5 chapters. It's the one thing a competitor can't copy.</div>
+        <div class="pg-mini" style="margin-top:6px"><b>03 · Show your prices · more leads</b>List each service with a starting price.</div>
+        <div class="pg-box" style="margin-top:8px"><b>Each one comes with</b> simple steps to do it yourself.</div>
+        <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+      </div>
+      <div class="page">
+        <div class="pg-top"><span>Where next</span><span>04</span></div>
+        <div class="pg-h">Where your brand</div>
+        <div class="pg-sub">could go next</div>
+        <div class="pg-mini" style="margin-top:6px"><b>Your Story, on film</b><i>Imagine someone knowing who you are and why you're different in 60 seconds.</i></div>
+        <div class="pg-mini" style="margin-top:6px"><b>A product and process shoot</b><i>Every service led by a photo or clip of the real thing.</i></div>
+        <div class="pg-mini" style="margin-top:6px;background:#EAE3D8;border-style:dashed"><b>🔒 Systems review</b>Included in your Full Strategy Report.</div>
+        <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+      </div>
+    </div>
+    <p class="pages-caption">Swipe through the sample → &nbsp;·&nbsp; Sample business for illustration only.</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="wrap" style="padding-top:70px">
+  <div class="stats rv">
+    <div class="stat"><b>~1 minute</b><p>From picking your channels to seeing your results, with a PDF you can keep and share.</p></div>
+    <div class="stat"><b>You choose</b><p>Scan your website, your socials and Google profile, or all of them.</p></div>
+    <div class="stat"><b>Free</b><p>A clear outside view of your brand: what's working, and what would make it great.</p></div>
+  </div>
+</div>
+
+<!-- WHAT WE CHECK -->
+<section class="section">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">What the check covers</span>
+      <h2 class="h2">We look at your brand<br><em>the way a new customer does.</em></h2>
+    </div>
+    <div class="grid-3">
+      <div class="card rv"><span class="num">Website</span><h3>Phone and desktop</h3><p>A live scan of your site on both: speed, search basics, security, and a screenshot of what phone visitors see.</p></div>
+      <div class="card rv"><span class="num">Branding</span><h3>Your story and look</h3><p>How much of your story you tell, whether your look is consistent, and whether your channels connect.</p></div>
+      <div class="card rv"><span class="num">Marketing</span><h3>Your product and offers</h3><p>How well your work is shown, whether people can see prices, and what reasons you give them to reach out.</p></div>
+      <div class="card rv"><span class="num">Trust</span><h3>Reviews and testimonials</h3><p>Your Google reviews, and whether your website shows them off.</p></div>
+      <div class="card rv"><span class="num">Next</span><h3>Where your brand could go</h3><p>Your biggest opportunities with simple steps, plus content ideas that would make your brand stand out.</p></div>
+      <div class="card rv" style="border-style:dashed"><span class="num">🔒 Systems</span><h3>In the Full Strategy Report</h3><p>A real-customer test of your contact, pricing, checkout and reply times.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- UPSELL BAND -->
+<section class="band">
+  <div class="wrap">
+    <div>
+      <h2>Want the whole picture?</h2>
+      <p>The Full Strategy Report looks into your brand, your competition and your systems, including a real-customer test of how you reply and sell. $89.99, delivered in 3–5 business days.</p>
+    </div>
+    <a href="brand-strategy-report.html" class="btn">See the Full Strategy Report</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Questions</span>
+    <h2 class="h2">Good to know</h2>
+    <div class="faq">
+      <details><summary>Is it really free?</summary><p>Yes. No card, no catch. You'll get real, useful next steps whether or not you ever work with us.</p></details>
+      <details><summary>How does it work?</summary><p>You pick what to check. We load your website on a phone and a desktop the way Google and your visitors do, using Google's own testing tools. Your quick answers cover the parts a scan can't see, like your story and reviews.</p></details>
+      <details><summary>Why is my phone score lower than I expected?</summary><p>Phones are tested on a typical mobile connection, which is slower than your office Wi-Fi. That's what most of your visitors experience. Scores can vary a little between runs.</p></details>
+      <details><summary>The check couldn't read my website. Why?</summary><p>Some websites block automated tools. You'll still get your branding and marketing results, and Elliot will review your website by hand.</p></details>
+      <details><summary>What's the difference from the Full Strategy Report?</summary><p>The Brand Health Check shows where your brand stands today. The <a href="brand-strategy-report.html" style="color:var(--copper-light)">Full Strategy Report</a> looks deeper into your brand, your competition and your systems, with a real-customer test of how you reply and sell.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer class="o-foot">
+  <a href="index.html" style="margin:0"><img src="logo.webp" alt="Establish Growth"></a>
+  <div><a href="index.html#strategy">Brand Strategy</a><a href="services.html">Creative Content</a><a href="brand-strategy-report.html">Full Strategy Report</a><a href="index.html#contact">Contact</a></div>
+  <span>© 2026 Establish Growth · <span class="tag-line">Decisions Made. Time to Build.</span></span>
+</footer>
+
+<a href="#scan" class="btn btn-copper sticky-cta">Start my free check</a>
+
+<!-- Hidden lead form → Zoho CRM (filled in by eg-scan.js; do not remove) -->
+<form id="lead-form" hidden aria-hidden="true">
+  <input type="hidden" name="xnQsjsdp" value="4f2122c4542c78e142542e9381ff4b811a25b1f64ac5e914d737b8083a486748">
+  <input type="hidden" name="zc_gad" value="">
+  <input type="hidden" name="xmIwtLD" value="c75fc93345369d4b88e3e7915a795b4efbbefc6141293ae75ec839032a441937f7400ed5f0d81f40378daf6f4fa44b9f">
+  <input type="hidden" name="actionType" value="TGVhZHM=">
+  <input type="hidden" name="returnURL" value="null">
+  <input type="hidden" name="First Name" value="">
+  <input type="hidden" name="Last Name" value="">
+  <input type="hidden" name="Company" value="">
+  <input type="hidden" name="Email" value="">
+  <input type="hidden" name="Phone" value="">
+  <input type="hidden" name="Rating" value="Not sure yet">
+  <input type="hidden" name="Description" value="">
+</form>
+
+<script>if (location.hash === '#demo') document.write('<script src="eg-scan-sample.js"><\/script>');</script>
+<script src="eg-offer.js"></script>
+<script src="eg-scan.js"></script>
+<script>{const a=document.getElementById('see-sample');a.addEventListener('click',e=>{e.preventDefault();location.hash='demo';location.reload();});}</script>
+</body>
+</html>

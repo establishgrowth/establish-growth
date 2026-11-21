@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Strategy Report — Establish Growth</title>
+  <meta name="description" content="A $89.99 brand strategy report built for your business: who you're for, why you win, your story and your voice, plus a real-customer test of your contact, pricing and checkout. Delivered in 3–5 business days.">
+  <meta property="og:title" content="Full Strategy Report — Establish Growth">
+  <meta property="og:description" content="Know who your brand is. Fix what's holding it back.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="eg-offer.css">
+  <style>
+    /* hero: fanned report pages */
+    .fan { position: relative; height: 460px; }
+    .fan .page { position: absolute; width: 270px; flex: none; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+    .fan .p1 { left: 4%; top: 40px; transform: rotate(-8deg); z-index: 1; }
+    .fan .p2 { left: 30%; top: 10px; transform: rotate(-1deg); z-index: 3; }
+    .fan .p3 { left: 54%; top: 50px; transform: rotate(7deg); z-index: 2; }
+    .fan:hover .p1 { transform: rotate(-11deg) translateX(-24px); }
+    .fan:hover .p3 { transform: rotate(10deg) translateX(24px); }
+    .fan:hover .p2 { transform: translateY(-10px); }
+
+    /* short hero */
+    .o-hero h1 { font-size: clamp(36px, 5vw, 64px); }
+
+    /* venn explorer */
+    .vx { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; margin-top: 40px; }
+    .venn circle.ring { transition: fill-opacity .3s, stroke-opacity .3s, stroke-width .3s; }
+    .venn.focus circle.ring { fill-opacity: 0.25; stroke-opacity: 0.25; }
+    .venn.focus circle.ring.hl { fill-opacity: 1; stroke-opacity: 1; stroke-width: 2.2; }
+    .vx-btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 22px; }
+    .vx-btns button { font-family: 'Chivo', sans-serif; font-weight: 300; font-size: 13px; color: var(--text-muted); background: transparent; border: 1px solid var(--divider); border-radius: 30px; padding: 10px 16px; min-height: 42px; cursor: pointer; transition: all .15s; }
+    .vx-btns button:hover { color: var(--text); border-color: var(--copper-dark); }
+    .vx-btns button[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: var(--cream); }
+    .vx-out { min-height: 92px; border-left: 2px solid var(--copper); padding: 4px 0 4px 20px; }
+    .vx-out b { display: block; font-size: 22px; font-weight: 300; color: var(--text); margin-bottom: 6px; }
+    .vx-out span { font-size: 15px; color: var(--text-muted); }
+
+    /* weak spots */
+    .leaks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 48px; }
+    .leak { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); padding: 28px 24px 24px; border-radius: 3px; transition: transform .25s, border-color .25s; }
+    .leak:hover { transform: translateY(-4px); border-color: var(--copper); }
+    .leak .ico { width: 44px; height: 44px; border-radius: 50%; background: rgba(160,98,46,0.14); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .leak .ico svg { width: 20px; height: 20px; stroke: var(--copper-light); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .leak h3 { font-size: 17px; font-weight: 400; line-height: 1.3; margin-bottom: 14px; }
+    .leak .cost { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper-light); }
+
+    /* report explorer */
+    .rx { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; margin-top: 48px; }
+    .rx-tabs { display: flex; flex-direction: column; gap: 4px; }
+    .rx-tabs button { text-align: left; font-family: 'Chivo', sans-serif; font-weight: 300; font-size: 16px; color: var(--text-muted); background: transparent; border: none; border-left: 2px solid var(--divider); padding: 14px 18px; cursor: pointer; transition: all .2s; display: flex; gap: 14px; align-items: baseline; min-height: 44px; }
+    .rx-tabs button i { font-style: normal; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; }
+    .rx-tabs button:hover { color: var(--text); }
+    .rx-tabs button[aria-selected="true"] { color: var(--text); border-left-color: var(--copper); background: linear-gradient(90deg, rgba(160,98,46,0.14), transparent); }
+    .rx-tabs button[aria-selected="true"] i { color: var(--copper-light); }
+    .rx-stage { display: flex; gap: 36px; align-items: center; }
+    .rx-frame { width: 405px; height: 524px; flex: none; position: relative; }
+    .rx-frame .page { position: absolute; top: 0; left: 0; width: 300px; transform: scale(1.35); transform-origin: top left; opacity: 0; pointer-events: none; transition: opacity .35s; }
+    .rx-frame .page:hover { transform: scale(1.35); }
+    .rx-frame .page.on { opacity: 1; pointer-events: auto; }
+    .rx-cap { max-width: 260px; }
+    .rx-cap b { display: block; font-size: 22px; font-weight: 300; color: var(--text); margin-bottom: 8px; }
+    .rx-cap span { font-size: 14.5px; color: var(--text-muted); }
+    .persona { display: flex; gap: 6px; align-items: center; margin-bottom: 4px; }
+    .persona i { width: 18px; height: 18px; border-radius: 50%; background: #CFC6B9; flex: none; }
+    .tl { display: flex; flex-direction: column; gap: 5px; margin-top: 6px; border-left: 1px solid var(--copper); padding-left: 8px; }
+    .tl div b { color: var(--copper); font-weight: 400; margin-right: 4px; }
+
+    /* timeline */
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 52px; position: relative; }
+    .flow::before { content: ''; position: absolute; top: 27px; left: 12%; right: 12%; height: 1px; background: linear-gradient(90deg, var(--copper), var(--copper-dark)); }
+    .flow-step { text-align: center; padding: 0 12px; position: relative; }
+    .flow-step .dot { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 18px; background: var(--bg); border: 1px solid var(--copper); display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--copper-light); position: relative; }
+    .flow-step.last .dot { background: var(--copper); color: var(--cream); }
+    .flow-step b { display: block; font-size: 16px; font-weight: 400; color: var(--text); margin-bottom: 4px; }
+    .flow-step span { font-size: 13px; color: var(--text-muted); }
+
+    /* proof strip */
+    .proof-strip { display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); border: 1px solid var(--divider); border-radius: 3px; }
+    .proof-strip > div { padding: 30px 28px; border-right: 1px solid var(--divider); }
+    .proof-strip > div:last-child { border-right: none; }
+    .proof-strip b { display: block; font-size: 40px; font-weight: 300; color: var(--copper-light); line-height: 1; margin-bottom: 8px; }
+    .proof-strip span { font-size: 13px; color: var(--text-muted); }
+    .proof-strip .lead-cell p { font-size: 15px; color: var(--text); line-height: 1.5; }
+    .proof-strip .lead-cell .eyebrow { display: block; margin-bottom: 10px; }
+
+    /* price */
+    .price-tag { display: flex; align-items: baseline; gap: 14px; margin: 22px 0 6px; }
+    .price-tag b { font-size: 48px; font-weight: 300; color: var(--copper-light); line-height: 1; letter-spacing: -0.02em; }
+    .price-tag span { font-size: 13px; color: var(--text-muted); }
+
+    /* session */
+    .session { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: center; }
+    .session-list { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .session-list li { font-size: 15px; color: var(--text-muted); padding-left: 24px; position: relative; }
+    .session-list li::before { content: '✓'; position: absolute; left: 0; color: var(--copper-light); }
+    .session-list b { color: var(--text); font-weight: 400; }
+    .session-card { background: var(--bg); border: 1px solid var(--copper); border-radius: 3px; padding: 34px 32px; }
+    .session-card .price-tag { margin: 14px 0 20px; }
+    .credit { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 14px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.55; }
+    .credit i { font-style: normal; color: var(--copper-light); }
+    .credit b { color: var(--text); font-weight: 400; }
+    .session-card .btn { width: 100%; text-align: center; margin-top: 10px; }
+    .proof-ua { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; border: 1px solid var(--divider); border-radius: 3px; padding: 40px; }
+    .ua-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ua-chips span { font-size: 13px; color: var(--text); background: var(--surface); border: 1px solid var(--card-border); padding: 8px 14px; border-radius: 30px; }
+    @media (max-width: 900px) { .session, .proof-ua { grid-template-columns: minmax(0,1fr); gap: 32px; } .proof-ua { padding: 28px 22px; } .session-card { padding: 28px 22px; } .session-card .btn { white-space: normal; } }
+
+    /* stepped form */
+    .fsteps { display: flex; gap: 6px; margin-bottom: 22px; }
+    .fsteps i { flex: 1; height: 3px; border-radius: 2px; background: var(--divider); transition: background .3s; }
+    .fsteps i.on { background: var(--copper); }
+    .fstep-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--copper-light); margin-bottom: 6px; }
+    .fnav { display: flex; gap: 10px; margin-top: 6px; }
+    .fnav .btn { flex: 1; text-align: center; padding: 17px 14px; }
+    .fnav .btn-ghost { flex: 0 0 auto; }
+
+    @media (max-width: 1000px) {
+      .rx { grid-template-columns: 1fr; gap: 28px; }
+      .rx-tabs { flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 4px; }
+      .rx-tabs button { border-left: none; border-bottom: 2px solid var(--divider); white-space: nowrap; padding: 12px 14px; font-size: 14px; }
+      .rx-tabs button[aria-selected="true"] { border-bottom-color: var(--copper); background: none; }
+      .rx-stage { flex-direction: column; align-items: flex-start; }
+      .leaks { grid-template-columns: 1fr 1fr; }
+      .vx { grid-template-columns: 1fr; gap: 20px; }
+      .proof-strip { grid-template-columns: 1fr 1fr 1fr; }
+      .proof-strip .lead-cell { grid-column: 1 / -1; border-right: none; border-bottom: 1px solid var(--divider); }
+    }
+    @media (max-width: 720px) {
+      .fan { height: 360px; }
+      .fan .page { width: 210px; }
+      .fan .p1 { left: 0; } .fan .p2 { left: 22%; } .fan .p3 { left: 42%; }
+      .rx-frame { width: 300px; height: 388px; }
+      .rx-frame .page, .rx-frame .page:hover { transform: none; }
+      .leaks { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr 1fr; gap: 30px 0; }
+      .flow::before { display: none; }
+      .proof-strip b { font-size: 30px; }
+      .proof-strip > div { padding: 22px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="o-nav">
+  <a href="index.html"><img src="logo.webp" alt="Establish Growth"></a>
+  <div class="o-nav-links">
+    <a href="index.html#strategy">Brand Strategy</a>
+    <a href="digital-presence-review.html">Free Brand Check</a>
+    <a href="#start" class="btn btn-copper">Get my report · $89.99</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="o-hero">
+  <div class="wrap o-hero-grid">
+    <div>
+      <span class="pill">Full Strategy Report · $89.99</span>
+      <h1>Know who your brand is. <em>Fix what's holding it back.</em></h1>
+      <p class="lead">We look into your brand, your customers and your competition, and test your system like a real customer. Then we show you what would make your brand great.</p>
+      <div class="o-hero-ctas">
+        <a href="#start" class="btn btn-copper">Get my report · $89.99</a>
+        <a href="#inside" class="btn btn-ghost">Look inside</a>
+      </div>
+      <div class="o-hero-note"><span>One-time $89.99</span><span>Includes a funnel test</span><span>Delivered in 3–5 business days</span></div>
+    </div>
+
+    <div class="fan rv" aria-hidden="true">
+      <div class="page dark p1">
+        <div class="pg-top"><span>Brand strategy</span><span>01</span></div>
+        <div class="pg-cover-img"></div>
+        <div class="pg-cover-mark">
+          <div class="pg-h">Brand Strategy:</div>
+          <div class="pg-sub">Proof First, Then Lifestyle</div>
+        </div>
+        <div class="pg-foot"><span>Establish Growth</span><span>Sample</span></div>
+      </div>
+      <div class="page p2">
+        <div class="pg-top"><span>On one page</span><span>03</span></div>
+        <div class="pg-h">The strategy</div>
+        <div class="pg-sub">on one page</div>
+        <table class="pg-table">
+          <tr><td>Who for?</td><td>Owners who need gear that works as hard as they do</td></tr>
+          <tr><td>Why us?</td><td>Built to fit, up in minutes, backed for life</td></tr>
+          <tr><td>Who are we?</td><td>Proud, built right, straight-talking</td></tr>
+          <tr><td>Our story?</td><td>Twenty years of doing it the hard way</td></tr>
+          <tr><td>How we sound?</td><td>Plain, confident, owner to owner</td></tr>
+        </table>
+        <div class="pg-box"><b>Promise:</b> built right, so you can get on with your day.</div>
+        <div class="pg-foot"><span>Establish Growth</span><span>Sample</span></div>
+      </div>
+      <div class="page p3">
+        <div class="pg-top"><span>Brand calendar</span><span>11</span></div>
+        <div class="pg-h">Brand calendar</div>
+        <div class="pg-sub">The year, push by push</div>
+        <div class="gantt">
+          <span></span><span class="m">J</span><span class="m">F</span><span class="m">M</span><span class="m">A</span><span class="m">M</span><span class="m">J</span><span class="m">J</span><span class="m">A</span><span class="m">S</span><span class="m">O</span><span class="m">N</span><span class="m">D</span>
+          <span class="lbl">Foundation</span><span class="c o"></span><span class="c o"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span>
+          <span class="lbl">Product</span><span class="c"></span><span class="c o"></span><span class="c o"></span><span class="c o"></span><span class="c g"></span><span class="c g"></span><span class="c g"></span><span class="c g"></span><span class="c g"></span><span class="c o"></span><span class="c o"></span><span class="c g"></span>
+          <span class="lbl">Lifestyle</span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c g"></span><span class="c o"></span><span class="c o"></span><span class="c o"></span><span class="c o"></span><span class="c g"></span><span class="c"></span><span class="c"></span><span class="c"></span>
+          <span class="lbl">Brand film</span><span class="c"></span><span class="c"></span><span class="c o"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span>
+        </div>
+        <div class="pg-foot"><span>Establish Growth</span><span>Sample</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- VENN -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Why brand first</span>
+      <h2 class="h2">More ads won't fix <em>a leaky foundation.</em></h2>
+    </div>
+    <div class="vx">
+      <div class="rv">
+        <svg class="venn" id="venn" viewBox="0 0 520 470" role="img" aria-label="Branding, Marketing and Systems overlap to make Sales.">
+          <defs><radialGradient id="vg2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C8854A" stop-opacity="0.32"/><stop offset="100%" stop-color="#A0622E" stop-opacity="0.10"/></radialGradient></defs>
+          <g fill="url(#vg2)" stroke="#C8854A" stroke-width="1.2" stroke-opacity="0.75">
+            <circle class="ring" data-r="b" cx="260" cy="170" r="150"/>
+            <circle class="ring" data-r="m" cx="180" cy="310" r="150"/>
+            <circle class="ring" data-r="s" cx="340" cy="310" r="150"/>
+          </g>
+          <g font-family="Chivo, sans-serif" text-anchor="middle" pointer-events="none">
+            <text x="260" y="84" fill="#E8E0D5" font-size="21">Branding</text>
+            <text x="118" y="378" fill="#E8E0D5" font-size="21">Marketing</text>
+            <text x="402" y="378" fill="#E8E0D5" font-size="21">Systems</text>
+            <text x="192" y="222" fill="#C8854A" font-size="13">Content</text>
+            <text x="328" y="216" fill="#C8854A" font-size="13">User</text>
+            <text x="328" y="232" fill="#C8854A" font-size="13">experience</text>
+            <text x="260" y="352" fill="#C8854A" font-size="13">The funnel</text>
+            <circle cx="260" cy="266" r="34" fill="#A0622E"/>
+            <text x="260" y="271" fill="#F0EBE3" font-size="14">Sales</text>
+          </g>
+        </svg>
+      </div>
+      <div class="rv">
+        <p class="lead" style="font-size:15px">Sales come from three things working together. Tap each one.</p>
+        <div class="vx-btns" id="vx-btns">
+          <button type="button" data-k="sales" aria-pressed="true">Sales</button>
+          <button type="button" data-k="b" aria-pressed="false">Branding</button>
+          <button type="button" data-k="m" aria-pressed="false">Marketing</button>
+          <button type="button" data-k="s" aria-pressed="false">Systems</button>
+          <button type="button" data-k="bm" aria-pressed="false">Content</button>
+          <button type="button" data-k="bs" aria-pressed="false">User experience</button>
+          <button type="button" data-k="ms" aria-pressed="false">The funnel</button>
+        </div>
+        <div class="vx-out" id="vx-out" aria-live="polite"><b>Sales</b><span>All three aligned. We start with the brand, the foundation the other two stand on.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEAK SPOTS -->
+<section class="section">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">What we find and fix</span>
+      <h2 class="h2">The weak spots <em>costing you money.</em></h2>
+    </div>
+    <div class="leaks">
+      <div class="leak rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg></div><h3>You look smaller than you are</h3><span class="cost">Costs credibility</span></div>
+      <div class="leak rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19V5h11l5 5v9z"/><path d="M8 13h8M8 16h5"/></svg></div><h3>Your story isn't told</h3><span class="cost">Costs you on price</span></div>
+      <div class="leak rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12h10"/><path d="M15 6l0 12"/><path d="M19 12h.01"/></svg></div><h3>Interested people hit a dead end</h3><span class="cost">Costs leads</span></div>
+      <div class="leak rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M16 7.5c0-1.9-1.8-3-4-3s-4 1.1-4 3 1.8 2.6 4 3 4 1.2 4 3.2-1.8 3.3-4 3.3-4-1.3-4-3.2"/></svg></div><h3>Ads on a weak foundation</h3><span class="cost">Costs money</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT EXPLORER -->
+<section class="section deep" id="inside">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Look inside</span>
+      <h2 class="h2">Your report, <em>page by page.</em></h2>
+    </div>
+    <div class="rx">
+      <div class="rx-tabs" role="tablist" id="rx-tabs">
+        <button role="tab" aria-selected="true" data-i="0"><i>03</i>Strategy on one page</button>
+        <button role="tab" aria-selected="false" data-i="1"><i>06</i>Audience</button>
+        <button role="tab" aria-selected="false" data-i="2"><i>07</i>Positioning</button>
+        <button role="tab" aria-selected="false" data-i="3"><i>09</i>Your story</button>
+        <button role="tab" aria-selected="false" data-i="4"><i>11</i>Brand calendar</button>
+        <button role="tab" aria-selected="false" data-i="5"><i>14</i>Messaging &amp; voice</button>
+        <button role="tab" aria-selected="false" data-i="6"><i>16</i>Funnel test</button>
+      </div>
+      <div class="rx-stage">
+        <div class="rx-frame">
+          <!-- 0 one page -->
+          <div class="page on">
+            <div class="pg-top"><span>On one page</span><span>03</span></div>
+            <div class="pg-h">The strategy on one page</div>
+            <div class="pg-sub">Who we are and why we win</div>
+            <table class="pg-table">
+              <tr><td>Who are we for?</td><td>Owners who need gear that works as hard as they do</td><td><span class="tag">→ p6</span></td></tr>
+              <tr><td>Why us?</td><td>Built to fit, up in minutes, backed for life</td><td><span class="tag">→ p7</span></td></tr>
+              <tr><td>Who are we?</td><td>Proud, built right, straight-talking</td><td><span class="tag">→ p8</span></td></tr>
+              <tr><td>Our story?</td><td>Twenty years of doing it the hard way</td><td><span class="tag">→ p9</span></td></tr>
+              <tr><td>How do we sell?</td><td>Prove it first, then make people want it</td><td><span class="tag">→ p10</span></td></tr>
+              <tr><td>How do we sound?</td><td>Plain, confident, owner to owner</td><td><span class="tag">→ p14</span></td></tr>
+            </table>
+            <div class="pg-box"><b>Promise:</b> built right, so you can get on with your day.</div>
+            <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+          </div>
+          <!-- 1 audience -->
+          <div class="page">
+            <div class="pg-top"><span>Audience</span><span>06</span></div>
+            <div class="pg-h">Audience</div>
+            <div class="pg-sub">Who buys, who influences</div>
+            <div class="pg-grid">
+              <div class="pg-mini"><div class="persona"><i></i><b style="margin:0">The owner</b></div>Runs a business, uses the gear on weekends. Wants it to last and look pro.</div>
+              <div class="pg-mini"><div class="persona"><i></i><b style="margin:0">The dealer</b></div>Sells to owners. Needs a story that's easy to repeat at the counter.</div>
+            </div>
+            <table class="pg-table" style="margin-top:8px">
+              <tr><td>Cares about</td><td>Time, quality, looking professional</td><td><span class="tag">Found</span></td></tr>
+              <tr><td>Finds us via</td><td>Events, word of mouth, Google</td><td><span class="tag">Found</span></td></tr>
+              <tr><td>Hesitates on</td><td>Price vs. cheaper options</td><td><span class="tag prop">Proposal</span></td></tr>
+              <tr><td>Trusts</td><td>Other owners, real installs</td><td><span class="tag open">Open</span></td></tr>
+            </table>
+            <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+          </div>
+          <!-- 2 positioning -->
+          <div class="page">
+            <div class="pg-top"><span>Positioning</span><span>07</span></div>
+            <div class="pg-h">Positioning</div>
+            <div class="pg-sub">Why people choose Northline</div>
+            <div class="pg-box">For owners who need gear that works as hard as they do, Northline is <b>the professional's choice</b>: built to fit, up in minutes, backed for life.</div>
+            <table class="pg-table">
+              <tr><td>Built to fit</td><td>Every unit made to order</td><td><span class="tag">Found</span></td></tr>
+              <tr><td>Fast setup</td><td>Under 5 minutes, one person</td><td><span class="tag">Found</span></td></tr>
+              <tr><td>Track record</td><td>Since 2006, 4,000+ installs</td><td><span class="tag">Found</span></td></tr>
+              <tr><td>Warranty</td><td>Lifetime frame warranty</td><td><span class="tag prop">Partly</span></td></tr>
+              <tr><td>Premium price</td><td>About 10% above the field</td><td><span class="tag open">Open</span></td></tr>
+            </table>
+            <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+          </div>
+          <!-- 3 story -->
+          <div class="page">
+            <div class="pg-top"><span>The story</span><span>09</span></div>
+            <div class="pg-h">The story</div>
+            <div class="pg-sub">Twenty years, done the hard way</div>
+            <div class="pg-p">A competitor can copy a look in a week, but not a history. These are the chapters to tell everywhere.</div>
+            <div class="tl">
+              <div><b>2006</b>Founded in a two-car garage</div>
+              <div><b>2011</b>First patent on the quick-mount frame</div>
+              <div><b>2018</b>4,000th install, first national dealer</div>
+              <div><b>2025</b>New owners, same engineering</div>
+            </div>
+            <div class="pg-grid" style="margin-top:10px">
+              <div class="pg-mini"><b>Tell it on</b>Homepage line, brand film, dealer one-pager</div>
+              <div class="pg-mini"><b>Open</b>Founder on camera, or the new owners?</div>
+            </div>
+            <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+          </div>
+          <!-- 4 calendar -->
+          <div class="page">
+            <div class="pg-top"><span>Brand calendar</span><span>11</span></div>
+            <div class="pg-h">Brand calendar</div>
+            <div class="pg-sub">The year, push by push</div>
+            <div class="pg-p">Orange is when each push leads. The story is ready before the marketing that depends on it.</div>
+            <div class="gantt">
+              <span></span><span class="m">J</span><span class="m">F</span><span class="m">M</span><span class="m">A</span><span class="m">M</span><span class="m">J</span><span class="m">J</span><span class="m">A</span><span class="m">S</span><span class="m">O</span><span class="m">N</span><span class="m">D</span>
+              <span class="lbl">Foundation</span><span class="c o"></span><span class="c o"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span>
+              <span class="lbl">Product push</span><span class="c"></span><span class="c o"></span><span class="c o"></span><span class="c o"></span><span class="c g"></span><span class="c g"></span><span class="c g"></span><span class="c g"></span><span class="c g"></span><span class="c o"></span><span class="c o"></span><span class="c g"></span>
+              <span class="lbl">Lifestyle push</span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c g"></span><span class="c o"></span><span class="c o"></span><span class="c o"></span><span class="c o"></span><span class="c g"></span><span class="c"></span><span class="c"></span><span class="c"></span>
+              <span class="lbl">Brand film</span><span class="c"></span><span class="c"></span><span class="c o"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span>
+              <span class="lbl">Trade show</span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c o"></span>
+            </div>
+            <div class="pg-box" style="margin-top:12px"><b>Rule:</b> proof leads in the buying season; lifestyle leads in the using season.</div>
+            <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+          </div>
+          <!-- 5 voice -->
+          <div class="page">
+            <div class="pg-top"><span>Messaging &amp; voice</span><span>14</span></div>
+            <div class="pg-h">Messaging and voice</div>
+            <div class="pg-sub">What we say, how we sound</div>
+            <table class="pg-table">
+              <tr><td>Core message</td><td>Built right, so you can get on with your day.</td></tr>
+              <tr><td>Tone</td><td>Proud, confident, factual. Owner to owner.</td></tr>
+              <tr><td>Sounds like</td><td>"Five minutes. One person. Done."</td></tr>
+            </table>
+            <div class="pg-grid">
+              <div class="pg-mini"><b>Always</b>Plain and confident · show the proof · say "since 2006"</div>
+              <div class="pg-mini"><b>Never</b>"Cheap" or "on sale" · knocking competitors · jargon</div>
+            </div>
+            <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+          </div>
+          <!-- 6 funnel test -->
+          <div class="page">
+            <div class="pg-top"><span>Funnel test</span><span>16</span></div>
+            <div class="pg-h">The funnel test</div>
+            <div class="pg-sub">We tried to buy from you</div>
+            <div class="pg-p">We acted like a real customer on Tuesday at 10:00 am. Here's what happened.</div>
+            <table class="pg-table">
+              <tr><td>Find services</td><td>3 clicks, buried under "Info"</td><td><span class="tag prop">Slow</span></td></tr>
+              <tr><td>Find a price</td><td>No prices or starting prices</td><td><span class="tag gap">Missing</span></td></tr>
+              <tr><td>Quote form</td><td>8 required fields, no "what's next"</td><td><span class="tag prop">Heavy</span></td></tr>
+              <tr><td>Form reply</td><td>26 hours, generic template</td><td><span class="tag prop">26 hrs</span></td></tr>
+              <tr><td>Email reply</td><td>No reply after 48 hours</td><td><span class="tag gap">None</span></td></tr>
+              <tr><td>Instagram DM</td><td>Reply in 2 hours, friendly</td><td><span class="tag">2 hrs</span></td></tr>
+            </table>
+            <div class="pg-box"><b>Biggest leak:</b> no price anywhere and slow email replies. Interested buyers go quiet.</div>
+            <div class="pg-foot"><span>Establish Growth</span><span>Northline Outdoor Co.</span></div>
+          </div>
+        </div>
+        <div class="rx-cap" id="rx-cap" aria-live="polite"><b>The whole plan in one read</b><span>Every answer on a single page, linked to the detail.</span></div>
+      </div>
+    </div>
+    <p class="pages-caption" style="margin-top:28px">Sample pages for a made-up business. Yours is built around your brand.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">How it works</span>
+      <h2 class="h2">From a short form <em>to a clear plan.</em></h2>
+    </div>
+    <div class="flow">
+      <div class="flow-step rv"><div class="dot">1</div><b>10-minute intake</b><span>Your brand, links and goals</span></div>
+      <div class="flow-step rv"><div class="dot">2</div><b>Pay $89.99</b><span>Secure checkout</span></div>
+      <div class="flow-step rv"><div class="dot">3</div><b>Research + funnel test</b><span>We contact you like a real customer</span></div>
+      <div class="flow-step last rv"><div class="dot">✓</div><b>Your report</b><span>In 3–5 business days</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION -->
+<section class="section alt" id="session">
+  <div class="wrap session">
+    <div class="rv">
+      <span class="eyebrow">The next step</span>
+      <h2 class="h2">Brand Strategy Session.<br><em>Your report becomes a Game Plan.</em></h2>
+      <p class="lead">The report shows what's there and what's possible. The session is where we decide what to do. Together we fill in the open questions, develop your brand identity, and come up with ideas and concepts for how to put it into action.</p>
+      <ul class="session-list">
+        <li>A 2–3 hour working session, in person or by video</li>
+        <li>Your brand identity and direction, developed together</li>
+        <li>Ideas and concepts for how to implement it, including your website options</li>
+        <li><b>Your Game Plan document</b>, delivered after the session</li>
+      </ul>
+    </div>
+    <div class="session-card rv">
+      <span class="eyebrow">Brand Strategy Session</span>
+      <div class="price-tag"><b>$799</b><span>Includes your Game Plan</span></div>
+      <div class="credit"><i>✓</i><span><b>2–3 hour working session</b>, in person or by video.</span></div>
+      <div class="credit"><i>✓</i><span><b>Your Game Plan document</b>, delivered after the session.</span></div>
+      <a class="btn btn-copper" id="book-btn" href="index.html#contact">Book a Brand Strategy Session</a>
+      <p class="form-fine" style="text-align:left;margin-top:10px">Most people start with the Full Strategy Report, then book the session.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section" style="padding:80px 0">
+  <div class="wrap">
+    <div class="proof-ua rv">
+      <div>
+        <span class="eyebrow">Recently delivered</span>
+        <h2 class="h2" style="margin-bottom:10px">Ultimate Awning</h2>
+        <p class="lead" style="font-size:15px">A full brand assessment and brand strategy for a Minnesota trailer-awning brand, built from their discovery, our conversations and their marketing partner's 2027 plan.</p>
+      </div>
+      <div class="ua-chips">
+        <span>Website scorecard</span><span>Phone review</span><span>Key pages review</span><span>Logo, color and font audit</span><span>Channel scorecard</span><span>Conflicts to settle</span><span>Audience</span><span>Positioning</span><span>Brand platform</span><span>The story</span><span>Brand calendar</span><span>Messaging and voice</span><span>Owner questions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section deep" id="start">
+  <div class="wrap form-wrap">
+    <div class="form-side rv">
+      <span class="eyebrow">Start your strategy</span>
+      <h2 class="h2">Let's find out <em>who your brand should be.</em></h2>
+      <div class="price-tag"><b>$89.99</b><span>One-time. No subscription.</span></div>
+      <ul>
+        <li>Your 15–20 page Full Strategy Report</li>
+        <li>Competitor research and brands to learn from</li>
+        <li>Content ideas that fit your brand</li>
+        <li>A real-customer test of your contact, pricing and checkout</li>
+        <li>Delivered in 3–5 business days</li>
+        <li>Then, if you want: a Brand Strategy Session ($799)</li>
+        <li>Optional walkthrough call with Elliot</li>
+      </ul>
+      <p style="margin-top:26px;font-size:13px;color:var(--text-dim)">Not ready yet? Try the <a href="digital-presence-review.html" style="color:var(--copper-light)">free Brand Health Check</a>.</p>
+    </div>
+
+    <div class="form-card rv">
+      <form id="eg-offer-form" data-offer="Full Strategy Report" novalidate>
+        <!-- Zoho CRM Web-to-Lead connection (do not remove) -->
+        <input type="hidden" name="xnQsjsdp" value="4f2122c4542c78e142542e9381ff4b811a25b1f64ac5e914d737b8083a486748">
+        <input type="hidden" name="zc_gad" value="">
+        <input type="hidden" name="xmIwtLD" value="c75fc93345369d4b88e3e7915a795b4efbbefc6141293ae75ec839032a441937f7400ed5f0d81f40378daf6f4fa44b9f">
+        <input type="hidden" name="actionType" value="TGVhZHM=">
+        <input type="hidden" name="returnURL" value="null">
+        <input type="text" name="aG9uZXlwb3Q" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="First Name" value="">
+        <input type="hidden" name="Last Name" value="">
+        <input type="hidden" name="Rating" value="Not sure yet">
+        <input type="hidden" name="Description" value="">
+
+        <div class="fsteps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+
+        <div class="fstep">
+          <p class="fstep-label">Step 1 of 6 · You</p>
+          <h3>Where can we find you?</h3>
+          <p class="sub">About 15 minutes in total. Short answers are fine.</p>
+          <div class="frow">
+            <div class="fg"><label for="f-name">Your name *</label><input id="f-name" type="text" autocomplete="name" required></div>
+            <div class="fg"><label for="f-company">Business name *</label><input id="f-company" name="Company" type="text" autocomplete="organization" maxlength="200" required></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label for="f-email">Email *</label><input id="f-email" name="Email" type="email" autocomplete="email" maxlength="100" required></div>
+            <div class="fg"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel" autocomplete="tel" maxlength="30"></div>
+          </div>
+          <div class="fg"><label for="f-website">Website *</label><input id="f-website" type="text" data-q="Website" placeholder="yourbusiness.com" required></div>
+          <div class="frow">
+            <div class="fg"><label for="f-ig">Instagram</label><input id="f-ig" type="text" data-q="Instagram" placeholder="@yourbusiness"></div>
+            <div class="fg"><label for="f-other">Other links</label><input id="f-other" type="text" data-q="Other links" placeholder="Facebook, YouTube, Google…"></div>
+          </div>
+          <div class="fnav"><button type="button" class="btn btn-copper" data-next>Next: your business</button></div>
+        </div>
+
+        <div class="fstep" hidden>
+          <p class="fstep-label">Step 2 of 6 · Your business</p>
+          <h3>What do you do?</h3>
+          <div class="frow">
+            <div class="fg"><label for="f-industry">Industry</label><input id="f-industry" type="text" data-q="Industry" placeholder="e.g. outdoor products"></div>
+            <div class="fg"><label for="f-area">Where you serve</label><input id="f-area" type="text" data-q="Service area" placeholder="City, region or nationwide"></div>
+          </div>
+          <div class="fg"><label for="f-sell">What do you sell?</label><textarea id="f-sell" data-q="Products and services" placeholder="Your main products or services."></textarea></div>
+          <div class="fg"><label for="f-more">Which ones do you want to sell more of?</label><input id="f-more" type="text" data-q="Want to sell more of"></div>
+          <div class="frow">
+            <div class="fg"><label for="f-ticket">Typical job or sale size</label><input id="f-ticket" type="text" data-q="Typical sale size" placeholder="e.g. $500–$2,000"></div>
+            <div class="fg"><label for="f-team">Team size</label><input id="f-team" type="text" data-q="Team size" placeholder="e.g. 4 people"></div>
+          </div>
+          <div class="fnav"><button type="button" class="btn btn-ghost" data-back>Back</button><button type="button" class="btn btn-copper" data-next>Next: your story</button></div>
+        </div>
+
+        <div class="fstep" hidden>
+          <p class="fstep-label">Step 3 of 6 · Your story</p>
+          <h3>Where did it all start?</h3>
+          <div class="frow">
+            <div class="fg"><label for="f-year">Year founded</label><input id="f-year" type="text" data-q="Founded" placeholder="e.g. 2006"></div>
+            <div class="fg"><label for="f-founder">Who started it?</label><input id="f-founder" type="text" data-q="Founder(s)"></div>
+          </div>
+          <div class="fg"><label for="f-why">Why did they start it?</label><textarea id="f-why" data-q="Why it started"></textarea></div>
+          <div class="fg"><label for="f-moments">Big moments since then</label><textarea id="f-moments" data-q="Milestones" placeholder="Firsts, awards, big clients, new locations, new owners…"></textarea></div>
+          <div class="fg"><label for="f-proud">What are you most proud of?</label><input id="f-proud" type="text" data-q="Most proud of"></div>
+          <div class="fnav"><button type="button" class="btn btn-ghost" data-back>Back</button><button type="button" class="btn btn-copper" data-next>Next: your customers</button></div>
+        </div>
+
+        <div class="fstep" hidden>
+          <p class="fstep-label">Step 4 of 6 · Your customers</p>
+          <h3>Who buys from you?</h3>
+          <div class="fg"><label for="f-best">Describe your best customer</label><textarea id="f-best" data-q="Best customer" placeholder="Who they are, what they need, what they care about."></textarea></div>
+          <div class="fg"><label for="f-choose">Why do customers choose you?</label><textarea id="f-choose" data-q="Why customers choose them" placeholder="What happy customers say about you."></textarea></div>
+          <div class="fg"><label for="f-hesitate">What makes people hesitate?</label><input id="f-hesitate" type="text" data-q="Hesitations" placeholder="Price, timing, trust, not sure what they need…"></div>
+          <div class="fg"><label for="f-find">How do most customers find you?</label><input id="f-find" type="text" data-q="How customers find them" placeholder="Word of mouth, Google, social, events…"></div>
+          <div class="fnav"><button type="button" class="btn btn-ghost" data-back>Back</button><button type="button" class="btn btn-copper" data-next>Next: your competition</button></div>
+        </div>
+
+        <div class="fstep" hidden>
+          <p class="fstep-label">Step 5 of 6 · Your competition</p>
+          <h3>Who are you up against?</h3>
+          <div class="fg"><label for="f-competitor">Your top 2–3 competitors</label><textarea id="f-competitor" data-q="Competitors" placeholder="Names or websites."></textarea></div>
+          <div class="fg"><label for="f-better-them">What do they do better than you?</label><input id="f-better-them" type="text" data-q="Competitors do better"></div>
+          <div class="fg"><label for="f-better-you">What do you do better than them?</label><input id="f-better-you" type="text" data-q="They do better than competitors"></div>
+          <div class="fnav"><button type="button" class="btn btn-ghost" data-back>Back</button><button type="button" class="btn btn-copper" data-next>Next: look, voice and goals</button></div>
+        </div>
+
+        <div class="fstep" hidden>
+          <p class="fstep-label">Step 6 of 6 · Look, voice and goals</p>
+          <h3>Where do you want to go?</h3>
+          <div class="fg"><label for="f-words">Three words you want people to think of you</label><input id="f-words" type="text" data-q="Three brand words" placeholder="e.g. reliable, premium, local"></div>
+          <div class="fg"><label for="f-admire">Brands you admire (any industry), and why</label><textarea id="f-admire" data-q="Brands they admire"></textarea></div>
+          <div class="fg"><label for="f-test">What should we test like a customer?</label><input id="f-test" type="text" data-q="Funnel test: channels" placeholder="e.g. quote form, email, phone, Instagram DMs, online checkout"></div>
+          <div class="fg"><label for="f-goal">What would make the next 12 months a win?</label><textarea id="f-goal" data-q="12-month goal"></textarea></div>
+          <div class="frow">
+            <div class="fg"><label for="f-time">Timeline</label>
+              <select id="f-time" data-q="Timeline">
+                <option value="-None-">Pick one</option>
+                <option>As soon as possible</option>
+                <option>Within 1–2 months</option>
+                <option>Before a launch or event</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+            <div class="fg"><label for="f-budget">Budget for brand work</label>
+              <select id="f-budget" name="Industry">
+                <option value="-None-">Pick one</option>
+                <option value="Under $1,500">Under $1,500</option>
+                <option value="$1,500 - $3,000">$1,500 - $3,000</option>
+                <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                <option value="$5,000+">$5,000+</option>
+              </select>
+            </div>
+          </div>
+          <div class="fnav"><button type="button" class="btn btn-ghost" data-back>Back</button><button class="btn btn-copper" type="submit">Continue to payment · $89.99</button></div>
+        </div>
+
+        <p class="form-error" id="eg-form-error" role="alert"></p>
+        <p class="form-fine">Next step: secure checkout for $89.99.</p>
+      </form>
+
+      <div class="form-success" id="eg-form-success" role="status">
+        <div class="tick">✓</div>
+        <h3>Got it. One last step.</h3>
+        <p id="pay-msg">Complete your $89.99 payment and we'll start on your report. It arrives within 3–5 business days.</p>
+        <p><a id="pay-btn" class="btn btn-copper" href="#" style="margin-top:10px">Pay $89.99 securely</a></p>
+        <p style="margin-top:22px">— Elliot, Establish Growth</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt">
+  <div class="wrap">
+    <span class="eyebrow">Questions</span>
+    <h2 class="h2">Good to know</h2>
+    <div class="faq">
+      <details><summary>How much does it cost?</summary><p>$89.99, one time. The report is yours to keep. If you want help bringing it to life after that, we'll quote it separately.</p></details>
+      <details><summary>How does the funnel test work?</summary><p>We act like a real customer. We look for your services and prices, try your quote form or checkout, and send an email or message with a simple question. Then we time how long it takes to hear back and note what the reply was like. Your team doesn't need to know it's happening, so you see what customers really get.</p></details>
+      <details><summary>We already have a marketing agency. Does that conflict?</summary><p>No, it helps. The strategy covers the brand their marketing stands on, so everyone builds in one direction.</p></details>
+      <details><summary>What happens after the report?</summary><p>Run with it yourself, or book a <a href="#session" style="color:var(--copper-light)">Brand Strategy Session</a> ($799) to turn it into a Game Plan you can put into action.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer class="o-foot">
+  <a href="index.html" style="margin:0"><img src="logo.webp" alt="Establish Growth"></a>
+  <div><a href="index.html#strategy">Brand Strategy</a><a href="services.html">Creative Content</a><a href="digital-presence-review.html">Free Brand Check</a><a href="index.html#contact">Contact</a></div>
+  <span>© 2026 Establish Growth · <span class="tag-line">Decisions Made. Time to Build.</span></span>
+</footer>
+
+<a href="#start" class="btn btn-copper sticky-cta">Get my report · $89.99</a>
+<script src="eg-offer.js"></script>
+<script>
+{
+  // ── PAYMENT: paste your Stripe (or other) payment link here ──
+  const PAYMENT_LINK = '';
+  const payBtn = document.getElementById('pay-btn');
+  if (PAYMENT_LINK) { payBtn.href = PAYMENT_LINK; }
+  else {
+    payBtn.style.display = 'none';
+    document.getElementById('pay-msg').textContent = "We'll email you a secure $89.99 payment link shortly. Your report arrives within 3–5 business days of payment.";
+  }
+
+  // ── BOOKING: paste your Brand Strategy Session booking link here (e.g. Calendly) ──
+  const BOOKING_LINK = '';
+  if (BOOKING_LINK) document.getElementById('book-btn').href = BOOKING_LINK;
+
+  // Venn explorer
+  const V = {
+    sales: { t: 'Sales', d: 'All three aligned. We start with the brand, the foundation the other two stand on.', r: ['b','m','s'] },
+    b: { t: 'Branding', d: 'Instant trust. Your look, voice and story, the same everywhere.', r: ['b'] },
+    m: { t: 'Marketing', d: 'Reach, and a reason to buy. The right people see the right offer.', r: ['m'] },
+    s: { t: 'Systems', d: 'When someone is interested, it is easy to say yes.', r: ['s'] },
+    bm: { t: 'Content', d: 'Branding + Marketing. Every post and ad stays true to who you are.', r: ['b','m'] },
+    bs: { t: 'User experience', d: 'Branding + Systems. How your website and quotes feel is part of your brand.', r: ['b','s'] },
+    ms: { t: 'The funnel', d: 'Marketing + Systems. Every lead gets a fast reply and a next step.', r: ['m','s'] }
+  };
+  const venn = document.getElementById('venn');
+  const out = document.getElementById('vx-out');
+  const vbtns = document.querySelectorAll('#vx-btns button');
+  function pickV(k) {
+    const v = V[k];
+    vbtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.k === k ? 'true' : 'false'));
+    venn.classList.toggle('focus', k !== 'sales');
+    venn.querySelectorAll('circle.ring').forEach(c => c.classList.toggle('hl', v.r.includes(c.dataset.r)));
+    out.innerHTML = '<b>' + v.t + '</b><span>' + v.d + '</span>';
+  }
+  vbtns.forEach(b => b.addEventListener('click', () => pickV(b.dataset.k)));
+  venn.querySelectorAll('circle.ring').forEach(c => c.addEventListener('click', () => pickV(c.dataset.r)));
+
+  // Report explorer
+  const CAP = [
+    ['The whole plan in one read', 'Every answer on a single page, linked to the detail.'],
+    ['Who you are for', 'The buyers, the influencers, and what makes them trust you.'],
+    ['Why you win', 'Your edge over the competition, backed by proof you already have.'],
+    ['Your story', 'The chapters only you can tell, and where to tell them.'],
+    ['When each push happens', 'A year on one page, lined up with your seasons and events.'],
+    ['What you say, how you sound', 'Words to use, words to avoid, lines your team can copy.'],
+    ['We test you like a real customer', 'We find your prices, fill in your forms, email and message you, and time every reply.']
+  ];
+  const tabs = document.querySelectorAll('#rx-tabs button');
+  const pages = document.querySelectorAll('.rx-frame .page');
+  const cap = document.getElementById('rx-cap');
+  function pickTab(i) {
+    tabs.forEach((t, j) => t.setAttribute('aria-selected', j === i ? 'true' : 'false'));
+    pages.forEach((p, j) => p.classList.toggle('on', j === i));
+    cap.innerHTML = '<b>' + CAP[i][0] + '</b><span>' + CAP[i][1] + '</span>';
+  }
+  tabs.forEach(t => t.addEventListener('click', () => pickTab(+t.dataset.i)));
+
+  // Stepped form
+  const steps = document.querySelectorAll('.fstep');
+  const bars = document.querySelectorAll('.fsteps i');
+  const errBox = document.getElementById('eg-form-error');
+  let cur = 0;
+  function go(i) {
+    cur = i;
+    steps.forEach((s, j) => s.hidden = j !== i);
+    bars.forEach((b, j) => b.classList.toggle('on', j <= i));
+    errBox.classList.remove('show');
+    document.getElementById('start').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function bad(msg, f) { errBox.textContent = msg; errBox.classList.add('show'); f.focus(); return false; }
+  function check0() {
+    const n = document.getElementById('f-name'), c = document.getElementById('f-company'), e = document.getElementById('f-email'), w = document.getElementById('f-website');
+    if (!n.value.trim()) return bad('Please add your name.', n);
+    if (!c.value.trim()) return bad('Please add your business name.', c);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.value.trim())) return bad('Please enter a valid email address.', e);
+    if (!w.value.trim()) return bad('Please add your website (or your main social page).', w);
+    return true;
+  }
+  document.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', () => { if (cur === 0 && !check0()) return; go(cur + 1); }));
+  document.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => go(cur - 1)));
+}
+</script>
+</body>
+</html>
