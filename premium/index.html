@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Establish Growth — Brand strategy &amp; content for lifestyle brands</title>
+<link rel="canonical" href="https://establishgrowth.com/premium/">
+<meta property="og:title" content="Establish Growth — Brand strategy &amp; content for lifestyle brands">
+<meta property="og:image" content="https://establishgrowth.com/premium/assets/hero-cabo.jpg">
+<meta name="description" content="Premium video and photography for country clubs, resorts, luxury residences and wellness. Content built on who you are.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&display=swap">
+<style>
+:root{--ink:#12110F;--ink2:#1C1A17;--line:#2B2824;--cream:#F2EBDD;--soft:#D9D0C2;--mute:#A89F92;--copper:#C08A5B;--gold:#E3B98F;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:Inter,Arial,sans-serif;--pad:clamp(20px,4vw,56px)}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+html,body{overflow-x:hidden}
+@supports (overflow:clip){html,body{overflow-x:clip}}
+a{color:var(--gold)}
+img,video{display:block}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{margin:0 0 20px;font:500 12px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.h2{margin:0;font:300 clamp(40px,5vw,72px)/1 var(--serif);letter-spacing:-.01em}
+.body{font:300 17px/1.7 var(--sans);color:var(--soft)}
+.btn{display:inline-block;padding:16px 30px;border:1px solid var(--copper);border-radius:999px;color:var(--cream);text-decoration:none;font:500 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;transition:background .4s,color .4s,border-color .4s,transform .4s}
+.btn:hover{background:var(--copper);color:var(--ink);transform:translateY(-2px)}
+.btn.solid{background:var(--copper);color:var(--ink)}
+.btn.solid:hover{background:var(--cream);border-color:var(--cream)}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);transition:background .5s,padding .5s,backdrop-filter .5s}
+header.solid{background:rgba(18,17,15,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:14px var(--pad)}
+.brand{color:var(--cream);text-decoration:none;font:500 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase}
+header .btn{padding:11px 20px;font-size:11px;white-space:nowrap}
+header .btn .sm{display:none}
+@media (max-width:560px){header .btn .lg{display:none}header .btn .sm{display:inline}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(110px,14vh,150px) 0 clamp(70px,10vh,110px)}
+.herogrid{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(40px,5vw,80px)}
+.herotext{flex:1 1 520px}
+.heroreels{flex:1 1 440px;min-width:0}
+.hero h1{margin:0;font:300 clamp(48px,6.2vw,92px)/.98 var(--serif);letter-spacing:-.02em}
+.hero p.lead{margin:26px 0 32px;max-width:520px;font:300 18px/1.6 var(--sans);color:var(--soft)}
+.line{display:block;overflow:hidden}
+.line > span{display:block;transform:translateY(105%);transition:transform 1.3s cubic-bezier(.2,.7,.2,1)}
+.hero.go .line > span{transform:none}
+.hero .fade{opacity:0;transform:translateY(20px);transition:opacity 1.2s ease,transform 1.2s ease}
+.hero.go .fade{opacity:1;transform:none}
+@media (max-width:900px){.herogrid{flex-direction:column;align-items:stretch;gap:36px}.herotext{flex:none}.heroreels{flex:none}.hero .cta{display:none}}
+.scrollcue-unused{position:absolute;right:var(--pad);bottom:clamp(64px,10vh,110px);z-index:2;font:500 10px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--mute);writing-mode:vertical-rl}
+.scrollcue::after{content:"";display:block;width:1px;height:60px;margin:14px auto 0;background:linear-gradient(var(--gold),transparent);animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0}
+.marquee .track{display:flex;width:max-content;gap:56px;font:300 30px/1 var(--serif);color:var(--mute);white-space:nowrap;will-change:transform}
+.marquee i{font-style:normal;color:var(--copper)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(48px);transition:opacity 1.2s cubic-bezier(.2,.7,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+
+/* statement */
+.statement{position:relative;overflow:hidden;padding:clamp(120px,18vh,200px) var(--pad);text-align:center}
+.statement .big{position:relative;margin:0 auto;max-width:1100px;font:300 clamp(36px,5.4vw,74px)/1.12 var(--serif)}
+.statement .big span{opacity:.14;transition:opacity .25s linear}
+.statement .sub{position:relative;margin:36px 0 0;font:300 italic clamp(26px,3vw,40px)/1.3 var(--serif);color:var(--gold)}
+.glow{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(192,138,91,.2) 0%,rgba(192,138,91,0) 68%);animation:glow 18s ease-in-out infinite alternate}
+@keyframes glow{from{transform:translate(-60px,30px) scale(.9);opacity:.7}to{transform:translate(60px,-40px) scale(1.12);opacity:1}}
+.dust{position:absolute;bottom:-10px;border-radius:50%;background:var(--gold);opacity:0;animation:dust linear infinite}
+@keyframes dust{0%{transform:translateY(0);opacity:0}15%{opacity:.6}80%{opacity:.35}100%{transform:translateY(-640px);opacity:0}}
+
+/* reels */
+.reels{position:relative;padding:40px 0 clamp(120px,16vh,180px)}
+.reels .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:72px}
+.reels .head p{margin:0;max-width:380px;font:300 16px/1.7 var(--sans);color:var(--mute)}
+.reelgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,3vw,40px);align-items:start}
+.reel{margin:0;will-change:transform,opacity}
+.phone{border-radius:28px;overflow:hidden;border:1px solid #3A352F;aspect-ratio:9/16;background:var(--ink2);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.phone video{width:100%;height:100%;object-fit:cover}
+.reel figcaption{margin-top:16px;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:760px){.reelgrid{grid-template-columns:1fr;max-width:340px;margin:0 auto;gap:56px}}
+
+/* reel carousel */
+.cf{position:relative;height:calc(min(320px,66vw) * 16 / 9);max-width:640px;margin:0 auto;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.cf-item{position:absolute;top:0;left:50%;width:min(320px,66vw);margin:0;cursor:pointer;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s ease,opacity .8s ease;will-change:transform}
+.cf-item .phone{box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.cf-item.is-active{transform:translateX(-50%) scale(1);z-index:3;filter:none;cursor:default}
+.cf-item.is-prev{transform:translateX(calc(-50% - 58%)) scale(.8) rotate(-3deg);z-index:2;filter:brightness(.38) saturate(.7)}
+.cf-item.is-next{transform:translateX(calc(-50% + 58%)) scale(.8) rotate(3deg);z-index:2;filter:brightness(.38) saturate(.7)}
+.cf-item.is-prev:hover,.cf-item.is-next:hover{filter:brightness(.55) saturate(.8)}
+@media (max-width:760px){.cf-item.is-prev{transform:translateX(calc(-50% - 40%)) scale(.78) rotate(-3deg)}.cf-item.is-next{transform:translateX(calc(-50% + 40%)) scale(.78) rotate(3deg)}}
+.cf-nav{position:absolute;top:50%;z-index:4;width:48px;height:48px;margin-top:-24px;border-radius:50%;border:1px solid rgba(242,235,221,.35);background:rgba(18,17,15,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s}
+.cf-nav:hover{background:var(--copper);border-color:var(--copper)}
+.cf-nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cf-nav.prev{left:calc(50% - min(320px,66vw)/2 - 24px)}
+.cf-nav.next{right:calc(50% - min(320px,66vw)/2 - 24px)}
+@media (max-width:760px){.cf-nav{display:none}}
+.cf-foot{text-align:center;margin-top:22px}
+.cf-cap{margin:0;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+.cf-dots{display:flex;justify-content:center;gap:10px;margin-top:16px}
+.cf-dots button{width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.cf-dots button::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:var(--mute);transition:width .4s,background .4s,margin .4s;border-radius:3px}
+.cf-dots button[aria-current="true"]::after{width:22px;margin-left:-11px;background:var(--copper)}
+.cf-hint{margin:10px 0 0;font:300 12px/1.4 var(--sans);color:#8A8176}
+/* partnership */
+.partner{border-top:1px solid var(--line)}
+.partner .wrap{padding-top:clamp(110px,14vh,160px);padding-bottom:clamp(110px,14vh,160px)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:64px}
+.pcard{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:36px 32px;transition:border-color .4s,transform .4s}
+.pcard:hover{border-color:var(--copper);transform:translateY(-4px)}
+.pcard .n{margin:0 0 22px;font:300 22px/1 var(--serif);color:var(--gold)}
+.pcard h3{margin:0 0 12px;font:400 32px/1.1 var(--serif)}
+.pcard p{margin:0;font:300 16px/1.7 var(--sans);color:var(--mute)}
+.feel{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feel .wrap{padding-top:clamp(110px,14vh,160px);padding-bottom:clamp(110px,14vh,160px)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:72px;border-top:1px solid var(--line)}
+.fitem{padding:36px 28px 8px;border-left:1px solid var(--line)}
+.fitem:first-child{border-left:0}
+.fitem h3{margin:0 0 10px;font:400 italic 36px/1.1 var(--serif);color:var(--gold)}
+.fitem p{margin:0;font:300 17px/1.6 var(--sans);color:var(--soft)}
+@media (max-width:760px){.fitem{border-left:0;border-bottom:1px solid var(--line);padding:28px 0}}
+/* services accordion */
+.svcwrap{margin-top:clamp(70px,10vh,110px)}
+.svchead{margin:0 0 28px;font:300 clamp(34px,3.6vw,52px)/1 var(--serif)}
+.svclist{border-top:1px solid var(--line)}
+.svc{border-bottom:1px solid var(--line)}
+.svc summary{list-style:none;display:flex;align-items:center;gap:clamp(16px,3vw,40px);padding:30px 4px;cursor:pointer}
+.svc summary::-webkit-details-marker{display:none}
+.svc .n{font:300 20px/1 var(--serif);color:var(--gold);min-width:28px}
+.svc .t{flex:1;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 28px}
+.svc .t b{font:400 clamp(28px,3vw,40px)/1.1 var(--serif);min-width:min(320px,100%)}
+.svc .t span{font:300 16px/1.6 var(--sans);color:var(--mute)}
+.svc .plus{position:relative;flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,235,221,.3);transition:background .3s,border-color .3s,transform .4s}
+.svc .plus::before,.svc .plus::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1px;margin-left:-7px;background:var(--cream);transition:transform .4s}
+.svc .plus::after{transform:rotate(90deg)}
+.svc[open] .plus{background:var(--copper);border-color:var(--copper);transform:rotate(180deg)}
+.svc[open] .plus::after{transform:rotate(0)}
+.svc summary:hover .plus{border-color:var(--copper)}
+.svc ul{margin:0;padding:0 4px 34px calc(28px + clamp(16px,3vw,40px));list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 40px;animation:svcIn .5s ease both}
+.svc li{font:300 16px/1.6 var(--sans);color:var(--soft);padding-left:18px;position:relative}
+.svc li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:1px;background:var(--copper)}
+.svc li b{font-weight:500;color:var(--cream)}
+@keyframes svcIn{from{opacity:0;transform:translateY(-6px)}}
+@media (max-width:640px){.svc ul{padding-left:4px}}
+/* count on */
+.count{display:flex;flex-direction:column}
+.count > div{padding:22px 0;border-top:1px solid var(--line)}
+.count > div:last-child{border-bottom:1px solid var(--line)}
+.count h3{margin:0 0 6px;font:400 28px/1.15 var(--serif)}
+.count p{margin:0;font:300 16px/1.6 var(--sans);color:var(--mute)}
+/* booking */
+.bk{position:fixed;inset:0;z-index:100;background:rgba(10,9,8,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .35s}
+.bk.open{opacity:1}
+.bk[hidden]{display:none}
+.bk-panel{position:relative;width:min(760px,100%);max-height:calc(100vh - 40px);max-height:calc(100svh - 40px);overflow:auto;background:var(--ink2);border:1px solid #3A352F;border-radius:16px;padding:clamp(26px,4vw,48px);box-shadow:0 40px 120px rgba(0,0,0,.6);transform:translateY(16px);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.bk.open .bk-panel{transform:none}
+.bk-x{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,235,221,.25);background:none;color:var(--cream);font:300 24px/1 var(--sans);cursor:pointer}
+.bk-x:hover{border-color:var(--copper)}
+.bk h2{margin:0;font:300 clamp(32px,4vw,48px)/1.05 var(--serif)}
+.bk-meta{margin:12px 0 0;font:300 15px/1.6 var(--sans);color:var(--mute)}
+.bk-lbl{margin:32px 0 14px;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;justify-content:space-between;gap:12px}
+.bk-lbl span{color:var(--mute);letter-spacing:.1em}
+.bk-days{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.bk-day{flex:0 0 auto;width:74px;padding:12px 0;border-radius:10px;border:1px solid var(--line);background:none;color:var(--cream);cursor:pointer;text-align:center;font-family:var(--sans);transition:border-color .25s,background .25s}
+.bk-day small{display:block;font:500 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.bk-day b{display:block;font:300 28px/1.1 var(--serif);margin:6px 0 2px}
+.bk-day:hover{border-color:var(--copper)}
+.bk-day[aria-pressed="true"]{background:var(--copper);border-color:var(--copper);color:var(--ink)}
+.bk-day[aria-pressed="true"] small{color:var(--ink)}
+.bk-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px}
+.bk-slot{padding:13px 0;border-radius:999px;border:1px solid var(--line);background:none;color:var(--cream);font:400 14px/1 var(--sans);cursor:pointer;transition:border-color .25s,background .25s}
+.bk-slot:hover{border-color:var(--copper)}
+.bk-slot[aria-pressed="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.bk-form{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bk-form .full{grid-column:1/-1}
+.bk-form label{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.bk-form input,.bk-form select,.bk-form textarea{width:100%;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:var(--ink);color:var(--cream);font:300 16px/1.4 var(--sans)}
+.bk-form input:focus,.bk-form select:focus,.bk-form textarea:focus{outline:none;border-color:var(--copper)}
+.bk-form textarea{min-height:90px;resize:vertical}
+.bk-chosen{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:10px;background:rgba(192,138,91,.12);border:1px solid rgba(192,138,91,.4);font:400 15px/1.4 var(--sans)}
+.bk-chosen button{background:none;border:0;color:var(--gold);font:500 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.bk-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.bk-msg{margin:16px 0 0;font:300 14px/1.5 var(--sans);color:var(--gold)}
+.bk-empty{font:300 15px/1.6 var(--sans);color:var(--mute)}
+.bk-done{text-align:center;padding:30px 0 10px}
+.bk-done .tick{width:64px;height:64px;margin:0 auto 22px;border-radius:50%;background:var(--copper);display:flex;align-items:center;justify-content:center}
+.bk-done .tick svg{width:28px;height:28px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bk-done p{margin:14px auto 0;max-width:460px;font:300 16px/1.6 var(--sans);color:var(--soft)}
+@media (max-width:560px){.bk{padding:0;align-items:flex-end}.bk-panel{border-radius:16px 16px 0 0;max-height:94vh;max-height:94svh}.bk-form{grid-template-columns:1fr}}
+/* identity */
+.identity{background:var(--cream);color:#1E1B17}
+.identity .wrap{display:flex;flex-wrap:wrap;gap:64px;padding-top:clamp(110px,16vh,170px);padding-bottom:clamp(110px,16vh,170px)}
+.identity .eyebrow{color:#8E5A31}
+.identity .body{color:#4A423A}
+.identity .col1{flex:1 1 320px}
+.identity .col2{flex:1 1 480px}
+.beat{display:flex;gap:28px;align-items:baseline;padding:32px 0;border-top:1px solid #CDBFAC}
+.beat:last-child{border-bottom:1px solid #CDBFAC}
+.beat .n{font:300 22px/1 var(--serif);color:#8E5A31}
+.beat h3{margin:0;font:400 clamp(32px,3.4vw,44px)/1.1 var(--serif)}
+.beat p{margin:8px 0 0;font:300 16px/1.6 var(--sans);color:#4A423A}
+
+/* full-bleed */
+.bleed{position:relative;height:min(90vh,820px);min-height:520px;overflow:hidden;display:flex;align-items:center}
+.bleed .media{position:absolute;inset:0;will-change:transform}
+.bleed video,.bleed img{width:100%;height:100%;object-fit:cover}
+.bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,17,15,.88) 0%,rgba(18,17,15,.45) 55%,rgba(18,17,15,.1) 100%)}
+.bleed .wrap{position:relative;z-index:2;width:100%}
+.bleed h2{margin:0;font:300 clamp(44px,6vw,92px)/1 var(--serif);max-width:720px}
+
+/* gallery: free swipe row */
+.gal{position:relative;padding:clamp(110px,14vh,160px) 0 clamp(90px,12vh,140px)}
+.gal .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:40px}
+.gal .hint{margin:0;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.gal-ctrls{display:flex;gap:10px}
+.gal-ctrls button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,235,221,.3);background:none;color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s}
+.gal-ctrls button:hover{background:var(--copper);border-color:var(--copper)}
+.gal-ctrls svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.gal .rail{display:flex;gap:20px;overflow-x:auto;padding:0 var(--pad) 8px;scroll-snap-type:x proximity;scroll-padding:0 var(--pad);-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
+.gal .rail::-webkit-scrollbar{display:none}
+.gal .rail.drag{cursor:grabbing;scroll-snap-type:none}
+.gal figure{margin:0;flex:0 0 auto;scroll-snap-align:start}
+.gal img{height:min(56vh,460px);width:auto;border-radius:6px;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.gal .credit{margin:22px 0 0;font:300 12px/1.5 var(--sans);color:#8A8176}
+.progress{height:1px;background:var(--line);margin-top:28px;position:relative}
+.progress i{position:absolute;inset:0 auto 0 0;width:0;background:var(--copper);transition:width .2s}
+@media (max-width:760px){.gal-ctrls{display:none}.gal img{height:min(52vh,420px)}}
+/* pride */
+.pride .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,6vw,96px);padding-top:clamp(110px,14vh,160px);padding-bottom:clamp(110px,14vh,170px)}
+.pride .vid{flex:1 1 520px;border-radius:8px;overflow:hidden;aspect-ratio:16/10;background:var(--ink2)}
+.pride .vid video{width:100%;height:100%;object-fit:cover}
+.pride .txt{flex:1 1 340px}
+.pride h2{margin:0;font:300 clamp(40px,4.6vw,66px)/1.02 var(--serif)}
+
+/* steps */
+.steps{border-top:1px solid var(--line)}
+.steps .wrap{padding-top:clamp(110px,14vh,150px);padding-bottom:clamp(110px,14vh,150px)}
+.stepgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;margin-top:64px}
+.step{border-top:1px solid var(--copper);padding-top:28px}
+.step .n{margin:0 0 18px;font:300 22px/1 var(--serif);color:var(--gold)}
+.step h3{margin:0 0 12px;font:400 32px/1.1 var(--serif)}
+.step p{margin:0;font:300 16px/1.7 var(--sans);color:var(--mute)}
+
+/* closing */
+.close{position:relative;min-height:min(92vh,820px);overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.close .media{position:absolute;inset:0;will-change:transform}
+.close .media img{width:100%;height:100%;object-fit:cover}
+.close::before{content:"";position:absolute;inset:0;background:rgba(18,17,15,.74);z-index:1}
+.close .inner{position:relative;z-index:2;max-width:880px;padding:120px var(--pad)}
+.close h2{margin:0;font:300 clamp(44px,6vw,96px)/1 var(--serif)}
+.close p{margin:30px auto 42px;max-width:520px}
+
+footer{border-top:1px solid var(--line);padding:36px var(--pad);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font:300 13px/1.6 var(--sans);color:#8A8176}
+
+/* static fallback (embedded viewers that don't scroll the page) */
+
+html.static .statement .big span{opacity:1 !important}
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .rv,.line > span,.hero .fade{opacity:1 !important;transform:none !important;transition:none !important}
+  
+  .glow,.dust,.scrollcue::after{animation:none !important}
+  .dust{display:none}
+  .statement .big span{opacity:1 !important}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <a class="brand" href="https://establishgrowth.com" aria-label="Establish Growth"><img src="assets/logo.webp" alt="Establish Growth" width="640" height="146" style="height:30px;width:auto"></a>
+  <a class="btn" href="#book" data-book><span class="lg">Schedule a call</span><span class="sm">Book a call</span></a>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="glow" style="width:820px;height:820px;right:-200px;top:-120px"></div>
+    <div class="glow" style="width:620px;height:620px;left:-220px;bottom:-200px;animation-duration:24s;animation-direction:alternate-reverse"></div>
+    <div class="wrap herogrid">
+      <div class="herotext">
+        <p class="eyebrow fade" style="transition-delay:.1s">Brand strategy &amp; content partner</p>
+        <h1><span class="line"><span>The recognition</span></span><span class="line"><span style="transition-delay:.15s"><i style="font-weight:300">your place deserves.</i></span></span></h1>
+        <p class="lead fade" style="transition-delay:.55s">We help clubs, resorts and residences build their brand and show it at the standard their members expect.</p>
+        <div class="fade cta" style="transition-delay:.75s"><a class="btn solid" href="#book" data-book>Schedule a call</a></div>
+      </div>
+      <div class="heroreels fade" style="transition-delay:.4s">
+      <div class="cf" id="cf" role="region" aria-roledescription="carousel" aria-label="Featured reels">
+        <figure class="cf-item" data-cap="Cambridge Beaches · Bermuda"><div class="phone"><video muted loop playsinline preload="none" poster="assets/reel-bermuda.jpg" data-src="assets/reel-bermuda-q.mp4" aria-label="Cambridge Beaches, Bermuda"></video></div></figure>
+        <figure class="cf-item" data-cap="Islander Resort · Florida Keys"><div class="phone"><video muted loop playsinline preload="none" poster="assets/reel-islander.jpg" data-src="assets/reel-islander-q.mp4" aria-label="Islander Resort, Florida Keys"></video></div></figure>
+        <figure class="cf-item" data-cap="Beachfront · Florida Keys"><div class="phone"><video muted loop playsinline preload="none" poster="assets/reel-keys.jpg" data-src="assets/reel-keys-q.mp4" aria-label="Beachfront haven, Florida Keys"></video></div></figure>
+        <button class="cf-nav prev" type="button" aria-label="Previous reel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="cf-nav next" type="button" aria-label="Next reel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <div class="cf-foot">
+        <p class="cf-cap" id="cfcap" aria-live="polite">Cambridge Beaches · Bermuda</p>
+        <div class="cf-dots" id="cfdots"><button type="button" aria-label="Reel 1"></button><button type="button" aria-label="Reel 2"></button><button type="button" aria-label="Reel 3"></button></div>
+        <p class="cf-hint">Swipe or tap for more</p>
+      </div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-label="Who we work with: country clubs, resorts and hotels, luxury residences, wellness and recovery, restaurants and hospitality">
+    <div class="track" id="marq" aria-hidden="true">
+      <span>Country clubs</span><i>✦</i><span>Resorts &amp; hotels</span><i>✦</i><span>Luxury residences</span><i>✦</i><span>Wellness &amp; recovery</span><i>✦</i><span>Restaurants &amp; hospitality</span><i>✦</i>
+      <span>Country clubs</span><i>✦</i><span>Resorts &amp; hotels</span><i>✦</i><span>Luxury residences</span><i>✦</i><span>Wellness &amp; recovery</span><i>✦</i><span>Restaurants &amp; hospitality</span><i>✦</i>
+      <span>Country clubs</span><i>✦</i><span>Resorts &amp; hotels</span><i>✦</i><span>Luxury residences</span><i>✦</i><span>Wellness &amp; recovery</span><i>✦</i><span>Restaurants &amp; hospitality</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- STATEMENT -->
+  <section class="statement" id="statement">
+    <div class="glow" style="width:760px;height:760px;left:50%;top:50%;margin:-380px 0 0 -380px"></div>
+    <div id="dust" aria-hidden="true"></div>
+    <p class="big" id="words">Identity first.</p>
+    <p class="sub rv">The luxury feel your place deserves, in everything people see.</p>
+  </section>
+
+  <!-- PARTNERSHIP -->
+  <section class="partner">
+    <div class="wrap">
+      <div class="rv" style="max-width:820px">
+        <p class="eyebrow">A partner, not a vendor</p>
+        <h2 class="h2">We don’t make videos<br>and walk away.</h2>
+        <p class="body" style="margin:28px 0 0;max-width:600px">We work alongside your team for the long run, keeping your brand consistent and sharper every season.</p>
+      </div>
+      <div class="svcwrap">
+        <h3 class="svchead rv">What we do.</h3>
+        <div class="svclist">
+        <details class="svc rv">
+          <summary><span class="n">01</span><span class="t"><b>Brand Strategy</b><span>Know exactly who you are and how you want to be seen.</span></span><span class="plus" aria-hidden="true"></span></summary>
+          <ul><li>A full review of your website, search results, social media and reviews</li><li>How your competitors present themselves</li><li>Interviews with owners, staff, members and guests</li><li>Your positioning, values, voice and story, written down</li><li><b>You receive:</b> a Brand Assessment, a Brand Strategy and an Implementation Plan</li></ul>
+        </details>
+        <details class="svc rv">
+          <summary><span class="n">02</span><span class="t"><b>Content Creation</b><span>Ideas worth filming, planned around your calendar.</span></span><span class="plus" aria-hidden="true"></span></summary>
+          <ul><li>Story concepts and seasonal campaigns</li><li>Interview questions, scripts and shot lists</li><li>A content calendar</li><li>Captions and copy in your voice</li></ul>
+        </details>
+        <details class="svc rv">
+          <summary><span class="n">03</span><span class="t"><b>Media Production</b><span>Film and photography at the standard of your place.</span></span><span class="plus" aria-hidden="true"></span></summary>
+          <ul><li>Brand films and reels</li><li>Food and drink, spaces and amenities</li><li>Events and weddings</li><li>Aerial footage</li><li>Member, guest and staff interviews</li><li>Full editing</li></ul>
+        </details>
+        <details class="svc rv">
+          <summary><span class="n">04</span><span class="t"><b>Distribution</b><span>Your content, where people look for you.</span></span><span class="plus" aria-hidden="true"></span></summary>
+          <ul><li>A plan for your website, social media, search listing and newsletters</li><li>Formats made for each platform</li><li>A posting schedule your team can keep, or we post it for you</li></ul>
+        </details>
+        <details class="svc rv">
+          <summary><span class="n">05</span><span class="t"><b>Analysis &amp; Insights</b><span>Know what your members respond to, and what to do next.</span></span><span class="plus" aria-hidden="true"></span></summary>
+          <ul><li>Monthly results: reach, engagement, shares</li><li>Perception reviews: we test different versions with real people to see what each one says</li><li>Member and guest feedback</li><li>A quarterly review that updates the plan</li></ul>
+        </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ON LOCATION -->
+  <section class="bleed">
+    <div class="media" data-zoom>
+      <video muted loop playsinline preload="none" poster="assets/hero-cabo.jpg" data-autoplay data-d="assets/hero-cabo-q.mp4" data-m="assets/hero-cabo-q.mp4" aria-hidden="true"></video>
+    </div>
+    <div class="wrap rv">
+      <p class="eyebrow">On location</p>
+      <h2>On the water, on the course,<br>at the table.</h2>
+      <p class="body" style="margin:28px 0 0;max-width:460px">Wherever your story happens, we’re there.</p>
+    </div>
+  </section>
+
+  <!-- MADE TO BE SEEN -->
+  <section class="bleed">
+    <div class="media" data-zoom>
+      <video muted loop playsinline preload="none" poster="assets/isles.jpg" data-autoplay data-d="assets/isles-q.mp4" data-m="assets/isles-q.mp4" aria-hidden="true"></video>
+    </div>
+    <div class="wrap rv">
+      <p class="eyebrow">Made to be shared</p>
+      <h2>Something your members<br>are proud to share.</h2>
+      <p class="body" style="margin:28px 0 0;max-width:480px">Guests arrive excited. Members are proud to belong, and proud to say so. The people who aren’t members yet want to be.</p>
+    </div>
+  </section>
+
+  <!-- PINNED HORIZONTAL GALLERY -->
+  <section class="gal" id="gal">
+    <div>
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2">Restaurant-quality,<br><i>every time.</i></h2>
+          <div style="display:flex;align-items:center;gap:20px"><p class="hint">Swipe to explore →</p><div class="gal-ctrls"><button type="button" id="galprev" aria-label="Previous photos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" id="galnext" aria-label="Next photos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+        </div>
+      </div>
+      <div class="rail" id="rail">
+        <figure><img src="assets/f-steak.webp" alt="Bone-in ribeye with chimichurri" loading="lazy" width="1200" height="800"></figure>
+        <figure><img src="assets/f-trio.webp" alt="Four signature cocktails at the bar" loading="lazy" width="800" height="1200"></figure>
+        <figure><img src="assets/f-eggs.webp" alt="Fried eggs on toast, being cut" loading="lazy" width="1050" height="700"></figure>
+        <figure><img src="assets/f-coupe.webp" alt="Coupe cocktail with star anise" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="assets/f-burger.webp" alt="Breakfast sandwich with bacon and hash brown" loading="lazy" width="1050" height="700"></figure>
+        <figure><img src="assets/f-bowl.webp" alt="Honey poured over a yogurt bowl" loading="lazy" width="999" height="1499"></figure>
+        <figure><img src="assets/f-strawberry.webp" alt="Strawberry cocktail" loading="lazy" width="800" height="1200"></figure>
+        <figure><img src="assets/f-tacos.webp" alt="Tacos with avocado and pickled onion" loading="lazy" width="999" height="1499"></figure>
+      </div>
+      <div class="wrap">
+        <div class="progress"><i id="galbar"></i></div>
+        <p class="credit">Food and drink photography by Establish Growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIDE -->
+  <section class="pride">
+    <div class="wrap">
+      <div class="vid rv"><video muted loop playsinline preload="none" poster="assets/rimfire.jpg" data-autoplay data-d="assets/rimfire-q.mp4" data-m="assets/rimfire-q.mp4" aria-hidden="true"></video></div>
+      <div class="txt rv d1">
+        <p class="eyebrow">What you can count on</p>
+        <div class="count">
+          <div><h3>Premium, every time.</h3><p>Nothing goes out below the standard of your place.</p></div>
+          <div><h3>No extra work for your staff.</h3><p>We plan around your calendar and handle the rest.</p></div>
+          <div><h3>Consistent everywhere.</h3><p>Your website, social media and search listing all tell the same story.</p></div>
+          <div><h3>Results you can show your board.</h3><p>Clear reports, every month.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="close">
+    <div class="media" data-zoom><img src="assets/reel-bermuda.jpg" alt="" loading="lazy"></div>
+    <div class="glow" style="width:700px;height:700px;left:50%;top:50%;margin:-350px 0 0 -350px;z-index:1"></div>
+    <div class="inner rv">
+      <h2>Let’s build the recognition <i>your place deserves.</i></h2>
+      <p class="body">Pick a time that suits you. Thirty minutes with Elliot to talk about your place and your plans.</p>
+      <a class="btn solid" href="#book" data-book>Schedule a call</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="assets/logo.webp" alt="Establish Growth" width="640" height="146" style="height:26px;width:auto">
+  <span>Brand strategy, content &amp; production · Minnesota · <a href="mailto:establishgrowthmedia@gmail.com">establishgrowthmedia@gmail.com</a></span>
+</footer>
+
+<div class="bk" id="book" role="dialog" aria-modal="true" aria-labelledby="bkTitle" hidden>
+  <div class="bk-panel">
+    <button class="bk-x" type="button" id="bkClose" aria-label="Close">×</button>
+    <div id="bkPick">
+      <p class="eyebrow" style="margin-bottom:14px">Schedule a call</p>
+      <h2 id="bkTitle">Let’s talk about your place.</h2>
+      <p class="bk-meta">30 minutes with Elliot Ussery · Google Meet · Times shown in Central Time</p>
+      <p class="bk-lbl">Choose a day</p>
+      <div class="bk-days" id="bkDays"><p class="bk-empty">Loading available times…</p></div>
+      <p class="bk-lbl" id="bkTimeLbl" hidden>Choose a time <span id="bkDayName"></span></p>
+      <div class="bk-slots" id="bkSlots"></div>
+    </div>
+    <form class="bk-form" id="bkForm" hidden novalidate>
+      <div class="bk-chosen"><span id="bkWhen"></span><button type="button" id="bkChange">Change</button></div>
+      <div><label for="bkName">Your name</label><input id="bkName" name="name" autocomplete="name" required></div>
+      <div><label for="bkEmail">Email</label><input id="bkEmail" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="bkOrg">Organization</label><input id="bkOrg" name="organization" autocomplete="organization"></div>
+      <div><label for="bkInd">Industry</label><select id="bkInd" name="industry"><option value="">Choose one</option><option>Country club</option><option>Resort &amp; hotel</option><option>Luxury residences</option><option>Wellness &amp; recovery</option><option>Restaurant &amp; hospitality</option><option>Other</option></select></div>
+      <div class="full"><label for="bkNotes">Anything we should know? (optional)</label><textarea id="bkNotes" name="notes"></textarea></div>
+      <div class="bk-hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="full"><button class="btn solid" type="submit" id="bkSubmit" style="width:100%;padding:18px">Confirm my call</button><p class="bk-msg" id="bkMsg" role="status"></p></div>
+    </form>
+    <div class="bk-done" id="bkDone" hidden>
+      <div class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h2>You’re booked.</h2>
+      <p id="bkDoneWhen"></p>
+      <p>We’ve sent a confirmation to your email with a link to add it to your calendar. Talk soon.</p>
+      <p id="bkPreview" class="bk-msg" hidden>Preview mode: booking isn’t connected to the calendar yet, so nothing was sent.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vh = window.innerHeight;
+  var small = Math.min(window.screen.width || 9999, window.innerWidth) < 820;
+  // Some embedded viewers grow the frame to the full page height, so the page itself never scrolls.
+  var isStatic = window.innerHeight > (window.screen.height || 1000) * 1.6;
+  if (isStatic) document.documentElement.classList.add('static');
+  function pick(v) { return v.getAttribute(small ? 'data-m' : 'data-d'); }
+  function load(v) { if (!v.getAttribute('src')) { v.setAttribute('src', pick(v)); v.preload = 'auto'; v.load(); } }
+  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+  var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+
+  // Hero intro
+  requestAnimationFrame(function () { document.getElementById('hero').classList.add('go'); });
+
+  // Header turns solid on scroll
+  var hdr = document.getElementById('hdr');
+
+  // Split statement into words
+  var wordsEl = document.getElementById('words');
+  var words = wordsEl.textContent.split(' ');
+  wordsEl.innerHTML = words.map(function (w) { return '<span>' + w + '</span>'; }).join(' ');
+  var wordSpans = wordsEl.querySelectorAll('span');
+
+  // Gold dust
+  if (!reduce) {
+    var dust = document.getElementById('dust');
+    for (var i = 0; i < 18; i++) {
+      var d = document.createElement('span');
+      d.className = 'dust';
+      var s = 2 + Math.random() * 2.5;
+      d.style.cssText = 'left:' + (4 + Math.random() * 92) + '%;width:' + s + 'px;height:' + s + 'px;animation-duration:' + (13 + Math.random() * 10) + 's;animation-delay:' + (-Math.random() * 20) + 's';
+      dust.appendChild(d);
+    }
+  }
+
+  // Reveal on view
+  var rvs = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    rvs.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    rvs.forEach(function (el) { io.observe(el); });
+  }
+
+  // Play videos only while visible
+  var vids = document.querySelectorAll('video[data-autoplay]');
+  if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.muted = true; load(v); if (!reduce) v.play(); }); }
+  if ('IntersectionObserver' in window) {
+    var vio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { load(v); if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.01, rootMargin: '600px 0px 600px 0px' });
+    vids.forEach(function (v) { v.muted = true; vio.observe(v); });
+  }
+
+
+
+  // Scroll-linked effects
+  var zooms = document.querySelectorAll('[data-zoom]');
+  var rail = document.getElementById('rail');
+  var bar = document.getElementById('galbar');
+  var marq = document.getElementById('marq');
+  var stmt = document.getElementById('statement');
+
+  function sizeGallery() {}
+  // Gallery: free swipe, arrows, drag on desktop, progress line
+  function galProg() { var m = rail.scrollWidth - rail.clientWidth; bar.style.width = (m > 0 ? rail.scrollLeft / m * 100 : 0).toFixed(2) + '%'; }
+  rail.addEventListener('scroll', galProg, { passive: true });
+  function step(dir) { rail.scrollBy({ left: dir * Math.max(300, rail.clientWidth * 0.6), behavior: reduce ? 'auto' : 'smooth' }); }
+  document.getElementById('galprev').addEventListener('click', function () { step(-1); });
+  document.getElementById('galnext').addEventListener('click', function () { step(1); });
+  var gdx = 0, gsl = 0, gdown = false;
+  rail.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') return; gdown = true; gdx = e.clientX; gsl = rail.scrollLeft; rail.classList.add('drag'); });
+  window.addEventListener('pointermove', function (e) { if (gdown) rail.scrollLeft = gsl - (e.clientX - gdx); });
+  window.addEventListener('pointerup', function () { if (gdown) { gdown = false; rail.classList.remove('drag'); } });
+
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    var y = window.scrollY || window.pageYOffset;
+    hdr.classList.toggle('solid', y > 60);
+
+    if (reduce || isStatic) return;
+
+    // Statement words light up
+    var sr = stmt.getBoundingClientRect();
+    var sp = clamp((vh * 0.85 - sr.top) / (vh * 0.7), 0, 1);
+    for (var i = 0; i < wordSpans.length; i++) {
+      var t = clamp(sp * wordSpans.length - i, 0, 1);
+      wordSpans[i].style.opacity = (0.14 + 0.86 * t).toFixed(3);
+    }
+
+    // Slow zoom on full-bleed media
+    zooms.forEach(function (m) {
+      var r = m.parentElement.getBoundingClientRect();
+      var p = clamp((vh - r.top) / (vh + r.height), 0, 1);
+      m.style.transform = 'scale(' + (1.18 - 0.18 * p).toFixed(4) + ') translateY(' + ((0.5 - p) * 40).toFixed(1) + 'px)';
+    });
+
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+
+  // Gentle constant marquee drift
+  var mx = 0;
+  function drift() {
+    if (!reduce) {
+      mx += 0.45;
+      var third = marq.scrollWidth / 3;
+      marq.style.transform = 'translateX(' + (-(mx % third)).toFixed(1) + 'px)';
+      requestAnimationFrame(drift);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { sizeGallery(); onScroll(); });
+  window.addEventListener('load', function () { sizeGallery(); onScroll(); });
+  rail.querySelectorAll('img').forEach(function (im) { im.addEventListener('load', function () { sizeGallery(); onScroll(); }); });
+
+  // Reel carousel
+  (function () {
+    var cf = document.getElementById('cf');
+    var items = [].slice.call(cf.querySelectorAll('.cf-item'));
+    var dots = [].slice.call(document.querySelectorAll('#cfdots button'));
+    var cap = document.getElementById('cfcap');
+    var idx = 0, n = items.length, visible = false;
+    function vid(i) { return items[i].querySelector('video'); }
+    function ensure(v) { if (!v.getAttribute('src')) { v.setAttribute('src', v.getAttribute('data-src')); v.preload = 'auto'; v.load(); } }
+    function render() {
+      items.forEach(function (el, i) {
+        var rel = (i - idx + n) % n;
+        el.classList.toggle('is-active', rel === 0);
+        el.classList.toggle('is-next', rel === 1);
+        el.classList.toggle('is-prev', rel === n - 1);
+        el.setAttribute('aria-hidden', rel === 0 ? 'false' : 'true');
+        var v = vid(i);
+        v.muted = true;
+        if (rel === 0 && visible) { ensure(v); if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+        else { v.pause(); }
+      });
+      dots.forEach(function (d, i) { d.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
+      cap.textContent = items[idx].getAttribute('data-cap');
+    }
+    function go(i) { idx = (i + n) % n; render(); if (visible) { ensure(vid((idx + 1) % n)); } }
+    cf.querySelector('.prev').addEventListener('click', function () { go(idx - 1); });
+    cf.querySelector('.next').addEventListener('click', function () { go(idx + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    items.forEach(function (el, i) { el.addEventListener('click', function () { if (moved) return; if (i !== idx) go(i); }); });
+    cf.tabIndex = 0;
+    cf.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') go(idx - 1); if (e.key === 'ArrowRight') go(idx + 1); });
+    // Swipe: horizontal only; vertical page scroll is left alone
+    var sx = 0, sy = 0, down = false, moved = false;
+    cf.addEventListener('pointerdown', function (e) { down = true; moved = false; sx = e.clientX; sy = e.clientY; });
+    cf.addEventListener('pointermove', function (e) { if (down && Math.abs(e.clientX - sx) > 12 && Math.abs(e.clientX - sx) > Math.abs(e.clientY - sy)) moved = true; });
+    function end(e) {
+      if (!down) return; down = false;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) { go(dx < 0 ? idx + 1 : idx - 1); }
+      setTimeout(function () { moved = false; }, 0);
+    }
+    cf.addEventListener('pointerup', end);
+    cf.addEventListener('pointercancel', function () { down = false; });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { es.forEach(function (e) { visible = e.isIntersecting; render(); }); }, { threshold: 0.05, rootMargin: '400px 0px 400px 0px' }).observe(cf);
+    } else { visible = true; }
+    render();
+  })();
+
+  // ---------- Booking ----------
+  (function () {
+    var BOOKING_URL = ''; // paste the Apps Script web app URL (ends in /exec) here
+    var TZ = 'America/Chicago';
+    var modal = document.getElementById('book');
+    var daysEl = document.getElementById('bkDays'), slotsEl = document.getElementById('bkSlots');
+    var pick = document.getElementById('bkPick'), form = document.getElementById('bkForm'), done = document.getElementById('bkDone');
+    var msg = document.getElementById('bkMsg'), submit = document.getElementById('bkSubmit');
+    var data = null, day = null, slot = null, lastFocus = null;
+
+    function demo() {
+      var out = [], now = new Date(), fmt = function (o) { return new Intl.DateTimeFormat('en-US', Object.assign({ timeZone: TZ }, o)); };
+      for (var d = 1; out.length < 12 && d < 30; d++) {
+        var base = new Date(now.getTime() + d * 864e5);
+        var wd = fmt({ weekday: 'short' }).format(base);
+        if (wd === 'Sat' || wd === 'Sun') continue;
+        var slots = [];
+        for (var h = 9; h < 17; h++) for (var m = 0; m < 60; m += 30) {
+          if ((h * 7 + m + d) % 4 === 0) continue;
+          var t = new Date(base); t.setHours(h, m, 0, 0);
+          slots.push({ start: t.toISOString(), label: (h % 12 || 12) + ':' + (m ? '30' : '00') + (h < 12 ? ' AM' : ' PM') });
+        }
+        out.push({ weekday: wd, day: fmt({ day: 'numeric' }).format(base), month: fmt({ month: 'short' }).format(base), label: fmt({ weekday: 'long', month: 'long', day: 'numeric' }).format(base), slots: slots });
+      }
+      return out;
+    }
+
+    function load() {
+      daysEl.innerHTML = '<p class="bk-empty">Loading available times…</p>'; slotsEl.innerHTML = '';
+      document.getElementById('bkTimeLbl').hidden = true;
+      if (!BOOKING_URL) { data = demo(); renderDays(); return; }
+      fetch(BOOKING_URL).then(function (r) { return r.json(); }).then(function (j) {
+        if (!j.ok) throw 0; data = j.days || []; renderDays();
+      }).catch(function () {
+        daysEl.innerHTML = '<p class="bk-empty">We couldn’t load times right now. Email <a href="mailto:establishgrowthmedia@gmail.com">establishgrowthmedia@gmail.com</a> and we’ll find one together.</p>';
+      });
+    }
+
+    function renderDays() {
+      if (!data.length) { daysEl.innerHTML = '<p class="bk-empty">No open times in the next few weeks. Email <a href="mailto:establishgrowthmedia@gmail.com">establishgrowthmedia@gmail.com</a> and we’ll find one.</p>'; return; }
+      daysEl.innerHTML = '';
+      data.forEach(function (d, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'bk-day'; b.setAttribute('aria-pressed', 'false');
+        b.setAttribute('aria-label', d.label);
+        b.innerHTML = '<small>' + d.weekday + '</small><b>' + d.day + '</b><small>' + d.month + '</small>';
+        b.addEventListener('click', function () { chooseDay(i); });
+        daysEl.appendChild(b);
+      });
+      chooseDay(0);
+    }
+
+    function chooseDay(i) {
+      day = data[i];
+      [].forEach.call(daysEl.children, function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+      document.getElementById('bkTimeLbl').hidden = false;
+      document.getElementById('bkDayName').textContent = day.label;
+      slotsEl.innerHTML = '';
+      day.slots.forEach(function (s) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'bk-slot'; b.textContent = s.label; b.setAttribute('aria-pressed', 'false');
+        b.addEventListener('click', function () { chooseSlot(s); });
+        slotsEl.appendChild(b);
+      });
+    }
+
+    function chooseSlot(s) {
+      slot = s;
+      document.getElementById('bkWhen').textContent = day.label + ' at ' + s.label + ' (Central)';
+      pick.hidden = true; form.hidden = false; msg.textContent = '';
+      document.getElementById('bkName').focus();
+    }
+
+    document.getElementById('bkChange').addEventListener('click', function () { form.hidden = true; pick.hidden = false; });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = new FormData(form), body = {};
+      f.forEach(function (v, k) { body[k] = String(v).trim(); });
+      if (!body.name) { msg.textContent = 'Please add your name.'; return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) { msg.textContent = 'Please add a valid email.'; return; }
+      body.start = slot.start;
+      submit.disabled = true; submit.textContent = 'Booking…'; msg.textContent = '';
+      var finish = function (when, preview) {
+        form.hidden = true; done.hidden = false;
+        document.getElementById('bkDoneWhen').textContent = when;
+        document.getElementById('bkPreview').hidden = !preview;
+      };
+      if (!BOOKING_URL) { setTimeout(function () { finish(day.label + ' at ' + slot.label + ' (Central Time)', true); }, 700); return; }
+      fetch(BOOKING_URL, { method: 'POST', body: JSON.stringify(body) }).then(function (r) { return r.json(); }).then(function (j) {
+        if (j.ok) return finish(j.when || (day.label + ' at ' + slot.label), false);
+        submit.disabled = false; submit.textContent = 'Confirm my call';
+        if (j.error === 'taken') { msg.textContent = 'That time was just taken. Please pick another.'; form.hidden = true; pick.hidden = false; load(); }
+        else if (j.error === 'details') msg.textContent = 'Please check your name and email.';
+        else msg.textContent = 'Something went wrong. Please try again, or email establishgrowthmedia@gmail.com.';
+      }).catch(function () {
+        submit.disabled = false; submit.textContent = 'Confirm my call';
+        msg.textContent = 'Something went wrong. Please try again, or email establishgrowthmedia@gmail.com.';
+      }).then(function () { if (!done.hidden) { submit.disabled = false; submit.textContent = 'Confirm my call'; } });
+    });
+
+    function open(e) {
+      if (e) e.preventDefault();
+      lastFocus = document.activeElement;
+      form.reset(); form.hidden = true; done.hidden = true; pick.hidden = false;
+      modal.hidden = false; document.documentElement.style.overflow = 'hidden';
+      requestAnimationFrame(function () { modal.classList.add('open'); });
+      load();
+      document.getElementById('bkClose').focus();
+    }
+    function close() {
+      modal.classList.remove('open'); document.documentElement.style.overflow = '';
+      setTimeout(function () { modal.hidden = true; }, 300);
+      if (lastFocus) lastFocus.focus();
+    }
+    var LIVE = /establishgrowth\.com$/.test(location.hostname);
+    document.querySelectorAll('[data-book]').forEach(function (a) {
+      if (!BOOKING_URL && LIVE) { a.href = 'mailto:establishgrowthmedia@gmail.com?subject=' + encodeURIComponent('Schedule a call with Establish Growth'); return; }
+      a.addEventListener('click', open);
+    });
+    document.getElementById('bkClose').addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+    if (location.hash === '#book') open();
+  })();
+  sizeGallery();
+  frame();
+  drift();
+})();
+</script>
+</body>
+</html>
