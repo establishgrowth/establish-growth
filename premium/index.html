@@ -40,6 +40,12 @@ header.solid{background:rgba(18,17,15,.82);backdrop-filter:blur(12px);-webkit-ba
 .brand{color:var(--cream);text-decoration:none;font:500 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase}
 header .btn{padding:11px 20px;font-size:11px;white-space:nowrap}
 header .btn .sm{display:none}
+.hdr-r{display:flex;gap:10px;align-items:center}
+.btn.call{display:inline-flex;align-items:center;gap:10px;border-color:rgba(242,235,221,.35)}
+.btn.call:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+header .btn.call{padding:11px 16px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:inherit}
+@media (max-width:560px){header .btn.call .lg{display:none}header .btn.call{padding:10px 12px}}
 @media (max-width:560px){header .btn .lg{display:none}header .btn .sm{display:inline}}
 
 /* hero */
@@ -287,7 +293,10 @@ html.static .statement .big span{opacity:1 !important}
 
 <header id="hdr">
   <a class="brand" href="https://establishgrowth.com" aria-label="Establish Growth"><img src="assets/logo.webp" alt="Establish Growth" width="640" height="146" style="height:30px;width:auto"></a>
-  <a class="btn" href="#book" data-book><span class="lg">Schedule a call</span><span class="sm">Book a call</span></a>
+  <div class="hdr-r">
+    <a class="btn call" href="tel:+16124612304" aria-label="Call now: 612-461-2304"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" style="flex:none"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.6a1 1 0 0 1-.25 1z"/></svg><span class="lg">612-461-2304</span></a>
+    <a class="btn" href="#book" data-book><span class="lg">Schedule a call</span><span class="sm">Book a call</span></a>
+  </div>
 </header>
 
 <main>
@@ -300,7 +309,7 @@ html.static .statement .big span{opacity:1 !important}
         <p class="eyebrow fade" style="transition-delay:.1s">Brand strategy &amp; content partner</p>
         <h1><span class="line"><span>The recognition</span></span><span class="line"><span style="transition-delay:.15s"><i style="font-weight:300">your place deserves.</i></span></span></h1>
         <p class="lead fade" style="transition-delay:.55s">We help clubs, resorts and residences build their brand and show it at the standard their members expect.</p>
-        <div class="fade cta" style="transition-delay:.75s"><a class="btn solid" href="#book" data-book>Schedule a call</a></div>
+        <div class="fade cta ctas" style="transition-delay:.75s"><a class="btn solid" href="#book" data-book>Schedule a call</a><a class="btn call" href="tel:+16124612304"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" style="flex:none"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.6a1 1 0 0 1-.25 1z"/></svg>Call now</a></div>
       </div>
       <div class="heroreels fade" style="transition-delay:.4s">
       <div class="cf" id="cf" role="region" aria-roledescription="carousel" aria-label="Featured reels">
@@ -443,8 +452,8 @@ html.static .statement .big span{opacity:1 !important}
     <div class="glow" style="width:700px;height:700px;left:50%;top:50%;margin:-350px 0 0 -350px;z-index:1"></div>
     <div class="inner rv">
       <h2>Let’s build the recognition <i>your place deserves.</i></h2>
-      <p class="body">Pick a time that suits you. Thirty minutes with Elliot to talk about your place and your plans.</p>
-      <a class="btn solid" href="#book" data-book>Schedule a call</a>
+      <p class="body">Book thirty minutes with Elliot to talk through your place and your plans. Or call now, and talk today.</p>
+      <div class="ctas"><a class="btn solid" href="#book" data-book>Schedule a call</a><a class="btn call" href="tel:+16124612304"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" style="flex:none"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.6a1 1 0 0 1-.25 1z"/></svg>Call 612-461-2304</a></div>
     </div>
   </section>
 </main>
@@ -470,10 +479,11 @@ html.static .statement .big span{opacity:1 !important}
       <div class="bk-chosen"><span id="bkWhen"></span><button type="button" id="bkChange">Change</button></div>
       <div><label for="bkName">Your name</label><input id="bkName" name="name" autocomplete="name" required></div>
       <div><label for="bkEmail">Email</label><input id="bkEmail" name="email" type="email" autocomplete="email" required></div>
-      <div><label for="bkOrg">Organization</label><input id="bkOrg" name="organization" autocomplete="organization"></div>
+      <div><label for="bkOrg">Business name</label><input id="bkOrg" name="organization" autocomplete="organization"></div>
+      <div><label for="bkSite">Business website</label><input id="bkSite" name="site" type="url" inputmode="url" autocomplete="url" placeholder="yourplace.com" required></div>
       <div><label for="bkInd">Industry</label><select id="bkInd" name="industry"><option value="">Choose one</option><option>Country club</option><option>Resort &amp; hotel</option><option>Luxury residences</option><option>Wellness &amp; recovery</option><option>Restaurant &amp; hospitality</option><option>Other</option></select></div>
-      <div class="full"><label for="bkNotes">Anything we should know? (optional)</label><textarea id="bkNotes" name="notes"></textarea></div>
-      <div class="bk-hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="full"><label for="bkNotes">What made you reach out? (optional)</label><textarea id="bkNotes" name="notes"></textarea></div>
+      <div class="bk-hp" aria-hidden="true"><label>Leave this empty<input name="hp" tabindex="-1" autocomplete="off"></label></div>
       <div class="full"><button class="btn solid" type="submit" id="bkSubmit" style="width:100%;padding:18px">Confirm my call</button><p class="bk-msg" id="bkMsg" role="status"></p></div>
     </form>
     <div class="bk-done" id="bkDone" hidden>
@@ -749,6 +759,7 @@ html.static .statement .big span{opacity:1 !important}
       f.forEach(function (v, k) { body[k] = String(v).trim(); });
       if (!body.name) { msg.textContent = 'Please add your name.'; return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) { msg.textContent = 'Please add a valid email.'; return; }
+      if (!/\w\.\w/.test(body.site || '')) { msg.textContent = 'Please add your business website.'; return; }
       body.start = slot.start;
       submit.disabled = true; submit.textContent = 'Booking…'; msg.textContent = '';
       var finish = function (when, preview) {
@@ -761,7 +772,7 @@ html.static .statement .big span{opacity:1 !important}
         if (j.ok) return finish(j.when || (day.label + ' at ' + slot.label), false);
         submit.disabled = false; submit.textContent = 'Confirm my call';
         if (j.error === 'taken') { msg.textContent = 'That time was just taken. Please pick another.'; form.hidden = true; pick.hidden = false; load(); }
-        else if (j.error === 'details') msg.textContent = 'Please check your name and email.';
+        else if (j.error === 'details') msg.textContent = 'Please check your name, email and website.';
         else msg.textContent = 'Something went wrong. Please try again, or email establishgrowthmedia@gmail.com.';
       }).catch(function () {
         submit.disabled = false; submit.textContent = 'Confirm my call';
