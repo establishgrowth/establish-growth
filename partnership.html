@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services | Establish Growth</title>
+<meta name="description" content="Four paths, one goal each: Brand, Marketing, Trust and Event tracks from Establish Growth, plus the Partnership Program. Brand strategy and video production in the Twin Cities.">
+<link rel="icon" href="/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,300;0,400;1,300&display=swap">
+<style>
+:root{
+  --bg:#1A1917;--s1:#252220;--s2:#2A2826;--line:#2E2B28;--tx:#E8E0D5;--mute:#9A9390;
+  --cu:#A0622E;--cu2:#C8854A;--light:#F0EBE3;--ink:#1A1917;
+  --r:2px;--pad:clamp(20px,4.5vw,64px);--max:1240px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:Chivo,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{margin:0 0 18px;font:400 11px/1.4 Chivo;letter-spacing:.3em;text-transform:uppercase;color:var(--cu2)}
+h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.02em;line-height:1.08}
+.h1{font-size:clamp(36px,5.5vw,72px)}
+.h2{font-size:clamp(32px,4.4vw,60px)}
+.h3{font-size:22px;letter-spacing:-.01em}
+.lead{font:300 clamp(17px,1.5vw,20px)/1.6 Chivo;color:#cfc6b9;max-width:560px}
+.body{font:300 16px/1.7 Chivo;color:#cfc6b9}
+.mute{color:var(--mute)}
+.cu{color:var(--cu2)}
+b,strong{font-weight:400;color:var(--tx)}
+.light b{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:var(--r);border:1px solid var(--cu);background:var(--cu);color:#fff;text-decoration:none;font:400 11px/1 Chivo;letter-spacing:.2em;text-transform:uppercase;transition:background .3s,border-color .3s,transform .3s var(--ease)}
+.btn:hover{background:var(--cu2);border-color:var(--cu2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;border-color:rgba(160,98,46,.45);color:var(--mute)}
+.btn.ghost:hover{border-color:var(--cu2);color:var(--tx)}
+.btn .arr{transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(26,25,23,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.hdr nav{display:flex;gap:30px}
+.hdr nav a{font:400 11px Chivo;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--mute);transition:color .2s}
+.hdr nav a:hover,.hdr nav a.on{color:var(--tx)}
+.hdr .btn{padding:12px 18px;font-size:11px}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+@media (max-width:900px){.hdr nav{display:none}.hdr .btn .lg{display:none}.menu-btn{display:block}}
+@media (min-width:901px){.hdr .btn .sm{display:none}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+html.static .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation:none !important;transition:none !important}}
+
+/* views */
+.view{animation:viewIn .7s var(--ease) both}
+@keyframes viewIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* SERVICES HERO */
+.s-hero{padding:clamp(64px,10vw,130px) 0 clamp(56px,7vw,90px);position:relative;overflow:hidden}
+.s-hero .glow{position:absolute;width:900px;height:900px;right:-300px;top:-380px;border-radius:50%;background:radial-gradient(circle,rgba(160,98,46,.22),transparent 62%);pointer-events:none}
+.s-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,80px);align-items:end;position:relative}
+@media (max-width:960px){.s-grid{grid-template-columns:1fr}}
+.s-hero .h1 em{font-style:italic;color:var(--cu2)}
+.s-hero .lead{margin:26px 0 34px}
+.prices{background:var(--s1);border:1px solid var(--line);border-radius:var(--r)}
+.prices h3{font:400 11px Chivo;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);padding:20px 24px 12px}
+.prow{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:15px 24px;border-top:1px solid var(--line);font:300 15px Chivo}
+.prow b{font:400 16px Chivo;white-space:nowrap}
+.prow .tag{font:400 10px Chivo;letter-spacing:.14em;text-transform:uppercase;color:var(--cu2);border:1px solid rgba(200,133,74,.4);padding:3px 6px;border-radius:var(--r);margin-left:8px}
+.unsure{margin-top:14px;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:18px 24px;border:1px dashed rgba(200,133,74,.45);border-radius:var(--r);background:rgba(160,98,46,.06)}
+.unsure p{margin:0;font:300 14px/1.5 Chivo;color:#cfc6b9}
+.unsure p b{color:var(--tx);font-weight:400}
+.unsure a{white-space:nowrap;font:400 11px Chivo;letter-spacing:.14em;text-transform:uppercase;color:var(--cu2);text-decoration:none}
+
+/* PATH SELECTOR */
+.paths{padding:clamp(44px,6vw,84px) 0 clamp(70px,9vw,120px)}
+.paths-top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.who{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.who span{font:400 12px Chivo;color:var(--mute);margin-right:6px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:9px 14px;font:400 13px Chivo;color:#cfc6b9;transition:all .25s}
+.chip:hover{border-color:var(--mute);color:var(--tx)}
+.chip[aria-pressed=true]{background:var(--tx);border-color:var(--tx);color:var(--ink)}
+
+.selector{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:960px){.selector{grid-template-columns:repeat(4,minmax(220px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin:0 calc(var(--pad)*-1);padding-left:var(--pad);padding-right:var(--pad);scrollbar-width:none}.selector::-webkit-scrollbar{display:none}.tile{scroll-snap-align:start}}
+.tile{position:relative;text-align:left;background:var(--s1);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 20px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:border-color .35s,transform .45s var(--ease),background .35s}
+.tile::before{content:"";position:absolute;inset:0;background:var(--img) center/cover;opacity:0;transform:scale(1.08);transition:opacity .6s var(--ease),transform 1.2s var(--ease)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,25,23,.35),rgba(26,25,23,.92));opacity:0;transition:opacity .6s}
+.tile > *{position:relative;z-index:1}
+.tile:hover{border-color:#4a443e;transform:translateY(-3px)}
+.tile:hover::before{opacity:.28;transform:scale(1.02)}
+.tile:hover::after{opacity:1}
+.tile[aria-checked=true]{border-color:var(--cu);background:#211e1b}
+.tile[aria-checked=true]::before{opacity:.5;transform:scale(1)}
+.tile[aria-checked=true]::after{opacity:1}
+.tile .n{font:400 11px Chivo;letter-spacing:.2em;color:var(--mute)}
+.tile .q{font:300 clamp(22px,2vw,28px)/1.05 Chivo;letter-spacing:-.02em;margin:26px 0 8px}
+.tile .tn{font:400 13px Chivo;color:var(--mute)}
+.tile .from{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:14px;border-top:1px solid rgba(232,224,213,.1);font:400 12px Chivo;color:var(--mute)}
+.tile .from b{font:400 15px Chivo;color:var(--tx)}
+.tile .rec{position:absolute;top:16px;right:16px;font:400 9px Chivo;letter-spacing:.16em;text-transform:uppercase;background:var(--cu);color:#fff;padding:5px 7px;border-radius:var(--r);opacity:0;transform:translateY(-6px);transition:all .4s var(--ease)}
+.tile.is-rec .rec{opacity:1;transform:none}
+.tile .bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--cu2);transition:width .6s var(--ease)}
+.tile[aria-checked=true] .bar{width:100%}
+
+.pcard.unsure-card{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;justify-content:space-between;gap:clamp(24px,5vw,70px);border:1px dashed rgba(200,133,74,.55);background:linear-gradient(120deg,rgba(160,98,46,.14),rgba(37,34,32,.6) 60%)}
+.pcard.unsure-card:hover{border-style:solid}
+.uc-l{max-width:560px}
+.uc-r{display:flex;flex-direction:column;gap:22px;align-items:flex-start;min-width:280px}
+.uc-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.uc-list li{font:300 15px/1.5 Chivo;color:var(--tx);padding-left:22px;position:relative}
+.uc-list li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:1px;background:var(--cu2)}
+@media (max-width:820px){.pcard.unsure-card{flex-direction:column;align-items:flex-start}.uc-r{min-width:0}}
+.pathgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:820px){.pathgrid{grid-template-columns:1fr}}
+.pcard{position:relative;display:flex;flex-direction:column;gap:26px;min-height:380px;padding:clamp(24px,3vw,38px);text-decoration:none;background:var(--s1);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:border-color .4s,transform .5s var(--ease),opacity .4s}
+.pcard > *{position:relative;z-index:1}
+.pcard > .pc-media{position:absolute;inset:0;z-index:0}
+.pc-media img,.pc-media video{width:100%;height:100%;object-fit:cover;opacity:.16;transform:scale(1.06);transition:opacity .7s var(--ease),transform 1.4s var(--ease)}
+.pc-media::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(37,34,32,.55),rgba(26,25,23,.94) 70%)}
+.pcard:hover{border-color:var(--cu);transform:translateY(-4px)}
+.pcard:hover .pc-media img,.pcard:hover .pc-media video{opacity:.45;transform:scale(1)}
+.pcard .n{font:400 11px Chivo;letter-spacing:.24em;text-transform:uppercase;color:var(--cu2)}
+.pc-name{font:300 clamp(36px,4vw,56px)/1.02 Chivo;letter-spacing:-.025em;margin:14px 0 14px}
+.pc-ctx{margin:0;max-width:460px;font:300 16px/1.6 Chivo;color:#cfc6b9}
+.pc-facts{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-top:20px;border-top:1px solid rgba(232,224,213,.1)}
+.pc-facts dt{font:400 10px Chivo;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.pc-facts dd{margin:0;font:300 14px/1.5 Chivo;color:var(--tx)}
+.pc-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.pc-price{font:300 32px/1 Chivo;letter-spacing:-.02em}
+.pc-price small{display:block;font:400 10px Chivo;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.pc-go{font:400 11px Chivo;letter-spacing:.2em;text-transform:uppercase;color:var(--cu2);display:inline-flex;gap:8px}
+.pcard .arr{transition:transform .3s var(--ease)}
+.pcard:hover .arr{transform:translateX(4px)}
+.pcard .rec{position:absolute;top:22px;right:22px;font:400 9px Chivo;letter-spacing:.2em;text-transform:uppercase;background:var(--cu);color:#fff;padding:6px 8px;border-radius:var(--r);opacity:0;transform:translateY(-6px);transition:all .4s var(--ease)}
+.pcard.is-rec{border-color:var(--cu)}
+.pcard.is-rec .rec{opacity:1;transform:none}
+.pcard.is-rec .pc-media img,.pcard.is-rec .pc-media video{opacity:.4;transform:scale(1)}
+.pcard.dim{opacity:.55}
+@media (max-width:600px){.pc-facts{grid-template-columns:1fr}.pcard{min-height:0}}
+/* detail panel */
+.detail{margin-top:12px;display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line);border-radius:var(--r);background:var(--s1);overflow:hidden;min-height:520px}
+@media (max-width:960px){.detail{grid-template-columns:1fr;min-height:0}.d-media{min-height:0 !important;height:230px}}
+.d-media{position:relative;min-height:320px;background:#111;overflow:hidden}
+.d-media .layer{position:absolute;inset:0;opacity:0;transition:opacity .8s var(--ease)}
+.d-media .layer.on{opacity:1}
+.d-media .layer img,.d-media .layer video{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 6s linear}
+.d-media .layer.on img,.d-media .layer.on video{transform:scale(1)}
+.d-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,rgba(37,34,32,.9));pointer-events:none}
+@media (max-width:960px){.d-media::after{background:linear-gradient(180deg,transparent 50%,rgba(37,34,32,.95))}}
+.d-media .cap{position:absolute;left:20px;bottom:18px;z-index:2;font:400 11px Chivo;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,224,213,.75)}
+.d-body{padding:clamp(26px,3.4vw,46px);display:flex;flex-direction:column}
+.d-body .swap{transition:opacity .35s,transform .45s var(--ease)}
+.d-body.out .swap{opacity:0;transform:translateY(10px)}
+.d-goal{font:300 clamp(26px,2.6vw,36px)/1.08 Chivo;letter-spacing:-.02em;margin:0 0 14px}
+.steps{list-style:none;margin:26px 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+.steps .k{font:400 11px/1.6 Chivo;letter-spacing:.18em;text-transform:uppercase;color:var(--cu2)}
+.steps p{margin:0;font:300 14px/1.6 Chivo;color:#cfc6b9}
+.d-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.price{font:300 34px/1 Chivo;letter-spacing:-.02em}
+.price small{display:block;font:400 11px Chivo;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.d-foot .acts{display:flex;gap:10px;flex-wrap:wrap}
+
+/* included / archive */
+.band{padding:clamp(70px,9vw,120px) 0;border-top:1px solid var(--line)}
+.light{background:var(--light);color:var(--ink)}
+.light .body,.light .lead{color:#4f4942}
+.light .eyebrow{color:var(--cu)}
+.inc{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,90px);align-items:center}
+@media (max-width:960px){.inc{grid-template-columns:1fr}}
+.inc ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:0}
+.inc li{display:flex;gap:16px;padding:16px 0;border-top:1px solid rgba(26,25,23,.12);font:300 16px/1.5 Chivo}
+.inc li b{font-weight:400}
+.inc li i{font-style:normal;color:var(--cu);font-weight:400;min-width:22px}
+.drive{background:#fff;border:1px solid rgba(26,25,23,.1);border-radius:var(--r);box-shadow:0 30px 80px -30px rgba(26,25,23,.35);overflow:hidden}
+.drive .top{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid #eee;font:400 12px Chivo;color:#555}
+.drive .top i{width:9px;height:9px;border-radius:50%;background:#e4ddd3;display:inline-block}
+.drive .top span{margin-left:10px}
+.folders{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:18px}
+.folder{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid #eee;border-radius:var(--r);font:400 13px Chivo;color:#333;opacity:0;transform:translateY(12px);transition:all .6s var(--ease)}
+.drive.in .folder{opacity:1;transform:none}
+.folder svg{flex:none}
+.folder small{margin-left:auto;color:#aaa;font-size:11px}
+html.static .folder{opacity:1;transform:none}
+
+/* add-ons */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:30px 0 0;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:12px 14px;font:400 14px Chivo;color:var(--mute);margin-bottom:-1px;transition:color .2s,border-color .3s}
+.tab[aria-selected=true]{color:var(--tx);border-color:var(--cu2)}
+.addlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:20px}
+.add{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:18px 20px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r);font:300 15px Chivo;animation:viewIn .5s var(--ease) both}
+.add b{font:400 14px Chivo;white-space:nowrap;color:var(--cu2)}
+
+/* partnership banner */
+.partner{position:relative;overflow:hidden;border:1px solid rgba(200,133,74,.4);border-radius:var(--r);padding:clamp(30px,5vw,60px);display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:linear-gradient(120deg,#2a211a,#1d1a17 60%)}
+.partner::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,rgba(200,133,74,.18),transparent 30%);animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.partner > *{position:relative}
+@media (max-width:900px){.partner{grid-template-columns:1fr}}
+.partner .four{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+.partner .four span{font:400 12px Chivo;border:1px solid rgba(232,224,213,.2);padding:6px 10px;border-radius:999px;color:#cfc6b9}
+
+/* closing */
+.close{text-align:center;padding:clamp(90px,12vw,160px) 0;border-top:1px solid var(--line);position:relative;overflow:hidden}
+.close .glow{position:absolute;left:50%;top:50%;width:700px;height:700px;margin:-350px 0 0 -350px;border-radius:50%;background:radial-gradient(circle,rgba(160,98,46,.2),transparent 62%)}
+.close > *{position:relative}
+.close .lead{margin:22px auto 34px}
+
+footer{border-top:1px solid var(--line);padding:30px 0;font:300 13px Chivo;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* TRACK PAGE */
+.t-hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+html.static .t-hero{min-height:720px}
+.t-hero .bg{position:absolute;inset:0}
+.t-hero .bg img,.t-hero .bg video{width:100%;height:100%;object-fit:cover;animation:slowzoom 14s var(--ease) both}
+@keyframes slowzoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.t-hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,25,23,.55) 0%,rgba(26,25,23,.25) 35%,rgba(26,25,23,.96) 100%)}
+.t-hero .wrap{position:relative;width:100%;padding-bottom:clamp(40px,6vw,80px)}
+.crumb{font:400 13px Chivo;color:#cfc6b9;margin-bottom:22px}
+.crumb a{color:#cfc6b9;text-decoration:none}
+.crumb a:hover{color:var(--tx)}
+.switch{display:inline-flex;gap:4px;padding:4px;border:1px solid rgba(232,224,213,.18);border-radius:999px;background:rgba(26,25,23,.55);backdrop-filter:blur(8px);margin-bottom:30px;flex-wrap:wrap}
+.switch a{padding:9px 14px;border-radius:999px;font:400 13px Chivo;text-decoration:none;color:#cfc6b9;transition:all .25s}
+.switch a:hover{color:var(--tx)}
+.switch a.on{background:var(--tx);color:var(--ink)}
+.t-hero .h1{max-width:980px;font-size:clamp(34px,5vw,68px)}
+.t-meta{display:flex;gap:clamp(24px,4vw,60px);flex-wrap:wrap;align-items:end;margin-top:34px}
+.t-meta .price{font-size:44px}
+.t-meta .acts{display:flex;gap:10px;flex-wrap:wrap}
+
+.t-hero .bg img.blur{filter:blur(28px) saturate(1.1);transform:scale(1.15);opacity:.55;animation:none}
+.t-reel{position:absolute;z-index:2;right:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));top:50%;transform:translateY(-46%);margin:0;width:clamp(220px,22vw,320px);aspect-ratio:9/16;border-radius:var(--r);overflow:hidden;box-shadow:0 40px 100px -30px rgba(0,0,0,.8),0 0 0 1px rgba(200,133,74,.35)}
+.t-reel video{width:100%;height:100%;object-fit:cover}
+.t-reel figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;font:400 10px Chivo;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,224,213,.85);background:linear-gradient(180deg,transparent,rgba(0,0,0,.7))}
+.t-hero.is-vert .wrap{padding-right:calc(var(--pad) + clamp(240px,24vw,340px))}
+@media (max-width:900px){.t-reel{inset:0;top:0;right:0;width:100%;height:100%;transform:none;aspect-ratio:auto;z-index:0;box-shadow:none;border-radius:0}.t-reel figcaption{display:none}.t-reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,25,23,.5),rgba(26,25,23,.2) 35%,rgba(26,25,23,.96))}.t-hero.is-vert .wrap{padding-right:var(--pad)}}
+.pp-hero{position:relative;overflow:hidden;padding:clamp(56px,8vw,110px) 0 clamp(56px,7vw,90px)}
+.pp-hero .glow{position:absolute;width:900px;height:900px;right:-300px;top:-380px;border-radius:50%;background:radial-gradient(circle,rgba(160,98,46,.22),transparent 62%);pointer-events:none}
+.pp-hero .wrap{position:relative}
+.pp-hero .h1 em{font-style:italic;color:var(--cu2)}
+.usp{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+@media (max-width:900px){.usp{grid-template-columns:1fr}}
+.u{background:var(--bg);padding:clamp(24px,3vw,36px);transition:background .4s}
+.u:hover{background:var(--s1)}
+.un{font:400 11px Chivo;letter-spacing:.2em;color:var(--cu2)}
+.u h3{font:300 24px/1.15 Chivo;margin:18px 0 12px}
+.u p{margin:0;font:300 15px/1.6 Chivo;color:#cfc6b9}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+@media (max-width:760px){.vs{grid-template-columns:1fr}}
+.vs-col{border:1px solid rgba(26,25,23,.14);border-radius:var(--r);padding:clamp(24px,3vw,36px);background:rgba(255,255,255,.4)}
+.vs-col.on{background:var(--ink);color:var(--tx);border-color:var(--ink)}
+.vs-col h3{font:300 28px Chivo;margin:0 0 20px}
+.vs-col ul{list-style:none;margin:0;padding:0}
+.vs-col li{padding:13px 0;border-top:1px solid rgba(26,25,23,.12);font:300 16px/1.5 Chivo;color:#6b645c}
+.vs-col.on li{border-color:rgba(232,224,213,.12);color:var(--tx);padding-left:24px;position:relative}
+.vs-col.on li::before{content:"";position:absolute;left:0;top:1.15em;width:12px;height:1px;background:var(--cu2)}
+.plist{list-style:none;margin:0;padding:0}
+.plist li{padding:16px 0 16px 26px;border-top:1px solid var(--line);font:300 17px/1.5 Chivo;position:relative}
+.plist li::before{content:"";position:absolute;left:0;top:1.55em;width:12px;height:1px;background:var(--cu2)}
+.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,90px)}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.fits{display:grid;gap:10px}
+.fit{padding:18px 20px;background:var(--s1);border:1px solid var(--line);border-left:2px solid var(--cu);border-radius:var(--r);font:300 16px/1.5 Chivo}
+
+/* journey */
+.journey{position:relative;display:grid;gap:0;margin-top:44px}
+.journey .rail{position:absolute;left:23px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.journey .fill{position:absolute;left:23px;top:8px;width:1px;height:0;background:var(--cu2);transition:height .2s linear}
+html.static .journey .fill{height:calc(100% - 16px)}
+.stage{position:relative;display:grid;grid-template-columns:48px 1fr;gap:clamp(16px,3vw,40px);padding:0 0 clamp(40px,6vw,72px)}
+.stage .dot{width:47px;height:47px;border-radius:50%;border:1px solid var(--line);background:var(--bg);display:grid;place-items:center;font:400 12px Chivo;color:var(--mute);transition:all .5s var(--ease);z-index:1}
+.stage.lit .dot{border-color:var(--cu2);color:var(--tx);background:var(--cu);box-shadow:0 0 0 8px rgba(160,98,46,.14)}
+.stage .k{font:400 11px Chivo;letter-spacing:.24em;text-transform:uppercase;color:var(--cu2);margin:6px 0 12px}
+.stage h3{font:300 clamp(26px,3vw,40px)/1.05 Chivo;letter-spacing:-.02em;margin:0 0 14px}
+.stage .card{margin-top:20px;padding:20px 22px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r);display:flex;gap:16px;align-items:flex-start;max-width:640px}
+.stage .card svg{flex:none;margin-top:2px}
+.stage .card b{display:block;font:400 15px Chivo;margin-bottom:4px}
+.stage .card p{margin:0;font:300 14px/1.6 Chivo;color:#cfc6b9}
+.note{margin-top:14px;font:400 13px/1.5 Chivo;color:var(--cu2)}
+
+.others{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+@media (max-width:900px){.others{grid-template-columns:1fr}}
+.other{position:relative;display:block;text-decoration:none;min-height:230px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;padding:22px;background:var(--s1)}
+.other img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;transition:opacity .5s,transform 1.2s var(--ease)}
+.other::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(26,25,23,.92))}
+.other > div{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:space-between;min-height:186px}
+.other:hover img{opacity:.55;transform:scale(1.05)}
+.other .q{font:300 26px/1.05 Chivo;letter-spacing:-.02em}
+.other .tn{font:400 13px Chivo;color:#cfc6b9;display:flex;justify-content:space-between}
+
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:none;align-items:center;justify-content:space-between;gap:12px;padding:12px var(--pad);background:rgba(26,25,23,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .4s var(--ease)}
+.mbar.show{transform:none}
+.mbar b{font:400 14px Chivo}
+.mbar small{display:block;font:400 11px Chivo;color:var(--mute)}
+.mbar .btn{padding:12px 16px;font-size:11px}
+@media (max-width:760px){.mbar{display:flex}}
+
+.mmenu{position:absolute;left:0;right:0;top:72px;background:rgba(26,25,23,.97);border-bottom:1px solid var(--line);padding:10px var(--pad) 20px;display:grid}
+.mmenu a{padding:13px 0;border-bottom:1px solid var(--line);font:400 12px Chivo;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#cfc6b9}
+@media (min-width:901px){.mmenu{display:none !important}}
+/* modal */
+.modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:20px;background:rgba(10,9,8,.7);backdrop-filter:blur(6px);animation:viewIn .3s both}
+.modal .box{max-width:460px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r);padding:34px}
+.modal .box p{font:300 15px/1.6 Chivo;color:#cfc6b9}
+</style>
+</head>
+<body data-page="partnership">
+<header>
+  <div class="wrap hdr">
+    <a href="/" aria-label="Establish Growth home"><img src="/svc/logo.webp" alt="Establish Growth" style="height:26px;width:auto"></a>
+    <nav aria-label="Main">
+      <a href="/services" class="on">Services</a><a href="/#work">Work</a><a href="/#strategy">Brand Strategy</a><a href="/#about">About</a><a href="/#contact">Contact</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <a class="btn" href="/#contact"><span class="lg">Book a free strategy session</span><span class="sm">Book a call</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <div class="mmenu" id="mmenu" hidden><a href="/services">Services</a><a href="/services/brand">· Brand Track</a><a href="/services/marketing">· Marketing Track</a><a href="/services/trust">· Trust Track</a><a href="/services/event">· Event Track</a><a href="/partnership">Partnership Program</a><a href="/#work">Work</a><a href="/#strategy">Brand Strategy</a><a href="/#about">About</a><a href="/#contact">Contact</a></div>
+</header>
+
+<main id="app"></main>
+
+<footer><div class="wrap"><span>© 2026 Establish Growth · Brand strategy · Video production · Twin Cities</span><span><a href="/services" style="text-decoration:none">Services</a> · <a href="/partnership" style="text-decoration:none">Partnership</a> · <a href="/#contact" style="text-decoration:none">Contact</a> · <a href="mailto:establishgrowthmedia@gmail.com" style="text-decoration:none">establishgrowthmedia@gmail.com</a></span></div></footer>
+
+<div class="mbar" id="mbar"><div><b id="mbName"></b><small id="mbPrice"></small></div><a class="btn" href="/#contact">Book a session</a></div>
+
+
+
+<script>
+(function(){
+  var TRACKS = {
+    brand:{n:'01',name:'Brand Track',q:'Be recognized',price:'1,800',
+      goal:'Lock in your brand identity and strengthen your online presence.',
+      who:['You have a story worth telling, but it isn’t coming across online.','You’re new, rebranding, or look different online than in person.','You want everything people see to feel like one brand.'],
+      plan:'A brand strategy session and a brand document: your identity, a monthly content calendar, how we’ll apply it, a timeframe and the strategies to follow through.',
+      shoot:'Half day, up to 4 hours, built around the story in your brand document.',
+      get:'One brand story film, edited for your website and cut down for social.',
+      dist:'Placed where it builds recognition: your website, Google profile and social, on the calendar we planned.',
+      ctx:'For businesses whose story isn\u2019t coming across online. We define your brand first, then film it.',best:'Clubs, resorts, restaurants, venues',card:'Brand strategy session + a brand story film',ind:'lifestyle',img:'/svc/reel-bermuda.jpg',vid:'/svc/reel-bermuda-q.mp4',poster:'/svc/reel-bermuda.jpg',vertical:true,cap:'Cambridge Beaches · Bermuda'},
+    marketing:{n:'02',name:'Marketing Track',q:'Sell an offer',price:'1,800',
+      goal:'Content built around your offers, made to drive traffic, sign-ups and sales.',
+      who:['You have an offer, product or season to push.','You run ads, or plan to, and need content made for them.','You want people to act, not just watch.'],
+      plan:'A marketing document: the offer and who it’s for, your competitors, what we’ll push and where, plus ad scripts and copy.',
+      shoot:'Half day, shot for ads: hooks in the first seconds, the offer, a clear call to action.',
+      get:'One 30-second landscape ad for YouTube and your website, plus 6 social ad variations.',
+      dist:'Delivered ready for your ad team to run.',
+      note:'We make the content. Your team or agency runs the ads.',
+      ctx:'For an offer, product or season you need to push. Shot for ads, with a hook and a clear call to action.',best:'Products, e-commerce, launches, promotions',card:'A 30-second ad + 6 social ad variations',ind:'product',img:'/svc/whiskey-thumbnail.webp',vid:'/svc/rimfire-q.mp4',poster:'/svc/rimfire.jpg',cap:'Rimfire Whiskey · product ad'},
+    trust:{n:'03',name:'Trust Track',q:'Earn trust',price:'1,200',
+      goal:'Build confidence with testimonials and answers to the questions customers ask most.',
+      who:['People need to trust you before they call: contractors, clinics, home services.','Your reviews are great, but nobody can see or hear them.','Your team answers the same questions every week.'],
+      plan:'A trust plan: research into your customers’ top questions (like the top 8 FAQs), testimonial questions, and who to film.',
+      shoot:'Half day with the owner, the team and real customers.',
+      get:'4 testimonial or FAQ videos.',
+      dist:'On your website, Google profile and social, with transcripts so search engines and AI tools can find the answers.',
+      ctx:'For businesses people need to trust before they call. Real customers and real answers, on camera.',best:'Contractors, home services, clinics',card:'4 testimonial or FAQ videos',ind:'service',img:'/svc/Pat.webp',poster:'/svc/Pat.webp',cap:'On site with the crew'},
+    event:{n:'04',name:'Event Track',q:'Make an event count',price:'1,200',
+      goal:'Coverage that keeps working after the event, turning it into leads and promotion for the next one.',
+      who:['You host galas, tournaments, launches, parties or member nights.','You want this year’s event to sell next year’s.','You need a recap fast, while people are still talking about it.'],
+      plan:'An event breakdown: the goal, the key moments, a run-of-show shot plan, the content to collect, and how to market the next one.',
+      shoot:'Up to 4 hours on the day, following the run of show.',
+      get:'One 1-minute event promo or highlight video.',
+      dist:'Out while the event is still fresh, then kept to promote the next one.',
+      ctx:'For events that should sell the next one. Planned around your run of show, out while it\u2019s still fresh.',best:'Galas, tournaments, launches, member nights',card:'A 1-minute event highlight video',ind:'',img:'/svc/f-trio.webp',poster:'/svc/f-trio.webp',cap:'Event night'}
+  };
+  var ORDER=['brand','marketing','trust','event'];
+  var IND={lifestyle:{label:'Lifestyle & hospitality',rec:'brand'},product:{label:'Product & e-commerce',rec:'marketing'},service:{label:'Service business',rec:'trust'}};
+  var ADD={
+    'More content':[['Extra reels','$150 each, or 3 for $400'],['Portrait version, shot and edited for social','$150'],['Extra ad variations or cut-downs','$85/hr editing']],
+    'More production':[['Extra shoot hour','$175'],['Full day instead of half day','+$650'],['Drone','+$250'],['Rush delivery (72 hours)','+25%']],
+    'Crew':[['Second shooter','+$400 half day · +$700 full'],['Gaffer, with light kit','+$450 half day · +$750 full'],['Sound mixer, with audio kit','+$550 half day · +$900 full']],
+    'Ongoing':[['Social media management','$650/month'],['Partnership Program','from $4,500/month']]
+  };
+  var FOLDERS=['00 Final videos','01 Your space','02 People & community','03 Product or service','04 Food & details','05 Drone','06 Behind the scenes'];
+  var I={
+    doc:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8854A" stroke-width="1.5"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg>',
+    cam:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8854A" stroke-width="1.5"><rect x="3" y="7" width="13" height="11" rx="1"/><path d="M16 11l5-3v9l-5-3"/></svg>',
+    send:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8854A" stroke-width="1.5"><path d="M4 12l16-8-6 16-2-6z"/></svg>',
+    fold:'<svg width="20" height="20" viewBox="0 0 24 24" fill="#C8854A"><path d="M3 6a1 1 0 011-1h5l2 2h9a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1z"/></svg>'
+  };
+  var app=document.getElementById('app');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isStatic=function(){return window.innerHeight>screen.height*1.6};
+  if(isStatic())document.documentElement.classList.add('static');
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function media(t,cls){return t.vid?'<video muted loop playsinline preload="none" poster="'+t.poster+'" data-src="'+t.vid+'" class="'+(cls||'')+'"></video>':'<img src="'+t.img+'" alt="" loading="lazy" class="'+(cls||'')+'">'}
+
+  function addons(){
+    var keys=Object.keys(ADD);
+    return '<p class="eyebrow">Add-ons</p><h2 class="h2">Build on any track.</h2><p class="body" style="max-width:560px;margin:18px 0 0">The same add-ons and prices on every track. Travel, setup and teardown are already in the shoot price.</p>'+
+      '<div class="tabs" role="tablist">'+keys.map(function(k,i){return '<button class="tab" role="tab" aria-selected="'+(i===0)+'" data-tab="'+k+'">'+k+'</button>'}).join('')+'</div>'+
+      '<div class="addlist" id="addlist"></div>';
+  }
+  function fillAdd(k){var el=document.getElementById('addlist');if(!el)return;el.innerHTML=ADD[k].map(function(a,i){return '<div class="add" style="animation-delay:'+(i*60)+'ms"><span>'+a[0]+'</span><b>'+a[1]+'</b></div>'}).join('')}
+  function archive(dark){
+    return '<div class="drive rv" id="drive"><div class="top"><i></i><i></i><i></i><span>Google Drive › Your brand archive</span></div><div class="folders">'+
+      FOLDERS.map(function(f,i){return '<div class="folder" style="transition-delay:'+(i*90)+'ms">'+I.fold+f+'<small>'+(i===0?'4 files':(12+i*7)+' clips')+'</small></div>'}).join('')+'</div></div>';
+  }
+  function included(){
+    return '<section class="band light"><div class="wrap inc"><div class="rv"><p class="eyebrow">Included in every track</p><h2 class="h2">More than just video.</h2>'+
+      '<p class="lead" style="margin-top:20px">As we work with you, we keep building your digital assets.</p><ul>'+
+      '<li><i>01</i><span><b>A planning document,</b> written for your goal before we film.</span></li>'+
+      '<li><i>02</i><span><b>Your digital archive.</b> Every clip graded and sorted on Google Drive within 5–7 business days, so you have footage for years.</span></li>'+
+      '<li><i>03</i><span><b>2 rounds of revisions.</b></span></li>'+
+      '<li><i>04</i><span><b>Travel within 30 miles,</b> setup and teardown.</span></li></ul></div>'+archive()+'</div></section>';
+  }
+  var USP=[
+    ['One point of contact','One person who knows your brand inside out. No re-explaining it to a new vendor every time.'],
+    ['Strategy and content, together','The plan and the content come from the same place, so everything people see matches.'],
+    ['Follow-through','We don’t hand over files and disappear. We see the plan through, month after month.'],
+    ['A consistent workflow','Shoots on a set schedule and content every week. Nothing left to chance or last-minute.'],
+    ['Constant communication','A monthly check-in, a monthly report, and a direct line in between.'],
+    ['Room to change course','New offer, new season, new event? The next shoot adapts to it.']
+  ];
+  function partner(){
+    return '<section class="band"><div class="wrap"><div class="partner rv"><div><p class="eyebrow">Partnership Program · monthly retainer</p><h2 class="h2">Want more than<br>a single project?</h2>'+
+      '<p class="lead" style="margin-top:18px">Become a partner. One strategy, one team and one point of contact, delivering content every month and following it through with you.</p>'+
+      '<div class="four">'+['One point of contact','Strategy + content','Follow-through','Consistent workflow','Monthly reports'].map(function(x){return '<span>'+x+'</span>'}).join('')+'</div></div>'+
+      '<div style="text-align:right"><div class="price" style="font-size:44px"><small>Starting at</small>$4,500<span class="mute" style="font:400 16px Chivo">/mo</span></div><p class="mute" style="font:300 13px Chivo;margin:10px 0 22px">Tailored plan · 6-month partnership</p><a class="btn" href="/partnership">See the Partnership Program <span class="arr">→</span></a></div></div></div></section>';
+  }
+  function partnership(){
+    var plan=[
+      ['Month 1','brand','Brand','Brand strategy first, then the first shoot and your brand film. Everything after builds on it.'],
+      ['Month 3','marketing','Marketing','A shoot built around your main offer or season, with ad-ready content.'],
+      ['Month 5','trust','Trust','Testimonials and answers to your customers’ top questions, with real people.'],
+      ['When it happens','event','Event','Your event covered and turned into promotion for the next one. Folded into a scheduled shoot or added at a partner rate.'],
+      ['Every week','','All four','About 2 reels a week from your growing archive, a monthly report, and one point of contact.']
+    ];
+    app.innerHTML='<div class="view">'+
+    '<section class="pp-hero"><div class="glow"></div><div class="wrap">'+
+      '<div class="crumb"><a href="/services">Services</a> › Partnership Program</div>'+
+      '<p class="eyebrow rv">Partnership Program · monthly retainer</p><h1 class="h1 rv">More than a project.<br><em>A partner.</em></h1>'+
+      '<p class="lead rv" style="margin-top:24px;max-width:640px">One partner for your strategy and your content. We plan it together, make it, and follow it through every month, so your brand keeps showing up the way it should.</p>'+
+      '<div class="t-meta rv"><div class="price"><small>Starting at</small>$4,500<span class="mute" style="font:400 18px Chivo">/mo</span></div><div class="acts"><a class="btn" href="/#contact">Book a partnership call <span class="arr">→</span></a><a class="btn ghost" href="#plan">See the plan</a></div></div>'+
+    '</div></section>'+
+
+    '<section class="band"><div class="wrap"><p class="eyebrow rv">Why partner</p><h2 class="h2 rv">What a project<br>can’t give you.</h2><div class="usp">'+
+      USP.map(function(u,i){return '<div class="u rv" style="transition-delay:'+(i%3*90)+'ms"><span class="un">0'+(i+1)+'</span><h3>'+u[0]+'</h3><p>'+u[1]+'</p></div>'}).join('')+
+    '</div></div></section>'+
+
+    '<section class="band" id="plan"><div class="wrap"><p class="eyebrow rv">Your tailored plan</p><h2 class="h2 rv">All four paths,<br>running together.</h2>'+
+      '<p class="lead rv" style="margin-top:20px">Built around your goals in month 1, then delivered on a schedule. A typical six months:</p>'+
+      '<div class="journey" id="journey"><span class="rail"></span><span class="fill" id="jfill"></span>'+
+      plan.map(function(r,i){var t=TRACKS[r[1]];return '<div class="stage rv"><span class="dot">'+(i+1)+'</span><div><p class="k">'+r[0]+'</p><h3>'+(t?'<a href="/services/'+r[1]+'" style="text-decoration:none">'+t.name+'</a>':'All four, every week')+'</h3><p class="body" style="max-width:620px;margin:0">'+r[3]+'</p></div></div>'}).join('')+
+      '</div></div></section>'+
+
+    '<section class="band light"><div class="wrap"><p class="eyebrow rv">Project vs partnership</p><h2 class="h2 rv">The difference.</h2><div class="vs rv">'+
+      '<div class="vs-col"><h3>A project</h3><ul><li>One goal</li><li>One shoot</li><li>Files handed over</li><li>You manage every vendor</li><li>Shows up once</li></ul></div>'+
+      '<div class="vs-col on"><h3>A partnership</h3><ul><li>Every goal, planned together</li><li>A shoot every two months</li><li>Followed through, month after month</li><li>We coordinate with your ad team, marketing and web developers</li><li>Shows up every week</li></ul></div>'+
+    '</div></div></section>'+
+
+    '<section class="band"><div class="wrap inc" style="align-items:start"><div class="rv"><p class="eyebrow">What’s included</p><h2 class="h2">Everything,<br>handled.</h2></div><ul class="plist rv">'+
+      ['Brand strategy in month 1, the foundation for everything','3 planned shoots, one every two months, each with a creative brief and shot list','About 2 reels a week, packaged to post','Posting and social management, or handoff to your social manager','A digital archive that grows with every shoot','Brand management: one point of contact for your ad team, marketing and web developers','Monthly analytics and a monthly report','2 rounds of revisions on every piece'].map(function(x){return '<li>'+x+'</li>'}).join('')+
+    '</ul></div></section>'+
+
+    '<section class="band"><div class="wrap"><div class="partner rv"><div><p class="eyebrow">Investment</p><h2 class="h2">Tailored to you.</h2><p class="lead" style="margin-top:18px">Every partnership starts with a call. We look at your goals and build the plan and the price around them.</p></div>'+
+      '<div style="text-align:right"><div class="price" style="font-size:44px"><small>Starting at</small>$4,500<span class="mute" style="font:400 16px Chivo">/mo</span></div><p class="mute" style="font:300 13px Chivo;margin:10px 0 22px">6-month partnership · final scope set together</p><a class="btn" href="/#contact">Book a partnership call <span class="arr">→</span></a></div></div></div></section>'+
+    closing('Not ready for a partnership?<br>Start with one path.').replace('Not sure what you need?','Not ready yet?').replace('About 30 minutes. We look at your branding and online presence, then recommend a track and a rough price.','Each path works on its own. Start with one, and become a partner when you\u2019re ready.').replace('Book a free strategy session','See the four paths').replace('href="/#contact"','href="/services"')+'</div>';
+    wireCommon();
+  }
+  function closing(h){
+    return '<section class="close"><div class="glow"></div><div class="wrap rv"><p class="eyebrow">Not sure what you need?</p><h2 class="h2">'+(h||'Start with a free strategy session.')+'</h2>'+
+      '<p class="lead">About 30 minutes. We look at your branding and online presence, then recommend a track and a rough price.</p><a class="btn" href="/#contact">Book a free strategy session <span class="arr">→</span></a></div></section>';
+  }
+
+  /* ---------- SERVICES ---------- */
+  function services(){
+    app.innerHTML='<div class="view">'+
+    '<section class="paths" id="paths"><div class="wrap">'+
+      '<div class="paths-top"><div><p class="eyebrow rv">Services \u00b7 four paths, one goal each</p><h1 class="h1 rv">What should your<br>content do?</h1><p class="lead rv" style="margin-top:20px">Pick a path to see how we plan it, shoot it and get it seen.</p></div>'+
+      '<div class="who rv" role="group" aria-label="Your industry"><span>I run a…</span>'+Object.keys(IND).map(function(k){return '<button class="chip" aria-pressed="false" data-ind="'+k+'">'+IND[k].label+'</button>'}).join('')+'</div></div>'+
+      '<div class="pathgrid">'+ORDER.map(function(k,i){var t=TRACKS[k];return '<a class="pcard rv" href="/services/'+k+'" data-k="'+k+'" style="transition-delay:'+(i*80)+'ms"><div class="pc-media">'+media(t)+'</div><span class="rec">Recommended for you</span>'+
+        '<div class="pc-top"><span class="n">'+t.n+' \u00b7 '+t.q+'</span><h2 class="pc-name">'+t.name+'</h2><p class="pc-ctx">'+t.ctx+'</p></div>'+
+        '<dl class="pc-facts"><div><dt>Best for</dt><dd>'+t.best+'</dd></div><div><dt>You get</dt><dd>'+t.card+'</dd></div></dl>'+
+        '<div class="pc-foot"><span class="pc-price"><small>Starting at</small>$'+t.price+'</span><span class="pc-go">Explore path <span class="arr">\u2192</span></span></div></a>'}).join('')+
+        '<a class="pcard unsure-card rv" href="/#contact"><div class="uc-l"><span class="n">05 · Not sure yet?</span><h2 class="pc-name">Not sure which path?</h2><p class="pc-ctx">Book a brand strategy call. We\u2019ll look at your brand and online presence, evaluate where you are, and find out what\u2019s best for you.</p></div>'+
+        '<div class="uc-r"><ul class="uc-list"><li>Free, about 30 minutes</li><li>A look at your branding and online presence</li><li>A recommended path and a rough price</li></ul><span class="btn">Book a brand strategy call <span class="arr">\u2192</span></span></div></a>'+
+      '</div>'+
+    '</div></section>'+
+    included()+
+    '<section class="band"><div class="wrap">'+addons()+'</div></section>'+
+    partner()+closing()+'</div>';
+
+    app.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+      var on=c.getAttribute('aria-pressed')!=='true';
+      app.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed','false')});
+      app.querySelectorAll('.pcard').forEach(function(x){x.classList.remove('is-rec','dim')});
+      if(on){c.setAttribute('aria-pressed','true');var r=IND[c.dataset.ind].rec;app.querySelectorAll('.pcard').forEach(function(x){x.classList.add(x.dataset.k===r?'is-rec':'dim')});var el=app.querySelector('.pcard[data-k='+r+']');if(innerWidth<900)el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'})}
+    })});
+    app.querySelectorAll('.pcard').forEach(function(c){var v=c.querySelector('video');if(!v)return;
+      c.addEventListener('mouseenter',function(){if(!v.src)v.src=v.dataset.src;v.play().catch(function(){})});
+      c.addEventListener('mouseleave',function(){v.pause()})});
+    wireCommon();
+  }
+
+  /* ---------- TRACK ---------- */
+  function track(k){
+    var t=TRACKS[k],others=ORDER.filter(function(x){return x!==k});
+    app.innerHTML='<div class="view">'+
+    '<section class="t-hero'+(t.vertical?' is-vert':'')+'"><div class="bg">'+(t.vertical?'<img src="'+t.poster+'" alt="" class="blur">':(t.vid?'<video muted loop playsinline autoplay poster="'+t.poster+'" src="'+t.vid+'"></video>':'<img src="'+t.img+'" alt="">'))+'</div>'+(t.vertical?'<figure class="t-reel"><video muted loop playsinline autoplay poster="'+t.poster+'" src="'+t.vid+'"></video><figcaption>'+t.cap+'</figcaption></figure>':'')+
+      '<div class="wrap"><div class="crumb"><a href="/services">Services</a> › '+t.name+'</div>'+
+      '<nav class="switch" aria-label="Switch path">'+ORDER.map(function(x){return '<a href="/services/'+x+'" class="'+(x===k?'on':'')+'">'+TRACKS[x].name.replace(' Track','')+'</a>'}).join('')+'</nav>'+
+      '<p class="eyebrow">'+t.n+' · '+t.q+'</p><h1 class="h1">'+t.name+'</h1><p class="lead" style="margin-top:18px;max-width:640px;color:#e8e0d5">'+t.goal+'</p>'+
+      '<div class="t-meta"><div class="price"><small>Starting at</small>$'+t.price+'</div><div class="acts"><a class="btn" href="/#contact">Book a free strategy session <span class="arr">→</span></a><a class="btn ghost" href="#how">How it works</a></div></div></div></section>'+
+
+    '<section class="band"><div class="wrap split"><div class="rv"><p class="eyebrow">Who it’s for</p><h2 class="h2">Is this your path?</h2></div><div class="fits">'+
+      t.who.map(function(w,i){return '<div class="fit rv" style="transition-delay:'+(i*90)+'ms">'+w+'</div>'}).join('')+'</div></div></section>'+
+
+    '<section class="band" id="how"><div class="wrap"><p class="eyebrow rv">How it works</p><h2 class="h2 rv">From planning to shooting<br>to distributing.</h2>'+
+      '<div class="journey" id="journey"><span class="rail"></span><span class="fill" id="jfill"></span>'+
+      [['01','Plan','Before we shoot, we plan.','The planning document',t.plan,I.doc],
+       ['02','Create','Shoot with purpose.','The shoot',t.shoot,I.cam],
+       ['03','Distribute','Edited for where it’s going.','What you get',t.get+' '+t.dist,I.send]].map(function(s){
+        return '<div class="stage rv"><span class="dot">'+s[0]+'</span><div><p class="k">'+s[1]+'</p><h3>'+s[2]+'</h3><div class="card">'+s[5]+'<div><b>'+s[3]+'</b><p>'+s[4]+'</p></div></div>'+(s[1]==='Distribute'&&t.note?'<p class="note">'+t.note+'</p>':'')+'</div></div>'}).join('')+
+      '</div></div></section>'+
+    included()+
+    '<section class="band"><div class="wrap">'+addons()+'</div></section>'+
+    '<section class="band"><div class="wrap"><p class="eyebrow rv">Other paths</p><h2 class="h2 rv">Different goal?</h2><div class="others">'+
+      others.map(function(x,i){var o=TRACKS[x];return '<a class="other rv" style="transition-delay:'+(i*90)+'ms" href="/services/'+x+'"><img src="'+o.img+'" alt=""><div><span class="tn"><span>'+o.n+'</span><span>from $'+o.price+'</span></span><span><span class="q" style="display:block">'+o.name+'</span><span class="tn" style="margin-top:8px">'+o.q+' →</span></span></div></a>'}).join('')+
+    '</div></div></section>'+
+    partner()+closing('Not sure the '+t.name+' fits?')+'</div>';
+    document.getElementById('mbName').textContent=t.name;
+    document.getElementById('mbPrice').textContent='Starting at $'+t.price;
+    wireCommon();
+  }
+
+  /* ---------- shared wiring ---------- */
+  var io;
+  function wireCommon(){
+    app.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){app.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected',x===b)});fillAdd(b.dataset.tab)})});
+    fillAdd(Object.keys(ADD)[0]);
+    if(io)io.disconnect();
+    if(isStatic()||reduce||!('IntersectionObserver' in window)){app.querySelectorAll('.rv,.drive').forEach(function(e){e.classList.add('in')});}
+    else{io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+      app.querySelectorAll('.rv').forEach(function(e){io.observe(e)});}
+    onScroll();
+  }
+  function onScroll(){
+    var j=document.getElementById('journey'),f=document.getElementById('jfill');
+    if(j&&f&&!isStatic()){var r=j.getBoundingClientRect(),vh=innerHeight;var p=Math.min(1,Math.max(0,(vh*.6-r.top)/(r.height-16)));f.style.height=(p*(r.height-16))+'px';
+      j.querySelectorAll('.stage').forEach(function(s){s.classList.toggle('lit',s.getBoundingClientRect().top<vh*.6)})}
+    else if(j){j.querySelectorAll('.stage').forEach(function(s){s.classList.add('lit')})}
+    var mb=document.getElementById('mbar'),h=document.querySelector('.t-hero');
+    mb.classList.toggle('show',!!h&&h.getBoundingClientRect().bottom<0);
+  }
+  addEventListener('scroll',function(){requestAnimationFrame(onScroll)},{passive:true});
+
+  function route(){
+    var h=document.body.getAttribute('data-page')||'';
+    if(h==='partnership')partnership();else if(TRACKS[h])track(h);else services();
+    var T={'':'Services & Paths','partnership':'Partnership Program'};
+    document.title=(TRACKS[h]?TRACKS[h].name:(T[h]||'Services'))+' | Establish Growth';
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href="#paths"],a[href="#how"],a[href="#plan"]');if(a){e.preventDefault();var el=document.getElementById(a.getAttribute('href').slice(1));if(el)el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})}
+  });
+  var mb=document.getElementById('menuBtn'),mm=document.getElementById('mmenu');
+  mb.addEventListener('click',function(){var o=mm.hidden;mm.hidden=!o;mb.setAttribute('aria-expanded',o)});
+  route();
+})();
+</script>
+</body>
+</html>

@@ -1726,7 +1726,7 @@
   </a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="services.html">Creative Content</a></li>
+      <li><a href="/services">Services</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#strategy">Brand Strategy</a></li>
       <li><a href="#about">About</a></li>
@@ -1740,7 +1740,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="services.html" class="mob-link">Creative Content</a>
+  <a href="/services" class="mob-link">Services</a>
   <a href="#work" class="mob-link">Work</a>
   <a href="#strategy" class="mob-link">Brand Strategy</a>
   <a href="#about" class="mob-link">About</a>
@@ -2050,7 +2050,7 @@
       <a class="bs-step fade-up" href="digital-presence-review.html"><span>01 · Free</span><h3>Brand Health Check</h3><p>See what's there today</p></a>
       <a class="bs-step fade-up" href="brand-strategy-report.html"><span>02 · $89.99</span><h3>Full Strategy Report</h3><p>Look into your brand and competition</p></a>
       <a class="bs-step fade-up" href="brand-strategy-report.html#session"><span>03 · $799</span><h3>Brand Strategy Session</h3><p>Build your Game Plan</p></a>
-      <a class="bs-step fade-up" href="services.html"><span>04</span><h3>Bring it to life</h3><p>Video and content</p></a>
+      <a class="bs-step fade-up" href="/services"><span>04</span><h3>Bring it to life</h3><p>Video and content</p></a>
     </div>
 
     <div class="bs-venn-row">
@@ -2183,9 +2183,11 @@
               <select class="form-select" id="eg-interest" name="Rating">
                 <option value="-None-">Select one</option>
                 <option value="Not sure yet" data-label="Brand Strategy">Brand Strategy</option>
-                <option value="Brand Story Content">Brand Story Content</option>
-                <option value="Marketing Content">Marketing Content</option>
-                <option value="Event Content">Event Content</option>
+                <option value="Brand Story Content">Brand Track</option>
+                <option value="Marketing Content">Marketing Track</option>
+                <option value="Not sure yet" data-label="Trust Track">Trust Track</option>
+                <option value="Event Content">Event Track</option>
+                <option value="Not sure yet" data-label="Partnership Program">Partnership Program</option>
                 <option value="Not sure yet">Not sure yet</option>
               </select>
             </div>
@@ -2453,7 +2455,7 @@
       const site = document.getElementById('eg-website');
       const sel = document.getElementById('eg-interest');
       const extra = [];
-      if (sel.selectedOptions[0] && sel.selectedOptions[0].dataset.label) extra.push('[Interested in: Brand Strategy]');
+      if (sel.selectedOptions[0] && sel.selectedOptions[0].dataset.label) extra.push('[Interested in: '+sel.selectedOptions[0].dataset.label+']');
       if (site && site.value.trim()) extra.push('Website: ' + site.value.trim());
       if (extra.length) desc.value = extra.join('\n') + (desc.value.trim() ? '\n\n' + desc.value : '');
       btn.disabled = true;
